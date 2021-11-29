@@ -42,17 +42,17 @@ public class MapManager {
     private MapLayer collisionLayer = null;
     private MapLayer portalLayer = null;
     private MapLayer spawnsLayer = null;
-    public final static float UNIT_SCALE = 1/16f;
+    public final static float UNIT_SCALE = 1 / 16f;
 
     public MapManager() {
-        playerStart = new Vector2(0,0);
-        mapTable = new Hashtable();
+        playerStart = new Vector2(0, 0);
+        mapTable = new Hashtable<>();
         mapTable.put(TOP_WORLD, "maps/topworld.tmx");
-        mapTable.put(MAP1, "maps/map1.tmx");
-        mapTable.put(MAP2, "maps/map2.tmx");
-        mapTable.put(MAP3, "maps/map3.tmx");
-        mapTable.put(MAP4, "maps/map4.tmx");
-        mapTable.put(MAP5, "maps/map5.tmx");
+        mapTable.put(MAP1,      "maps/map1.tmx");
+        mapTable.put(MAP2,      "maps/map2.tmx");
+        mapTable.put(MAP3,      "maps/map3.tmx");
+        mapTable.put(MAP4,      "maps/map4.tmx");
+        mapTable.put(MAP5,      "maps/map5.tmx");
 
         playerStartLocationTable = new Hashtable<>();
         playerStartLocationTable.put(TOP_WORLD, playerStart.cpy());
@@ -62,9 +62,9 @@ public class MapManager {
         playerStartLocationTable.put(MAP4, playerStart.cpy());
         playerStartLocationTable.put(MAP5, playerStart.cpy());
 
-        playerStartPositionRect = new Vector2(0,0);
-        closestPlayerStartPosition = new Vector2(0,0);
-        convertedUnits = new Vector2(0,0);
+        playerStartPositionRect = new Vector2(0, 0);
+        closestPlayerStartPosition = new Vector2(0, 0);
+        convertedUnits = new Vector2(0, 0);
     }
 
     public void loadMap(String mapName) {
@@ -84,7 +84,7 @@ public class MapManager {
         if (Utility.isAssetLoaded(mapFullPath)) {
             currentMap = Utility.getMapAsset(mapFullPath);
             currentMapName = mapName;
-        }else{
+        } else {
             Gdx.app.debug(TAG, "Map not loaded");
             return;
         }
@@ -113,9 +113,9 @@ public class MapManager {
             }
             playerStart.set(start.x, start.y);
         }
-        Gdx.app.debug(TAG,"Player Start: ("
-                                  + playerStart.x + ","
-                                  + playerStart.y + ")");
+        Gdx.app.debug(TAG, "Player Start: ("
+                + playerStart.x + ","
+                + playerStart.y + ")");
     }
 
     public TiledMap getCurrentMap() {
@@ -149,9 +149,9 @@ public class MapManager {
         float shortestDistance = 0f;
 
         // Go through all player start positions and choose closest to last known position
-        for(MapObject object : spawnsLayer.getObjects()) {
+        for (MapObject object : spawnsLayer.getObjects()) {
             if (object.getName().equalsIgnoreCase(PLAYER_START)) {
-                ((RectangleMapObject)object).getRectangle().getPosition(playerStartPositionRect);
+                ((RectangleMapObject) object).getRectangle().getPosition(playerStartPositionRect);
                 float distance = position.dst2(playerStartPositionRect);
 
                 if (distance < shortestDistance || shortestDistance == 0) {
@@ -166,7 +166,7 @@ public class MapManager {
 
     public void setClosestStartPositionFromScaledUnits(Vector2 position) {
         if (UNIT_SCALE > 0) {
-            convertedUnits.set(position.x/UNIT_SCALE, position.y/UNIT_SCALE);
+            convertedUnits.set(position.x / UNIT_SCALE, position.y / UNIT_SCALE);
             setClosestStartPosition(convertedUnits);
         }
     }

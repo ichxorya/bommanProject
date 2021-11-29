@@ -1,15 +1,15 @@
 package bommanPkg;
 
-import java.util.UUID;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureRegion; // Sprite
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+
+import java.util.UUID;
 
 public class Entity {
     private static final String TAG = Entity.class.getSimpleName();
@@ -38,11 +38,11 @@ public class Entity {
 
     public enum State {
         IDLE,
-        WALKING;
+        WALKING
     }
 
     public enum Direction {
-        UP, RIGHT, DOWN, LEFT;
+        UP, RIGHT, DOWN, LEFT
     }
 
     public Entity() {
@@ -50,14 +50,14 @@ public class Entity {
     }
 
     private void initEntity() {
-            this.entityID = UUID.randomUUID().toString();
-            this.nextPlayerPosition = new Vector2();
-            this.currentPlayerPosition = new Vector2();
-            this.boundingBox = new Rectangle();
-            this.velocity = new Vector2(2f,2f);
-            Utility.loadTextureAsset(defaultSpritePath);
-            loadDefaultSprite();
-            loadAllAnimations();
+        this.entityID = UUID.randomUUID().toString();
+        this.nextPlayerPosition = new Vector2();
+        this.currentPlayerPosition = new Vector2();
+        this.boundingBox = new Rectangle();
+        this.velocity = new Vector2(2f, 2f);
+        Utility.loadTextureAsset(defaultSpritePath);
+        loadDefaultSprite();
+        loadAllAnimations();
     }
 
     public void update(float delta) {
@@ -66,7 +66,7 @@ public class Entity {
         setBoundingBoxSize(0f, 0.5f);
     }
 
-    public void init(float startX, float startY){
+    public void init(float startX, float startY) {
         this.currentPlayerPosition.x = startX;
         this.currentPlayerPosition.y = startY;
         this.nextPlayerPosition.x = startX;
@@ -92,11 +92,11 @@ public class Entity {
 
         if (heightReductionAmount > 0 && heightReductionAmount < 1) {
             height = FRAME_HEIGHT * heightReductionAmount;
-        } else{
+        } else {
             height = FRAME_HEIGHT;
         }
-        
-        if( width == 0 || height == 0){
+
+        if (width == 0 || height == 0) {
             Gdx.app.debug(TAG, "Width and Height are 0!! " + width + ":" + height);
         }
 
@@ -104,7 +104,7 @@ public class Entity {
         float minX;
         float minY;
 
-        if (MapManager.UNIT_SCALE > 0 ) {
+        if (MapManager.UNIT_SCALE > 0) {
             minX = nextPlayerPosition.x / MapManager.UNIT_SCALE;
             minY = nextPlayerPosition.y / MapManager.UNIT_SCALE;
         } else {
@@ -118,7 +118,7 @@ public class Entity {
     private void loadDefaultSprite() {
         Texture texture = Utility.getTextureAsset(defaultSpritePath);
         TextureRegion[][] textureFrames = TextureRegion.split(texture, FRAME_WIDTH, FRAME_HEIGHT);
-        frameSprite =  new Sprite(textureFrames[0][0].getTexture(), 0, 0, FRAME_WIDTH, FRAME_HEIGHT);
+        frameSprite = new Sprite(textureFrames[0][0].getTexture(), 0, 0, FRAME_WIDTH, FRAME_HEIGHT);
         currentFrame = textureFrames[0][0];
     }
 
@@ -130,15 +130,15 @@ public class Entity {
         walkLeftFrames = new Array<TextureRegion>(4);
         walkRightFrames = new Array<TextureRegion>(4);
         walkUpFrames = new Array<TextureRegion>(4);
-        
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 TextureRegion region = textureFrames[i][j];
                 if (region == null) {
                     Gdx.app.debug(TAG, "Got null animation frame " + i + "," + j);
                 }
-                
-                switch(i) {
+
+                switch (i) {
                     case 0:
                         walkDownFrames.insert(j, region);
                         break;
@@ -210,7 +210,7 @@ public class Entity {
         }
     }
 
-    public void setNextPositionToCurrent(){
+    public void setNextPositionToCurrent() {
         setCurrentPosition(nextPlayerPosition.x, nextPlayerPosition.y);
     }
 

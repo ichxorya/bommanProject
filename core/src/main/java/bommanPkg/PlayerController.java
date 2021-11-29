@@ -1,21 +1,30 @@
 package bommanPkg;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class PlayerController implements InputProcessor {
     /**
-     *  **************************************************
-     *  Variables.
-     *  **************************************************
+     * **************************************************
+     * Variables.
+     * **************************************************
      */
     private final static String TAG = PlayerController.class.getSimpleName();
     private static HashMap<Keys, Boolean> keys = new HashMap<PlayerController.Keys, Boolean>();
     private static HashMap<Mouse, Boolean> mouseButtons = new HashMap<PlayerController.Mouse, Boolean>();
+
+    // Enums
+    enum Keys {
+        LEFT, RIGHT, UP, DOWN, QUIT
+    }
+
+    enum Mouse {
+        SELECT, DO_ACTION
+    }
 
     // Hash Maps initialization
     static {
@@ -34,20 +43,15 @@ public class PlayerController implements InputProcessor {
     private Vector3 lastMouseCoordinates;
 
     /* Methods */
-    /**
-     *  **************************************************
-     *  Key-released methods.
-     *  **************************************************
-     */
     public PlayerController(Entity player) {
         this.player = player;
         this.lastMouseCoordinates = new Vector3();
     }
 
     /**
-     *  **************************************************
-     *  Key-pressed methods.
-     *  **************************************************
+     * **************************************************
+     * Key-pressed methods.
+     * **************************************************
      */
     @Override
     public boolean keyDown(int keycode) {
@@ -91,9 +95,9 @@ public class PlayerController implements InputProcessor {
     }
 
     /**
-     *  **************************************************
-     *  Key-released methods.
-     *  **************************************************
+     * **************************************************
+     * Key-released methods.
+     * **************************************************
      */
     @Override
     public boolean keyUp(int keycode) {
@@ -136,16 +140,17 @@ public class PlayerController implements InputProcessor {
         keys.put(Keys.QUIT, false);
     }
 
-    // TODO
+    // TODO: IDK WTH is this
     @Override
     public boolean keyTyped(char character) {
         return false;
     }
 
     /**
+     * **************************************************
      * Mouse-clicked methods.
+     * **************************************************
      */
-    // TODO: Reformat
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (button == Input.Buttons.LEFT || button == Input.Buttons.RIGHT) {
@@ -176,9 +181,10 @@ public class PlayerController implements InputProcessor {
     }
 
     /**
-     * Mouse-released method.
+     * **************************************************
+     * Mouse-released methods.
+     * **************************************************
      */
-    // TODO: Reformat
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         // Left is selection, right is context menu
@@ -190,6 +196,72 @@ public class PlayerController implements InputProcessor {
         }
 
         return true;
+    }
+
+    public void selectMouseButtonReleased(int screenX, int screenY) {
+        mouseButtons.put(Mouse.SELECT, false);
+    }
+
+    public void doActionMouseButtonReleased(int screenX, int screenY) {
+        mouseButtons.put(Mouse.DO_ACTION, false);
+    }
+
+    public void update(float delta) {
+        processInput(delta);
+    }
+
+    public static void hide() {
+        keys.put(Keys.LEFT, false);
+        keys.put(Keys.RIGHT, false);
+        keys.put(Keys.UP, false);
+        keys.put(Keys.DOWN, false);
+        keys.put(Keys.QUIT, false);
+    }
+
+    private void processInput(float delta) {
+        //Keyboard input
+        if (keys.get(Keys.LEFT)) {
+            player.calculateNextPosition(Entity.Direction.LEFT, delta);
+            player.setState(Entity.State.WALKING);
+            player.setDirection(Entity.Direction.LEFT, delta);
+        }
+
+        else if (keys.get(Keys.RIGHT)) {
+            player.calculateNextPosition(Entity.Direction.RIGHT, delta);
+            player.setState(Entity.State.WALKING);
+            player.setDirection(Entity.Direction.RIGHT, delta);
+        }
+
+        else if (keys.get(Keys.UP)) {
+            player.calculateNextPosition(Entity.Direction.UP, delta);
+            player.setState(Entity.State.WALKING);
+            player.setDirection(Entity.Direction.UP, delta);
+        }
+
+        else if (keys.get(Keys.DOWN)) {
+            player.calculateNextPosition(Entity.Direction.DOWN, delta);
+            player.setState(Entity.State.WALKING);
+            player.setDirection(Entity.Direction.DOWN, delta);
+        }
+
+        else if (keys.get(Keys.QUIT)) {
+            Gdx.app.exit();
+        }
+
+        else {
+            player.setState(Entity.State.IDLE);
+        }
+
+        // Mouse input
+        if (mouseButtons.get(Mouse.SELECT)) {
+            mouseButtons.put(Mouse.SELECT, false);
+        }
+    }
+
+    // TODO: LeftOvers
+
+    public void dispose() {
+
     }
 
     @Override
@@ -205,13 +277,5 @@ public class PlayerController implements InputProcessor {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         return false;
-    }
-
-    enum Keys {
-        LEFT, RIGHT, UP, DOWN, QUIT
-    }
-
-    enum Mouse {
-        SELECT, DO_ACTION
     }
 }

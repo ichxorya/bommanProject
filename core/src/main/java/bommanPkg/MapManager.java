@@ -13,8 +13,8 @@ public class MapManager {
     private static final String TAG = MapManager.class.getSimpleName();
 
     // All maps for the game
-    private Hashtable<String, String> mapTable;
-    private Hashtable<String, Vector2> playerStartLocationTable;
+    private final Hashtable<String, String> mapTable;
+    private final Hashtable<String, Vector2> playerStartLocationTable;
 
     // Maps
     private final static String TOP_WORLD = "TOP_WORLD";

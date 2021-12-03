@@ -14,17 +14,8 @@ public class PlayerController implements InputProcessor {
      * **************************************************
      */
     private final static String TAG = PlayerController.class.getSimpleName();
-    private static HashMap<Keys, Boolean> keys = new HashMap<PlayerController.Keys, Boolean>();
-    private static HashMap<Mouse, Boolean> mouseButtons = new HashMap<PlayerController.Mouse, Boolean>();
-
-    // Enums
-    enum Keys {
-        LEFT, RIGHT, UP, DOWN, QUIT
-    }
-
-    enum Mouse {
-        SELECT, DO_ACTION
-    }
+    private static final HashMap<Keys, Boolean> keys = new HashMap<>();
+    private static final HashMap<Mouse, Boolean> mouseButtons = new HashMap<>();
 
     // Hash Maps initialization
     static {
@@ -32,6 +23,7 @@ public class PlayerController implements InputProcessor {
         keys.put(Keys.RIGHT, false);
         keys.put(Keys.UP, false);
         keys.put(Keys.DOWN, false);
+        keys.put(Keys.QUIT, false);
     }
 
     static {
@@ -39,13 +31,21 @@ public class PlayerController implements InputProcessor {
         mouseButtons.put(Mouse.DO_ACTION, false);
     }
 
-    private Entity player;
-    private Vector3 lastMouseCoordinates;
+    private final Entity player;
+    private final Vector3 lastMouseCoordinates;
 
     /* Methods */
     public PlayerController(Entity player) {
         this.player = player;
         this.lastMouseCoordinates = new Vector3();
+    }
+
+    public static void hide() {
+        keys.put(Keys.LEFT, false);
+        keys.put(Keys.RIGHT, false);
+        keys.put(Keys.UP, false);
+        keys.put(Keys.DOWN, false);
+        keys.put(Keys.QUIT, false);
     }
 
     /**
@@ -210,45 +210,27 @@ public class PlayerController implements InputProcessor {
         processInput(delta);
     }
 
-    public static void hide() {
-        keys.put(Keys.LEFT, false);
-        keys.put(Keys.RIGHT, false);
-        keys.put(Keys.UP, false);
-        keys.put(Keys.DOWN, false);
-        keys.put(Keys.QUIT, false);
-    }
-
     private void processInput(float delta) {
         //Keyboard input
         if (keys.get(Keys.LEFT)) {
             player.calculateNextPosition(Entity.Direction.LEFT, delta);
             player.setState(Entity.State.WALKING);
             player.setDirection(Entity.Direction.LEFT, delta);
-        }
-
-        else if (keys.get(Keys.RIGHT)) {
+        } else if (keys.get(Keys.RIGHT)) {
             player.calculateNextPosition(Entity.Direction.RIGHT, delta);
             player.setState(Entity.State.WALKING);
             player.setDirection(Entity.Direction.RIGHT, delta);
-        }
-
-        else if (keys.get(Keys.UP)) {
+        } else if (keys.get(Keys.UP)) {
             player.calculateNextPosition(Entity.Direction.UP, delta);
             player.setState(Entity.State.WALKING);
             player.setDirection(Entity.Direction.UP, delta);
-        }
-
-        else if (keys.get(Keys.DOWN)) {
+        } else if (keys.get(Keys.DOWN)) {
             player.calculateNextPosition(Entity.Direction.DOWN, delta);
             player.setState(Entity.State.WALKING);
             player.setDirection(Entity.Direction.DOWN, delta);
-        }
-
-        else if (keys.get(Keys.QUIT)) {
+        } else if (keys.get(Keys.QUIT)) {
             Gdx.app.exit();
-        }
-
-        else {
+        } else {
             player.setState(Entity.State.IDLE);
         }
 
@@ -257,8 +239,6 @@ public class PlayerController implements InputProcessor {
             mouseButtons.put(Mouse.SELECT, false);
         }
     }
-
-    // TODO: LeftOvers
 
     public void dispose() {
 
@@ -269,6 +249,8 @@ public class PlayerController implements InputProcessor {
         return false;
     }
 
+    // TODO: LeftOvers
+
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
         return false;
@@ -277,5 +259,14 @@ public class PlayerController implements InputProcessor {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         return false;
+    }
+
+    // Enums
+    enum Keys {
+        LEFT, RIGHT, UP, DOWN, QUIT
+    }
+
+    enum Mouse {
+        SELECT, DO_ACTION
     }
 }

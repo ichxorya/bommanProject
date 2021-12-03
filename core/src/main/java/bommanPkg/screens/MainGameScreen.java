@@ -33,7 +33,7 @@ public class MainGameScreen implements Screen {
     private PlayerController controller;
     private TextureRegion currentPlayerFrame;
     private Sprite currentPlayerSprite;
-    private OrthogonalTiledMapRenderer mapRenderer = null;
+    private OrthogonalTiledMapRenderer mapRenderer;
     private OrthographicCamera camera = null;
     private static MapManager mapManager;
 
@@ -59,6 +59,7 @@ public class MainGameScreen implements Screen {
                 mapManager.getCurrentMap(),
                 MapManager.UNIT_SCALE
         );
+
         mapRenderer.setView(camera);
         Gdx.app.debug(TAG, "UnitScale value is: " +
                 mapRenderer.getUnitScale());
@@ -68,6 +69,7 @@ public class MainGameScreen implements Screen {
                 mapManager.getPlayerStartUnitScaled().y
         );
         currentPlayerSprite = player.getFrameSprite();
+
         controller = new PlayerController(player);
         Gdx.input.setInputProcessor(controller);
     }
@@ -221,6 +223,4 @@ public class MainGameScreen implements Screen {
         }
         return false;
     }
-
-
 }

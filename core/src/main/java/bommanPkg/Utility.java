@@ -45,7 +45,7 @@ public class Utility {
     }
 
     //// Load Map
-    public static void loadMapAssets(String mapFilenamePath) {
+    public static void loadMapAsset(String mapFilenamePath) {
         // Stop if the path is invalid
         if (mapFilenamePath == null || mapFilenamePath.isEmpty()) {
             return;
@@ -115,9 +115,6 @@ public class Utility {
             Gdx.app.debug(TAG,"Texture is not loaded: " + textureFilenamePath);
         }
         return texture;
-    }
-
-    public static void loadMapAsset(String mapFullPath) {
     }
 }
 

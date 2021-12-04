@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class Entity {
     private static final String TAG = Entity.class.getSimpleName();
-    private static final String defaultSpritePath = "sprites/redSUS_spr.png";
+    private static final String defaultSpritePath = "sprites/players/redSUS_spr.png";
     private Vector2 velocity;
     private String entityID;
     private Direction currentDirection = Direction.LEFT;

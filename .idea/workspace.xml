@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="bosung">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="resources&#10;&#10;se code chuc nang vao chieu nay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb_explode.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb_explode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb.ase" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb_exploded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/fire_mid.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/fire_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/fire_y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/portal.ase" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/portal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redPants.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redPants_D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redPants_L.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redPants_R.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redPants_U.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redSUS_spr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/redSUS_spr.pyxel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +113,8 @@
       <workItem from="1638195838055" duration="9807000" />
       <workItem from="1638242655828" duration="42000" />
       <workItem from="1638545491675" duration="5599000" />
-      <workItem from="1638591949729" duration="3036000" />
+      <workItem from="1638591949729" duration="3881000" />
+      <workItem from="1638605708593" duration="1818000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -130,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638593474331</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="resources&#10;&#10;se code chuc nang vao chieu nay">
+      <created>1638597347884</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638597347884</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +187,8 @@
     <MESSAGE value="wtf crash" />
     <MESSAGE value="thua mot chu s khien toi mat ngu nhieu dem.." />
     <MESSAGE value="bosung" />
-    <option name="LAST_COMMIT_MESSAGE" value="bosung" />
+    <MESSAGE value="resources&#10;&#10;se code chuc nang vao chieu nay" />
+    <option name="LAST_COMMIT_MESSAGE" value="resources&#10;&#10;se code chuc nang vao chieu nay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="thua mot chu s khien toi mat ngu nhieu dem..">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="bosung">
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map1.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map2.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map3.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map3.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map4.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map4.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map5.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map5.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/topworld.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/topworld.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb_explode.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb_explode.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +100,7 @@
       <workItem from="1638195838055" duration="9807000" />
       <workItem from="1638242655828" duration="42000" />
       <workItem from="1638545491675" duration="5599000" />
-      <workItem from="1638591949729" duration="1235000" />
+      <workItem from="1638591949729" duration="3036000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -126,7 +116,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638550310260</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="thua mot chu s khien toi mat ngu nhieu dem..">
+      <created>1638593447456</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638593447456</updated>
+    </task>
+    <task id="LOCAL-00004" summary="bosung">
+      <created>1638593474331</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638593474331</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +165,8 @@
     <MESSAGE value="don't ask me about anything, i'm going to end myself soon." />
     <MESSAGE value="wtf crash" />
     <MESSAGE value="thua mot chu s khien toi mat ngu nhieu dem.." />
-    <option name="LAST_COMMIT_MESSAGE" value="thua mot chu s khien toi mat ngu nhieu dem.." />
+    <MESSAGE value="bosung" />
+    <option name="LAST_COMMIT_MESSAGE" value="bosung" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

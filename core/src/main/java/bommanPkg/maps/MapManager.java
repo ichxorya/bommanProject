@@ -1,11 +1,15 @@
-package bommanPkg;
+package bommanPkg.maps;
 
+import bommanPkg.Utility;
+import bommanPkg.entities.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 import java.util.Hashtable;
 
@@ -169,5 +173,21 @@ public class MapManager {
             convertedUnits.set(position.x / UNIT_SCALE, position.y / UNIT_SCALE);
             setClosestStartPosition(convertedUnits);
         }
+    }
+
+    public Array<Entity> getCurrentMapEntities() {
+        return null;
+    }
+
+    public Entity getPlayer() {
+        return null;
+    }
+
+    public Camera getCamera() {
+        return null;
+    }
+
+    public TiledMap getCurrentTiledMap() {
+        return null;
     }
 }

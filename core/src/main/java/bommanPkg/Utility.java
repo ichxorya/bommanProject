@@ -20,17 +20,17 @@ public class Utility {
         if (assetManager.isLoaded(assetFilenamePath)) {
             assetManager.unload(assetFilenamePath);
         } else {
-            Gdx.app.debug(TAG,"Asset is not loaded; Nothing to unload: " + assetFilenamePath);
+            Gdx.app.debug(TAG, "Asset is not loaded; Nothing to unload: " + assetFilenamePath);
         }
     }
 
     //// Load percentage.
-    public static float loadCompleted(){
+    public static float loadCompleted() {
         return assetManager.getProgress();
     }
 
     //// Number of Assets in the queue.
-    public static int numberAssetsQueued(){
+    public static int numberAssetsQueued() {
         return assetManager.getQueuedAssets();
     }
 
@@ -40,7 +40,7 @@ public class Utility {
     }
 
     //// Is the Asset loaded
-    public static boolean isAssetLoaded(String fileName){
+    public static boolean isAssetLoaded(String fileName) {
         return assetManager.isLoaded(fileName);
     }
 
@@ -54,9 +54,9 @@ public class Utility {
         // Load
         if (filePathResolver.resolve(mapFilenamePath).exists()) {
             assetManager.setLoader(
-                                    TiledMap.class,
-                                    new TmxMapLoader(filePathResolver)
-                                  );
+                    TiledMap.class,
+                    new TmxMapLoader(filePathResolver)
+            );
 
             assetManager.load(mapFilenamePath, TiledMap.class);
 
@@ -64,35 +64,34 @@ public class Utility {
             // Just block until we load the map
 
             assetManager.finishLoadingAsset(mapFilenamePath);
-            Gdx.app.debug(TAG,"Map loaded!: " + mapFilenamePath);
-        }
-        else {
-            Gdx.app.debug(TAG,"Map doesn't exist!: " + mapFilenamePath );
+            Gdx.app.debug(TAG, "Map loaded!: " + mapFilenamePath);
+        } else {
+            Gdx.app.debug(TAG, "Map doesn't exist!: " + mapFilenamePath);
         }
     }
 
     public static TiledMap getMapAsset(String mapFilenamePath) {
         TiledMap map = null;
 
-        if (assetManager.isLoaded(mapFilenamePath) ){
-            map = assetManager.get(mapFilenamePath,TiledMap.class);
+        if (assetManager.isLoaded(mapFilenamePath)) {
+            map = assetManager.get(mapFilenamePath, TiledMap.class);
         } else {
-            Gdx.app.debug(TAG,"Map is not loaded: " + mapFilenamePath);
+            Gdx.app.debug(TAG, "Map is not loaded: " + mapFilenamePath);
         }
         return map;
     }
 
     //// Load Texture
-    public static void loadTextureAsset(String textureFilenamePath){
+    public static void loadTextureAsset(String textureFilenamePath) {
         if (textureFilenamePath == null || textureFilenamePath.isEmpty()) {
             return;
         }
 
         if (filePathResolver.resolve(textureFilenamePath).exists()) {
             assetManager.setLoader(
-                                    Texture.class,
-                                    new TextureLoader(filePathResolver)
-                                  );
+                    Texture.class,
+                    new TextureLoader(filePathResolver)
+            );
 
             assetManager.load(textureFilenamePath, Texture.class);
 
@@ -100,21 +99,19 @@ public class Utility {
             //just block until we load the map
 
             assetManager.finishLoadingAsset(textureFilenamePath);
-        }
-        else{
-            Gdx.app.debug(TAG,"Texture doesn't exist!: " + textureFilenamePath );
+        } else {
+            Gdx.app.debug(TAG, "Texture doesn't exist!: " + textureFilenamePath);
         }
     }
 
-    public static Texture getTextureAsset(String textureFilenamePath){
+    public static Texture getTextureAsset(String textureFilenamePath) {
         Texture texture = null;
 
-        if (assetManager.isLoaded(textureFilenamePath) ){
-            texture = assetManager.get(textureFilenamePath,Texture.class);
+        if (assetManager.isLoaded(textureFilenamePath)) {
+            texture = assetManager.get(textureFilenamePath, Texture.class);
         } else {
-            Gdx.app.debug(TAG,"Texture is not loaded: " + textureFilenamePath);
+            Gdx.app.debug(TAG, "Texture is not loaded: " + textureFilenamePath);
         }
         return texture;
     }
 }
-

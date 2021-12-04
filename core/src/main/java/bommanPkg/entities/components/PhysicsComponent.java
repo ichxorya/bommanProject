@@ -22,7 +22,7 @@ public abstract class PhysicsComponent implements Component {
     protected Vector2 velocity;
     protected BoundingBoxLocation boundingBoxLocation;
 
-    PhysicsComponent() {
+    public PhysicsComponent() {
         this.nextEntityPosition = new Vector2(0, 0);
         this.currentEntityPosition = new Vector2(0, 0);
         this.velocity = new Vector2(2f, 2f);

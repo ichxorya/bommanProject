@@ -12,7 +12,7 @@ public class NPCInputComponent extends InputComponent implements InputProcessor 
 
     private float frameTime = 0.0f;
 
-    NPCInputComponent() {
+    public NPCInputComponent() {
         currentDirection = Entity.Direction.getRandom();
         currentState = Entity.State.WALKING;
     }

@@ -4,33 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="resources update (full pic, need more sound?)">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/EntityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/EntityFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/ComponentObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/GraphicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/InputComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/PhysicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCGraphicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCInputComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCPhysicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerGraphicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerPhysicsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/LevelMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/TopWorldMap.java" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="whatthehell_commit_suicide_jk_immahitthebed">
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/mahegao.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/mahegao.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerInputComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/screens/MainGameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/PhysicsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/PhysicsComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCInputComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCInputComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/flame.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/flame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/grass_alt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/portal.ase" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/portal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/wall.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +119,7 @@
       <workItem from="1638242655828" duration="42000" />
       <workItem from="1638545491675" duration="5599000" />
       <workItem from="1638591949729" duration="3881000" />
-      <workItem from="1638605708593" duration="30732000" />
+      <workItem from="1638605708593" duration="32587000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -182,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638609758319</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="whatthehell_commit_suicide_jk_immahitthebed">
+      <created>1638651378713</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638651378713</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +217,8 @@
     <MESSAGE value="resources&#10;&#10;se code chuc nang vao chieu nay" />
     <MESSAGE value="resources update" />
     <MESSAGE value="resources update (full pic, need more sound?)" />
-    <option name="LAST_COMMIT_MESSAGE" value="resources update (full pic, need more sound?)" />
+    <MESSAGE value="whatthehell_commit_suicide_jk_immahitthebed" />
+    <option name="LAST_COMMIT_MESSAGE" value="whatthehell_commit_suicide_jk_immahitthebed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

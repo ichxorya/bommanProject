@@ -41,7 +41,7 @@ public abstract class Map {
     protected MapFactory.MapType currentMapType;
     protected Array<Entity> mapEntities;
 
-    Map(MapFactory.MapType mapType, String fullMapPath) {
+    public Map(MapFactory.MapType mapType, String fullMapPath) {
         json = new Json();
         mapEntities = new Array<Entity>(10);
         currentMapType = mapType;

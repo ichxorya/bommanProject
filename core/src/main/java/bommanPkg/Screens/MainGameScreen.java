@@ -1,12 +1,9 @@
 package bommanPkg.Screens;
 
 import bommanPkg.Entities.Base.EntityV2;
-import bommanPkg.Entities.Derived.Player;
-import bommanPkg.Maps.TilemapActor;
+import bommanPkg.Entities.Derived.MovableEntities.Player;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.*;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapProperties;
 
 public class MainGameScreen extends MyScreen {
     Player hero;

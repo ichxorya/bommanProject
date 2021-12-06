@@ -1,4 +1,4 @@
-package bommanPkg.Entities.Derived.Solid;
+package bommanPkg.Entities.Derived.MapEntities;
 
 import bommanPkg.Entities.Base.EntityV2;
 import com.badlogic.gdx.scenes.scene2d.Stage;

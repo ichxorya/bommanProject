@@ -1,4 +1,4 @@
-package bommanPkg.Entities.Derived;
+package bommanPkg.Entities.Derived.MovableEntities;
 
 import bommanPkg.Entities.Base.EntityV2;
 import com.badlogic.gdx.Gdx;

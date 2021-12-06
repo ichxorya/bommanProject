@@ -43,7 +43,7 @@ public class Player extends MovableEntity {
 
         setBoundaryPolygon(8);
         setAcceleration(400);
-        setMaxSpeed(100);
+        setMaxSpeed(400);
         setDeceleration(400);
     }
 

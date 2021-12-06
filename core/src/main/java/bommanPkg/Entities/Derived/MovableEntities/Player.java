@@ -1,6 +1,5 @@
 package bommanPkg.Entities.Derived.MovableEntities;
 
-import bommanPkg.Entities.Base.EntityV2;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -8,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
-public class Player extends EntityV2 {
+public class Player extends MovableEntity {
     /**
      * Constants and Variables.
      */
@@ -22,7 +21,7 @@ public class Player extends EntityV2 {
      * Resource Paths.
      */
     String movingPath = "sprites/players/cirno_moving.png";
-    String idlePath = "sprites/players/cirno_idle.png";
+    String yeetPath = "sprites/players/cirno_yeet.png";
 
     /**
      * Animations.
@@ -32,6 +31,7 @@ public class Player extends EntityV2 {
     private Animation<TextureRegion> moveDown;
     private Animation<TextureRegion> moveLeft;
     private Animation<TextureRegion> moveRight;
+    private Animation<TextureRegion> yeet;
 
     /**
      * Constructor.
@@ -48,7 +48,7 @@ public class Player extends EntityV2 {
     }
 
     private void setupAnimations() {
-        idle = loadAnimationFromSheet(idlePath, 1, 2, frameDuration * 2.5f, true);
+        yeet = loadAnimationFromSheet(yeetPath, 1, 8, frameDuration, false);
 
         Texture movement = new Texture(Gdx.files.internal(movingPath), true);
         TextureRegion[][] temp = TextureRegion.split(movement, frameWidth, frameHeight);
@@ -58,6 +58,7 @@ public class Player extends EntityV2 {
         moveDown = setupMovementAnimation(temp, "moveDown");
         moveRight = setupMovementAnimation(temp, "moveRight");
 
+        idle = moveDown;
         setAnimation(idle);
     }
 

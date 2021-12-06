@@ -8,7 +8,9 @@ public class Grass extends MapEntity {
      */
     public Grass(float x, float y, float width, float height, Stage s) {
         super(x, y, width, height, s);
-        passable = true;
+
+        loadTexture("maps/map_resources/grass.png");
         destructible = false;
+        passable = true;
     }
 }

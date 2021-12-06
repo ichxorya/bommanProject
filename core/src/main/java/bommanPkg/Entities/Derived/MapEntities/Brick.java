@@ -8,6 +8,8 @@ public class Brick extends MapEntity {
      */
     public Brick(float x, float y, float width, float height, Stage s) {
         super(x, y, width, height, s);
+
+        loadTexture("maps/map_resources/brick.png");
         destructible = true;
         passable = false;
     }

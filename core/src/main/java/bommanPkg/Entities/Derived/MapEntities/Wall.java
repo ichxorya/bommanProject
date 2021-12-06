@@ -8,7 +8,9 @@ public class Wall extends MapEntity {
      */
     public Wall(float x, float y, float width, float height, Stage s) {
         super(x, y, width, height, s);
-        passable = false;
+
+        loadTexture("maps/map_resources/wall.png");
         destructible = false;
+        passable = false;
     }
 }

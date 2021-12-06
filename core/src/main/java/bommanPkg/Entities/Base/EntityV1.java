@@ -23,7 +23,6 @@ public class EntityV1 extends Actor {
      */
     private Animation<TextureRegion> animation;
     private float elapsedTime;
-    private boolean animationPaused;
 
     private Polygon boundaryPolygon;
     private static Rectangle worldBounds;
@@ -41,7 +40,6 @@ public class EntityV1 extends Actor {
         // Self
         animation = null;
         elapsedTime = 0;
-        animationPaused = false;
     }
 
     /**
@@ -130,19 +128,11 @@ public class EntityV1 extends Actor {
     }
 
     /**
-     * Setter: animationPaused.
-     */
-    public void setAnimationPaused(boolean animationPaused) {
-        this.animationPaused = animationPaused;
-    }
-
-    /**
      * Act (Update actor based on time).
      */
     public void act(float dt) {
         super.act(dt);
-        if (!animationPaused)
-            elapsedTime += dt;
+        elapsedTime += dt;
     }
 
     /**
@@ -211,7 +201,7 @@ public class EntityV1 extends Actor {
     }
 
     /**
-     * Load Texture of Solid Object.
+     * Load Texture of MapEntity Object.
      */
     public Animation<TextureRegion> loadTexture(String fileName) {
         String[] fileNames = {fileName};

@@ -17,7 +17,6 @@ public class Player extends EntityV2 {
     final int rows = 4;
     final int cols = 4;
     protected float frameDuration = 0.2f;
-    protected float facingAngle;
 
     /**
      * Resource Paths.
@@ -92,24 +91,16 @@ public class Player extends EntityV2 {
         // IDLE
         if (getSpeed() == 0) {
             setAnimation(idle);
-//            setAnimationPaused(true);
         } else {
             // MOVING
-//            setAnimationPaused(false);
-
-            // Set Direction
             float angle = getMotionAngle();
             if (angle >= 45 && angle <= 135) {
-                facingAngle = 90;
                 setAnimation(moveUp);
             } else if (angle > 135 && angle < 225) {
-                facingAngle = 180;
                 setAnimation(moveLeft);
             } else if (angle >= 225 && angle <= 315) {
-                facingAngle = 270;
                 setAnimation(moveDown);
             } else {
-                facingAngle = 0;
                 setAnimation(moveRight);
             }
         }
@@ -117,9 +108,5 @@ public class Player extends EntityV2 {
         alignCamera();
         boundToWorld();
         applyPhysics(dt);
-    }
-
-    public float getFacingAngle() {
-        return facingAngle;
     }
 }

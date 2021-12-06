@@ -26,13 +26,18 @@ public class MainGameScreen extends MyScreen {
     public void update(float dt) {
         hero.alignCamera();
 
+        playerInput();
+
+    }
+
+    private void playerInput() {
         if (Gdx.input.isKeyPressed(Keys.LEFT))
             hero.accelerateAtAngle(180);
-        if (Gdx.input.isKeyPressed(Keys.RIGHT))
+        else if (Gdx.input.isKeyPressed(Keys.RIGHT))
             hero.accelerateAtAngle(0);
-        if (Gdx.input.isKeyPressed(Keys.UP))
+        else if (Gdx.input.isKeyPressed(Keys.UP))
             hero.accelerateAtAngle(90);
-        if (Gdx.input.isKeyPressed(Keys.DOWN))
+        else if (Gdx.input.isKeyPressed(Keys.DOWN))
             hero.accelerateAtAngle(270);
     }
 

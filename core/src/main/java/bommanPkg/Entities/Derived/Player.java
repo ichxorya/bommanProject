@@ -92,10 +92,10 @@ public class Player extends EntityV2 {
         // IDLE
         if (getSpeed() == 0) {
             setAnimation(idle);
-            setAnimationPaused(true);
+//            setAnimationPaused(true);
         } else {
             // MOVING
-            setAnimationPaused(false);
+//            setAnimationPaused(false);
 
             // Set Direction
             float angle = getMotionAngle();

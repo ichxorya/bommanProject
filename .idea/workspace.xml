@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="whatthehell_commit_suicide_jk_immahitthebed">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/Entities/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/MyActors/MyActorV1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/MyActors/MyActorV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MyScreen.java" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="chet di song lai">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Solid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/TilemapActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -19,94 +15,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/MAP6.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/MAP7.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/MAP_CUSTOM1.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/MAP_CUSTOM2.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map1.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map2.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map3.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map4.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map5.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/tile11.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/tile11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/tile_base1.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/topworld.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/screens/titleScreen1280x960.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/screens/titleScreen1280x960.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/screens/titleScreen1366x768.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/New Text Document.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/player.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/16x16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/_obsolete/redPants.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/_obsolete/redPants_D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/_obsolete/redPants_L.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/_obsolete/redPants_R.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/_obsolete/redPants_U.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/bomb.ase" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/bomb_exploded.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/fire_mid.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/fire_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/bomb/fire_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/cheem_spr.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/cheem_spr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/mahegao_spr.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/mahegao_spr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/environment/brick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/environment/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/environment/portal.ase" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/environment/portal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/environment/wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/items/item_bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/items/item_flame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/items/item_speedup.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/players/redSUS_spr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/players/redSUS_spr.pyxel" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/BommanMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/BommanProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Utility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/EntityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/EntityFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/Component.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/ComponentObserver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/GraphicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/InputComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/PhysicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCGraphicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCInputComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/npc/NPCPhysicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerGraphicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerInputComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/entities/components/players/PlayerPhysicsComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/LevelMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/Map.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/MapManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/maps/TopWorldMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/screens/MainGameScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map1.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map2.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map3.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map4.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map5.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/tile11.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/tile11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/tile_base1.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/topworld.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/screens/titleScreen1280x960.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/screens/titleScreen1280x960.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/screens/titleScreen1366x768.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/bomb.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redPants.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redPants_D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redPants_L.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redPants_R.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redPants_U.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redSUS_spr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/redSUS_spr.pyxel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/MyActors/MyActorV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/EntityV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Actors/MyActors/MyActorV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/EntityV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lwjgl3/src/main/java/bommanPkg/lwjgl3/Lwjgl3Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/src/main/java/bommanPkg/lwjgl3/Lwjgl3Launcher.java" afterDir="false" />
     </list>
@@ -217,7 +131,9 @@
       <workItem from="1638679523859" duration="1294000" />
       <workItem from="1638692662329" duration="147000" />
       <workItem from="1638694094969" duration="525000" />
-      <workItem from="1638761462766" duration="7102000" />
+      <workItem from="1638761462766" duration="7318000" />
+      <workItem from="1638772305879" duration="6996000" />
+      <workItem from="1638785773924" duration="1897000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -289,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638653247681</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="chet di song lai">
+      <created>1638769735016</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1638769735016</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chet di song lai">
+      <created>1638769750767</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1638769750767</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +260,8 @@
     <MESSAGE value="resources update" />
     <MESSAGE value="resources update (full pic, need more sound?)" />
     <MESSAGE value="whatthehell_commit_suicide_jk_immahitthebed" />
-    <option name="LAST_COMMIT_MESSAGE" value="whatthehell_commit_suicide_jk_immahitthebed" />
+    <MESSAGE value="chet di song lai" />
+    <option name="LAST_COMMIT_MESSAGE" value="chet di song lai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

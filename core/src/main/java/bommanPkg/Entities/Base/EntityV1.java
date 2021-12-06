@@ -1,4 +1,4 @@
-package bommanPkg.Actors.MyActors;
+package bommanPkg.Entities.Base;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class MyActorV1 extends Actor {
+public class EntityV1 extends Actor {
     private static final float PI = 3.14f;
 
     /**
@@ -31,7 +31,7 @@ public class MyActorV1 extends Actor {
     /**
      * Constructor.
      */
-    public MyActorV1(float x, float y, Stage s) {
+    public EntityV1(float x, float y, Stage s) {
         super();
 
         // Stage Related
@@ -51,7 +51,7 @@ public class MyActorV1 extends Actor {
         worldBounds = new Rectangle(0, 0, width, height);
     }
 
-    public static void setWorldBounds(MyActorV1 ba) {
+    public static void setWorldBounds(EntityV1 ba) {
         setWorldBounds(ba.getWidth(), ba.getHeight());
     }
 

@@ -1,5 +1,9 @@
 package bommanPkg.Screens;
 
+import bommanPkg.Maps.TilemapActor;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
+
 public class MainGameScreen extends MyScreen {
     @Override
     public void initialize() {

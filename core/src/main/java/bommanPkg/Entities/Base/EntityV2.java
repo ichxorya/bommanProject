@@ -1,4 +1,4 @@
-package bommanPkg.Actors.MyActors;
+package bommanPkg.Entities.Base;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Intersector.MinimumTranslationVector;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public class MyActorV2 extends MyActorV1 {
+public class EntityV2 extends EntityV1 {
 
     protected Vector2 velocityVector;
     protected Vector2 accelerationVector;
@@ -18,7 +18,7 @@ public class MyActorV2 extends MyActorV1 {
     /**
      * Constructor.
      */
-    public MyActorV2(float x, float y, Stage s) {
+    public EntityV2(float x, float y, Stage s) {
         super(x, y, s);
 
         velocityVector = new Vector2(0, 0);
@@ -36,7 +36,7 @@ public class MyActorV2 extends MyActorV1 {
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
     }
 
-    public void centerAtActor(MyActorV2 other) {
+    public void centerAtActor(EntityV2 other) {
         centerAtPosition(other.getX() + other.getWidth() / 2, other.getY() + other.getHeight() / 2);
     }
 
@@ -45,10 +45,6 @@ public class MyActorV2 extends MyActorV1 {
      */
     public void setOpacity(float opacity) {
         this.getColor().a = opacity;
-    }
-
-    public float getSpeed() {
-        return velocityVector.len();
     }
 
     /**
@@ -60,6 +56,10 @@ public class MyActorV2 extends MyActorV1 {
             velocityVector.set(speed, 0);
         else
             velocityVector.setLength(speed);
+    }
+
+    public float getSpeed() {
+        return velocityVector.len();
     }
 
     public float getMotionAngle() {
@@ -127,7 +127,7 @@ public class MyActorV2 extends MyActorV1 {
     /**
      * Overlap check.
      */
-    public boolean overlaps(MyActorV2 other) {
+    public boolean overlaps(EntityV2 other) {
         Polygon polygon1 = this.getBoundaryPolygon();
         Polygon polygon2 = other.getBoundaryPolygon();
 
@@ -146,7 +146,7 @@ public class MyActorV2 extends MyActorV1 {
     /**
      * Prevent Overlap
      */
-    public void preventOverlap(MyActorV2 other) {
+    public void preventOverlap(EntityV2 other) {
         Polygon polygon1 = this.getBoundaryPolygon();
         Polygon polygon2 = other.getBoundaryPolygon();
 

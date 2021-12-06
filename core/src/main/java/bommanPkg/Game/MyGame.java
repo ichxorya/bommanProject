@@ -17,8 +17,5 @@ public abstract class MyGame extends Game {
     }
 
     public void create() {
-        // Discrete Input
-        InputMultiplexer inputMultiplexer = new InputMultiplexer();
-        Gdx.input.setInputProcessor(inputMultiplexer);
     }
 }

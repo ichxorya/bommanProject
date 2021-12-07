@@ -176,16 +176,14 @@ public class Entity extends Actor {
         return loadTexture("sprites/default.png");
     }
 
-    /**
-     * Check if the Animation is finished. // TODO: Maybe redundant?
-     */
-    public boolean isAnimationFinished() {
-        return animation.isAnimationFinished(elapsedTime);
-    }
-
     /** Getter: Elapsed Time. */
     public float getElapsedTime() {
         return elapsedTime;
+    }
+
+    /** Resetter: Elapsed Time. */
+    public void resetElapsedTime() {
+        elapsedTime = 0f;
     }
 
     /** Overlap Check. */

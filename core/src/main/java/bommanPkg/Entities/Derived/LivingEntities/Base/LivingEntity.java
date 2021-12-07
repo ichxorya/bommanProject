@@ -14,7 +14,6 @@ public abstract class LivingEntity extends Entity {
     protected float speed;
     protected int lives;
     protected boolean isDead;
-    protected boolean isMoving;
     protected Direction currentDirection;
 
     protected enum Direction {
@@ -53,7 +52,6 @@ public abstract class LivingEntity extends Entity {
         super(x, y, s);
 
         isDead = false;
-        isMoving = false;
         currentDirection = Direction.NONE;
     }
 
@@ -92,12 +90,17 @@ public abstract class LivingEntity extends Entity {
     /**
      * Abstract method: Die.
      */
-    public abstract void die();
+    public void die() {
+        isDead = true;
+    }
 
     /**
-     * Abstract method: Setup Value.
+     * Setup Value.
      */
-    public abstract void setupValue(float speed, int lives);
+    public void setupValues(float speed, int lives) {
+        this.speed = speed;
+        this.lives = lives;
+    }
 
     /** Prevent Overlap. */
     public void preventOverlapBlock(MapEntity other) {

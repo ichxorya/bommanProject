@@ -1,17 +1,18 @@
 package bommanPkg.Screens;
 
 import bommanPkg.Entities.Derived.Bomb.Bomb;
+import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 
 public class MainGameScreen extends MyScreen {
-    Bomb bomb;
+    BakaBot bot;
     Player player;
     Wall wall;
 
     @Override
     public void initialize() {
-        bomb = new Bomb(100, 100, mainStage);
+        bot = new BakaBot(100, 100, mainStage);
         player = new Player(200, 200, mainStage);
         wall = new Wall(300, 300, mainStage);
     }
@@ -19,7 +20,7 @@ public class MainGameScreen extends MyScreen {
     @Override
     public void update(float dt) {
         player.update(dt);
-        bomb.act(dt);
+        bot.act(dt);
 
         player.preventOverlapBlock(wall);
     }

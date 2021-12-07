@@ -29,4 +29,5 @@ public abstract class MapEntity extends Entity {
     public boolean isPassable() {
         return passable;
     }
+
 }

@@ -22,18 +22,18 @@ public class Lwjgl3Launcher {
 		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate);
 
 		configuration.setWindowedMode(1200, 960);
-//		configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+		configuration.setWindowIcon(getGameIcons());
 		return configuration;
 	}
 
-	/*//// Get Game Icons.
+	//// Get Game Icons.
 	private static String[] getGameIcons() {
 		String[] icon = new String[4];
-		int iconSize = 8;
+		int iconSize = 256;
 		for (int i = 0; i < 4; i++) {
-			iconSize *= 2;
-			icon[i] = String.format("icon/bommanPjIcon%d.png", iconSize);
+			iconSize /= 2;
+			icon[i] = String.format("icons/icon_%d.png", iconSize);
 		}
 		return icon;
-	}*/
+	}
 }

@@ -1,4 +1,4 @@
-package bommanPkg.Entities.Derived.MovableEntities;
+package bommanPkg.Entities.Derived.LivingEntities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
-public class Player extends MovableEntity {
+public class Player extends LivingEntity {
     /**
      * Constants and Variables.
      */
@@ -41,10 +41,20 @@ public class Player extends MovableEntity {
 
         setupAnimations();
 
-        setBoundaryPolygon(8);
-        setAcceleration(400);
-        setMaxSpeed(400);
-        setDeceleration(400);
+        setCollisionBounds();
+//        setAcceleration(400);
+//        setMaxSpeed(400);
+//        setDeceleration(400);
+    }
+
+    @Override
+    public void move() {
+
+    }
+
+    @Override
+    public void die() {
+
     }
 
     private void setupAnimations() {
@@ -90,24 +100,24 @@ public class Player extends MovableEntity {
         super.act(dt);
 
         // IDLE
-        if (getSpeed() == 0) {
-            setAnimation(idle);
-        } else {
-            // MOVING
-            float angle = getMotionAngle();
-            if (angle >= 45 && angle <= 135) {
-                setAnimation(moveUp);
-            } else if (angle > 135 && angle < 225) {
-                setAnimation(moveLeft);
-            } else if (angle >= 225 && angle <= 315) {
-                setAnimation(moveDown);
-            } else {
-                setAnimation(moveRight);
-            }
-        }
-
-        alignCamera();
-        boundToWorld();
-        applyPhysics(dt);
+//        if (getSpeed() == 0) {
+//            setAnimation(idle);
+//        } else {
+//            // MOVING
+//            float angle = getMotionAngle();
+//            if (angle >= 45 && angle <= 135) {
+//                setAnimation(moveUp);
+//            } else if (angle > 135 && angle < 225) {
+//                setAnimation(moveLeft);
+//            } else if (angle >= 225 && angle <= 315) {
+//                setAnimation(moveDown);
+//            } else {
+//                setAnimation(moveRight);
+//            }
+//        }
+//
+//        alignCamera();
+//        boundToWorld();
+//        applyPhysics(dt);
     }
 }

@@ -11,8 +11,8 @@ public class Portal extends MapEntity {
     /**
      * Constructor.
      */
-    public Portal(float x, float y, float width, float height, Stage s) {
-        super(x, y, width, height, s);
+    public Portal(float x, float y, Stage s) {
+        super(x, y, s);
 
         portalAnimation = loadAnimationFromSheet("maps/map_resources/portal.png", 1, 4, 0.1f, true);
         destructible = false;

@@ -7,7 +7,7 @@ public class Brick extends MapEntity {
      * Constructor.
      */
     public Brick(float x, float y, float width, float height, Stage s) {
-        super(x, y, width, height, s);
+        super(x, y, s);
 
         loadTexture("maps/map_resources/brick.png");
         destructible = true;

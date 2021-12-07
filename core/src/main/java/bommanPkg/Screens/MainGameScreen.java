@@ -1,16 +1,11 @@
 package bommanPkg.Screens;
 
-import bommanPkg.Entities.Base.EntityV2;
 import bommanPkg.Entities.Derived.MapEntities.*;
-import bommanPkg.Entities.Derived.MovableEntities.Player;
+import bommanPkg.Entities.Derived.LivingEntities.Player;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.*;
 import com.badlogic.gdx.files.FileHandle;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -20,31 +15,27 @@ public class MainGameScreen extends MyScreen {
 
     @Override
     public void initialize() {
-        playerPos = new int[2];
 
-        loadMap("maps/map.txt");
-
-        EntityV2.setWorldBounds(sizeX * gridSize, sizeY * gridSize);
     }
 
     @Override
     public void update(float dt) {
-        hero.alignCamera();
-
-        playerInput();
-        wallstuff();
+//        hero.alignCamera();
+//
+//        playerInput();
+//        wallstuff();
 
     }
 
     private void playerInput() {
-        if (Gdx.input.isKeyPressed(Keys.LEFT))
-            hero.accelerateAtAngle(180);
-        else if (Gdx.input.isKeyPressed(Keys.RIGHT))
-            hero.accelerateAtAngle(0);
-        else if (Gdx.input.isKeyPressed(Keys.UP))
-            hero.accelerateAtAngle(90);
-        else if (Gdx.input.isKeyPressed(Keys.DOWN))
-            hero.accelerateAtAngle(270);
+//        if (Gdx.input.isKeyPressed(Keys.LEFT))
+//            hero.accelerateAtAngle(180);
+//        else if (Gdx.input.isKeyPressed(Keys.RIGHT))
+//            hero.accelerateAtAngle(0);
+//        else if (Gdx.input.isKeyPressed(Keys.UP))
+//            hero.accelerateAtAngle(90);
+//        else if (Gdx.input.isKeyPressed(Keys.DOWN))
+//            hero.accelerateAtAngle(270);
     }
 
     // Methods required by InputProcessor interface
@@ -129,17 +120,11 @@ public class MainGameScreen extends MyScreen {
         hero = new Player(playerPos[0], playerPos[1], mainStage);
     }
 
-    private void wallstuff() {
-        for (MapEntity mapEntity : mapEntities) {
-            hero.preventOverlap(mapEntity);
-        }
-    }
-
     private void createMapLine_Grass() {
         for (int j = 0; j < sizeY; j++) {
             mapLineX = 0;
             for (int i = 0; i < sizeX; i++) {
-                new Grass(mapLineX, mapLineY, 64, 64, mainStage);
+                new Grass(mapLineX, mapLineY, mainStage);
                 mapLineX += gridSize;
             }
             mapLineY += gridSize;
@@ -154,13 +139,13 @@ public class MainGameScreen extends MyScreen {
             char entity = mapLine.charAt(i);
             switch(entity) {
                 case '#':
-                    mapEntities.add(new Wall(mapLineX, mapLineY, 64, 64, mainStage));
+                    mapEntities.add(new Wall(mapLineX, mapLineY, mainStage));
                     break;
                 case '*':
                     mapEntities.add(new Brick(mapLineX, mapLineY, 64, 64, mainStage));
                     break;
                 case 'x':
-                    new Portal(mapLineX, mapLineY, 64, 64, mainStage);
+                    new Portal(mapLineX, mapLineY, mainStage);
                     break;
                 case 'p':
                     playerPos[0] = mapLineX;

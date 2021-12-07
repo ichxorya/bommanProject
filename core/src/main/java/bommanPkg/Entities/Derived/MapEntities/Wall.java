@@ -6,8 +6,8 @@ public class Wall extends MapEntity {
     /**
      * Constructor.
      */
-    public Wall(float x, float y, float width, float height, Stage s) {
-        super(x, y, width, height, s);
+    public Wall(float x, float y, Stage s) {
+        super(x, y, s);
 
         loadTexture("maps/map_resources/wall.png");
         destructible = false;

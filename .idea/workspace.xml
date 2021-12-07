@@ -4,34 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="when can i kill myself">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="dap di xay lai lan n+1">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/players/dizzy_cirno.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/EntityV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/EntityV2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Grass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/MapEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/MapEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Portal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MovableEntities/MovableEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/LivingEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MovableEntities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/LivingEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Grass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/MapEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Base/MapEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Portal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/MapGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/players/dizzy_cirno.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/src/main/java/bommanPkg/lwjgl3/Lwjgl3Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/src/main/java/bommanPkg/lwjgl3/Lwjgl3Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MyScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MyScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +48,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -274,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638808529381</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dap di xay lai lan n+1">
+      <created>1638871363868</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1638871363869</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +299,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="dapdixaylai0712" />
                       </list>
                     </value>
                   </entry>
@@ -321,7 +329,8 @@
     <MESSAGE value="co len co len" />
     <MESSAGE value="9h57 update, chua sua dc gi dhs" />
     <MESSAGE value="update ngao da" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ngao da" />
+    <MESSAGE value="dap di xay lai lan n+1" />
+    <option name="LAST_COMMIT_MESSAGE" value="dap di xay lai lan n+1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -19,7 +19,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Entity extends Actor {
     /** Constants. **/
-    private static final int    gridSize = 64;
+    protected static final int gridSize = 64;
+    protected static final float frameDuration = 0.2f;
 
     /**
      * Variables.
@@ -41,6 +42,8 @@ public class Entity extends Actor {
 
         // Self
         setSize(gridSize, gridSize);
+        setCollisionBounds();
+
         animation = null;
         elapsedTime = 0;
     }
@@ -190,13 +193,8 @@ public class Entity extends Actor {
         return getCollisionBounds().overlaps(other.getCollisionBounds());
     }
 
-    /** Prevent Overlap. */
-    // TODO: PRIORITY: HIGH
-    public void preventOverlap(Entity other) {
-        if (!this.overlaps(other)) {
-            return;
-        }
-
-        System.out.println("Overlap");
+    /** Update Entity. */
+    public void updateEntity() {
+        collisionBounds.set(getX(), getY(), getWidth(), getHeight());
     }
 }

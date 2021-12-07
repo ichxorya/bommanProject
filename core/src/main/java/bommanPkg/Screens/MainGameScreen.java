@@ -1,41 +1,27 @@
 package bommanPkg.Screens;
 
-import bommanPkg.Entities.Derived.MapEntities.*;
-import bommanPkg.Entities.Derived.LivingEntities.Player;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Stack;
+import bommanPkg.Entities.Derived.Bomb.Bomb;
+import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
+import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 
 public class MainGameScreen extends MyScreen {
-    Player hero;
-    int[] playerPos;
+    Bomb bomb;
+    Player player;
+    Wall wall;
 
     @Override
     public void initialize() {
-
+        bomb = new Bomb(100, 100, mainStage);
+        player = new Player(200, 200, mainStage);
+        wall = new Wall(300, 300, mainStage);
     }
 
     @Override
     public void update(float dt) {
-//        hero.alignCamera();
-//
-//        playerInput();
-//        wallstuff();
+        player.update(dt);
+        bomb.act(dt);
 
-    }
-
-    private void playerInput() {
-//        if (Gdx.input.isKeyPressed(Keys.LEFT))
-//            hero.accelerateAtAngle(180);
-//        else if (Gdx.input.isKeyPressed(Keys.RIGHT))
-//            hero.accelerateAtAngle(0);
-//        else if (Gdx.input.isKeyPressed(Keys.UP))
-//            hero.accelerateAtAngle(90);
-//        else if (Gdx.input.isKeyPressed(Keys.DOWN))
-//            hero.accelerateAtAngle(270);
+        player.preventOverlapBlock(wall);
     }
 
     // Methods required by InputProcessor interface
@@ -77,95 +63,5 @@ public class MainGameScreen extends MyScreen {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         return false;
-    }
-
-    /////////////////////////////
-    private int level;
-    private int sizeY;
-    private int sizeX;
-
-    private final int gridSize = 64;
-    private int mapLineX;
-    private int mapLineY;
-    ArrayList<MapEntity> mapEntities;
-
-    public void loadMap(String path) {
-        mapEntities = new ArrayList<>();
-
-        FileHandle file = Gdx.files.internal("maps/map.txt");
-        String mapInfo = file.readString();
-        Scanner reader = new Scanner(mapInfo);
-
-        System.out.println(mapInfo);
-
-        mapInfoGenerator(reader);
-        mapFiller(reader);
-    }
-
-    private void mapFiller(Scanner reader) {
-        Stack<String> mapLines = new Stack<>();
-        for (int i = 0; i < sizeY; i++) {
-            mapLines.push(reader.nextLine());
-        }
-
-        createMapLine_Grass();
-
-        while (!mapLines.isEmpty()) {
-            String mapLine = mapLines.pop();
-            if (mapLine.length() > 0) {
-                createMapLine(mapLine);
-            }
-        }
-
-        hero = new Player(playerPos[0], playerPos[1], mainStage);
-    }
-
-    private void createMapLine_Grass() {
-        for (int j = 0; j < sizeY; j++) {
-            mapLineX = 0;
-            for (int i = 0; i < sizeX; i++) {
-                new Grass(mapLineX, mapLineY, mainStage);
-                mapLineX += gridSize;
-            }
-            mapLineY += gridSize;
-        }
-        mapLineX = 0;
-        mapLineY = 0;
-    }
-
-    private void createMapLine(String mapLine) {
-        mapLineX = 0;
-        for (int i = 0; i < sizeX; i++) {
-            char entity = mapLine.charAt(i);
-            switch(entity) {
-                case '#':
-                    mapEntities.add(new Wall(mapLineX, mapLineY, mainStage));
-                    break;
-                case '*':
-                    mapEntities.add(new Brick(mapLineX, mapLineY, 64, 64, mainStage));
-                    break;
-                case 'x':
-                    new Portal(mapLineX, mapLineY, mainStage);
-                    break;
-                case 'p':
-                    playerPos[0] = mapLineX;
-                    playerPos[1] = mapLineY;
-                    break;
-            }
-
-            mapLineX += gridSize;
-        }
-        mapLineY += gridSize;
-    }
-
-    private void mapInfoGenerator(Scanner reader) {
-        if (reader.hasNextLine()) {
-            this.level = reader.nextInt();
-            sizeY = reader.nextInt();
-            sizeX = reader.nextInt();
-
-            mapLineX = 0;
-            mapLineY = 0;
-        }
     }
 }

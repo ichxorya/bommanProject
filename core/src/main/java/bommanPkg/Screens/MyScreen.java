@@ -11,7 +11,7 @@ public abstract class MyScreen implements Screen, InputProcessor {
     protected Stage mainStage;
     protected Stage uiStage;
 
-    // constructor
+    // Constructor
     public MyScreen() {
         mainStage = new Stage();
         uiStage = new Stage();

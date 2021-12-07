@@ -1,5 +1,6 @@
-package bommanPkg.Entities.Derived.MapEntities;
+package bommanPkg.Entities.Derived.MapEntities.Derived;
 
+import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Wall extends MapEntity {

@@ -17,10 +17,13 @@ public class MainGameScreen extends MyScreen {
     public void initialize() {
         bot = new BakaBot(300, 300, mainStage);
         player = new Player(200, 200, mainStage);
-        wall1 = new Wall(300, 236, mainStage);
+//        wall1 = new Wall(300, 236, mainStage);
         wall2 = new Wall(300, 364, mainStage);
-        wall3 = new Wall(236, 300, mainStage);
+//        wall3 = new Wall(236, 300, mainStage);
         wall4 = new Wall(364, 300, mainStage);
+
+//        wall3.setVisible(false);
+//        bot.setPosition(wall3.getX() - 128, wall3.getY() - 64);
     }
 
     @Override

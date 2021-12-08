@@ -47,13 +47,6 @@ public class BakaBot extends Baka_AI {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if (getElapsedTime() > 1f) {
-            move(currentDirection);
-            if (getElapsedTime() > 3f) {
-                setDirection(currentDirection);
-                resetElapsedTime();
-            }
-        }
 
         if (isDead()) {
             setAnimation(yeet);
@@ -62,12 +55,15 @@ public class BakaBot extends Baka_AI {
             }
         }
 
-        updateEntity();
-    }
+        if (getElapsedTime() > 1f) {
+            move(currentDirection);
+            if (getElapsedTime() > 3f) {
+                setDirection(currentDirection);
+                resetElapsedTime();
+            }
+        }
 
-    @Override
-    public void move(Direction dir) {
-        super.move(dir);
+        updateEntity();
     }
 
     @Override

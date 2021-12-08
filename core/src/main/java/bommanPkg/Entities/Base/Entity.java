@@ -195,6 +195,9 @@ public class Entity extends Actor {
 
     /** Overlap Check. */
     public boolean overlaps(Entity other) {
+        if (other == null) {
+            return false;
+        }
         return getCollisionBounds().overlaps(other.getCollisionBounds());
     }
 

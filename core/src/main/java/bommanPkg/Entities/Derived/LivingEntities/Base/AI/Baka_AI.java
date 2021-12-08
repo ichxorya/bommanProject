@@ -1,11 +1,11 @@
 package bommanPkg.Entities.Derived.LivingEntities.Base.AI;
 
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
+import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public abstract class Baka_AI extends LivingEntity {
     /** Variables. */
-    protected Direction nextDirection;
 
     /**
      * Constructor.
@@ -40,5 +40,25 @@ public abstract class Baka_AI extends LivingEntity {
     public void die() {
         super.die();
         setDirection(Direction.NONE);
+    }
+
+    @Override
+    public void preventOverlapBlock(MapEntity other) {
+        if (this.overlaps(other) && !other.isPassable()) {
+            switch (getDirection()) {
+            case UP:
+                this.setY(this.getY() - speed);
+                break;
+            case LEFT:
+                this.setX(this.getX() + speed);
+                break;
+            case DOWN:
+                this.setY(this.getY() + speed);
+                break;
+            case RIGHT:
+                this.setX(this.getX() - speed);
+                break;
+            }
+        }
     }
 }

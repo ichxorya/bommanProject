@@ -29,6 +29,14 @@ public abstract class LivingEntity extends Entity {
             return VALUES.get(RANDOM.nextInt(SIZE));
         }
 
+        public static Direction getRandom(Direction dir) {
+            Direction newDirection = getRandom();
+            while (newDirection == dir) {
+                newDirection = getRandom();
+            }
+            return newDirection;
+        }
+
         // Opposite Direction
         public Direction getOpposite() {
             switch (this) {
@@ -105,22 +113,26 @@ public abstract class LivingEntity extends Entity {
     /** Prevent Overlap. */
     public void preventOverlapBlock(MapEntity other) {
         if (this.overlaps(other) && !other.isPassable()) {
+            float deltaX = other.getX() - this.getX();
+            float deltaY = other.getY() - this.getY();
+
             switch (getDirection()) {
                 case UP:
-                    this.setY(this.getY() - speed);
+                    this.setY(other.getY() - this.getHeight());
                     break;
                 case LEFT:
-                    this.setX(this.getX() + speed);
+                    this.setX(other.getX() + this.getWidth());
                     break;
                 case DOWN:
-                    this.setY(this.getY() + speed);
+                    this.setY(other.getY() + this.getHeight());
                     break;
                 case RIGHT:
-                    this.setX(this.getX() - speed);
+                    this.setX(other.getX() - this.getWidth());
                     break;
             }
         }
     }
+
 
     protected Direction getDirection() {
         return currentDirection;

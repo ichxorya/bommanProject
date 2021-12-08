@@ -1,6 +1,5 @@
 package bommanPkg.Screens;
 
-import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
@@ -8,13 +7,19 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 public class MainGameScreen extends MyScreen {
     BakaBot bot;
     Player player;
-    Wall wall;
+    Wall wall1;
+    Wall wall2;
+    Wall wall3;
+    Wall wall4;
 
     @Override
     public void initialize() {
-        bot = new BakaBot(100, 100, mainStage);
+        bot = new BakaBot(300, 300, mainStage);
         player = new Player(200, 200, mainStage);
-        wall = new Wall(300, 300, mainStage);
+        wall1 = new Wall(300, 236, mainStage);
+        wall2 = new Wall(300, 364, mainStage);
+        wall3 = new Wall(236, 300, mainStage);
+        wall4 = new Wall(364, 300, mainStage);
     }
 
     @Override
@@ -22,7 +27,11 @@ public class MainGameScreen extends MyScreen {
         player.update(dt);
         bot.act(dt);
 
-        player.preventOverlapBlock(wall);
+        player.preventOverlapBlock(wall1);
+        bot.preventOverlapBlock(wall1);
+        bot.preventOverlapBlock(wall2);
+        bot.preventOverlapBlock(wall3);
+        bot.preventOverlapBlock(wall4);
     }
 
     // Methods required by InputProcessor interface

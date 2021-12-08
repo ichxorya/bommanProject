@@ -11,12 +11,14 @@ public class BakaBot extends Baka_AI {
     /**
      * Resource Paths.
      */
-    String animationPath = "sprites/enemies/bakabot_animation.png";
+    String bakaLive = "sprites/enemies/bakabot_live.png";
+    String bakaYeet = "sprites/enemies/bakabot_yeet.png";
 
     /**
      * Animations.
      */
-    private Animation<TextureRegion> animation;
+    private Animation<TextureRegion> live;
+    private Animation<TextureRegion> yeet;
 
     /**
      * Constructor.
@@ -29,8 +31,9 @@ public class BakaBot extends Baka_AI {
     }
 
     private void setupAnimations() {
-        animation = loadAnimationFromSheet(animationPath, 1, 10, frameDuration * 1.3f, true);
-        setAnimation(animation);
+        live = loadAnimationFromSheet(bakaLive, 1, 10, frameDuration * 1.3f, true);
+        yeet = loadAnimationFromSheet(bakaYeet, 1, 6, frameDuration, false);
+        setAnimation(live);
     }
 
     @Override
@@ -38,19 +41,28 @@ public class BakaBot extends Baka_AI {
         this.speed = speed;
         this.lives = lives;
 
-        nextDirection = Direction.getRandom();
+        currentDirection = Direction.getRandom();
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
         if (getElapsedTime() > 1f) {
-            move(nextDirection);
+            move(currentDirection);
             if (getElapsedTime() > 3f) {
                 setDirection(currentDirection);
                 resetElapsedTime();
             }
         }
+
+        if (isDead()) {
+            setAnimation(yeet);
+            if (isAnimationFinished()) {
+                remove();
+            }
+        }
+
+        updateEntity();
     }
 
     @Override
@@ -60,7 +72,6 @@ public class BakaBot extends Baka_AI {
 
     @Override
     protected void setDirection(Direction dir) {
-        currentDirection = dir;
-        nextDirection = Direction.getRandom();
+        currentDirection = Direction.getRandom(dir);
     }
 }

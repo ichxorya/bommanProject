@@ -181,6 +181,13 @@ public class Entity extends Actor {
         return elapsedTime;
     }
 
+    /**
+     * Check if the Animation is finished.
+     */
+    public boolean isAnimationFinished() {
+        return animation.isAnimationFinished(elapsedTime);
+    }
+
     /** Resetter: Elapsed Time. */
     public void resetElapsedTime() {
         elapsedTime = 0f;

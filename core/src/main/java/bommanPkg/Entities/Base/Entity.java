@@ -19,7 +19,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Entity extends Actor {
     /** Constants. **/
-    protected static final int gridSize = 64;
+    public static final int gridSize = 64;
     protected static final float frameDuration = 0.2f;
 
     /**

@@ -1,43 +1,55 @@
 package bommanPkg.Screens;
 
+import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
+import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
+import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+
+import java.util.List;
+import java.util.Scanner;
+
+import static bommanPkg.Entities.Base.Entity.gridSize;
 
 public class MainGameScreen extends MyScreen {
-    BakaBot bot;
+    MapEntity[][] gridMap;
+    List<LivingEntity> livingList;
+    List<MapEntity> blockList;
     Player player;
-    Wall wall1;
-    Wall wall2;
-    Wall wall3;
-    Wall wall4;
 
     @Override
     public void initialize() {
-        bot = new BakaBot(300, 300, mainStage);
-        player = new Player(200, 200, mainStage);
-//        wall1 = new Wall(300, 236, mainStage);
-        wall2 = new Wall(300, 364, mainStage);
-//        wall3 = new Wall(236, 300, mainStage);
-        wall4 = new Wall(364, 300, mainStage);
-
-//        wall3.setVisible(false);
-//        bot.setPosition(wall3.getX() - 128, wall3.getY() - 64);
+        new GameMap();
     }
 
     @Override
     public void update(float dt) {
         player.update(dt);
-        bot.act(dt);
-
-        player.preventOverlapBlock(wall1);
-        wallTest(bot, wall1, wall2, wall3, wall4);
+        wallTest(livingList, blockList);
+        wallTest(player, blockList);
+        updateLivingList(dt);
     }
 
-    private void wallTest(LivingEntity entity, Wall ... walls) {
-        for (Wall wall : walls) {
-            entity.preventOverlapBlock(wall);
+    private void updateLivingList(float dt) {
+        for (LivingEntity entity : livingList) {
+            entity.update(dt);
+        }
+    }
+
+    private void wallTest(List<LivingEntity> living, List<MapEntity> walls) {
+        for (LivingEntity entity : living) {
+            for (MapEntity wall : walls) {
+                entity.preventOverlapBlock(wall);
+            }
+        }
+    }
+    private void wallTest(LivingEntity living, List<MapEntity> walls) {
+        for (MapEntity wall : walls) {
+            living.preventOverlapBlock(wall);
         }
     }
 
@@ -80,5 +92,92 @@ public class MainGameScreen extends MyScreen {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         return false;
+    }
+
+    /** Inner class: GameMap. */
+    private class GameMap {
+        /** Variables and Constants. **/
+        private int horizontalBlocks;
+        private int verticalBlocks;
+        private String[] mapFile;
+        private int level;
+
+        /** Constructor. **/
+        public GameMap() {
+            blockList = new java.util.ArrayList<MapEntity>();
+            livingList = new java.util.ArrayList<LivingEntity>();
+
+            loadMapFile();
+            generateGrassLayer();
+//            generateItemLayer();
+            generateWallLayer();
+            generateLivingLayer();
+        }
+
+        private void generateLivingLayer() {
+            int posX = 0;
+            int posY = verticalBlocks * 64;
+
+            for (int y = 0; y < verticalBlocks; y++) {
+                posX = 0;
+                for (int x = 0; x < horizontalBlocks; x++) {
+                    switch (mapFile[y + 1].charAt(x)) {
+                        case 'p':
+                            player = new Player(posX, posY, mainStage);
+                            break;
+                        case 'x':
+                            livingList.add(new BakaBot(posX, posY, mainStage));
+                            break;
+                    }
+                    posX += gridSize;
+                }
+                posY -= gridSize;
+            }
+        }
+
+        private void generateWallLayer() {
+            int posX = 0;
+            int posY = verticalBlocks * 64;
+
+            for (int y = 0; y < verticalBlocks; y++) {
+                posX = 0;
+                for (int x = 0; x < horizontalBlocks; x++) {
+                    if (mapFile[y + 1].charAt(x) == '#') {
+                        gridMap[x][y] = new Wall(posX, posY, mainStage);
+                        blockList.add(gridMap[x][y]);
+                    }
+                    posX += gridSize;
+                }
+                posY -= gridSize;
+            }
+        }
+
+        private void generateGrassLayer() {
+            int posX = 0;
+            int posY = verticalBlocks * 64;
+
+            for (int y = 0; y < verticalBlocks; y++) {
+                posX = 0;
+                for (int x = 0; x < horizontalBlocks; x++) {
+                    gridMap[x][y] = new Grass(posX, posY, mainStage);
+                    posX += gridSize;
+                }
+                posY -= gridSize;
+            }
+        }
+
+        public void loadMapFile() {
+            FileHandle file = Gdx.files.internal("maps/map2.txt");
+            mapFile = file.readString().split("\n");
+
+            Scanner reader = new Scanner(mapFile[0]);
+            if (reader.hasNextLine()) {
+                level = reader.nextInt();
+                verticalBlocks = reader.nextInt();
+                horizontalBlocks = reader.nextInt();
+
+                gridMap = new MapEntity[horizontalBlocks][verticalBlocks];
+            }
+        }
     }
 }

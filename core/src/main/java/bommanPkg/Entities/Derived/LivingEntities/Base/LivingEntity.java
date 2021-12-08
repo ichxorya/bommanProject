@@ -113,9 +113,6 @@ public abstract class LivingEntity extends Entity {
     /** Prevent Overlap. */
     public void preventOverlapBlock(MapEntity other) {
         if (this.overlaps(other) && !other.isPassable()) {
-            float deltaX = other.getX() - this.getX();
-            float deltaY = other.getY() - this.getY();
-
             switch (getDirection()) {
                 case UP:
                     this.setY(other.getY() - this.getHeight());
@@ -133,6 +130,9 @@ public abstract class LivingEntity extends Entity {
         }
     }
 
+    public void resetDirection() {
+        currentDirection = Direction.NONE;
+    }
 
     protected Direction getDirection() {
         return currentDirection;

@@ -1,5 +1,6 @@
 package bommanPkg.Screens;
 
+import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
@@ -28,10 +29,13 @@ public class MainGameScreen extends MyScreen {
         bot.act(dt);
 
         player.preventOverlapBlock(wall1);
-        bot.preventOverlapBlock(wall1);
-        bot.preventOverlapBlock(wall2);
-        bot.preventOverlapBlock(wall3);
-        bot.preventOverlapBlock(wall4);
+        wallTest(bot, wall1, wall2, wall3, wall4);
+    }
+
+    private void wallTest(LivingEntity entity, Wall ... walls) {
+        for (Wall wall : walls) {
+            entity.preventOverlapBlock(wall);
+        }
     }
 
     // Methods required by InputProcessor interface

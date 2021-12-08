@@ -44,21 +44,7 @@ public abstract class Baka_AI extends LivingEntity {
 
     @Override
     public void preventOverlapBlock(MapEntity other) {
-        if (this.overlaps(other) && !other.isPassable()) {
-            switch (getDirection()) {
-            case UP:
-                this.setY(this.getY() - speed);
-                break;
-            case LEFT:
-                this.setX(this.getX() + speed);
-                break;
-            case DOWN:
-                this.setY(this.getY() + speed);
-                break;
-            case RIGHT:
-                this.setX(this.getX() - speed);
-                break;
-            }
-        }
+        super.preventOverlapBlock(other);
+        resetDirection();
     }
 }

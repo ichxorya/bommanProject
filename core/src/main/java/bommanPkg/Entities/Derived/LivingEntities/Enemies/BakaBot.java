@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class BakaBot extends Baka_AI {
-    final static int entityID = 3;
+    final static int entityID = 4;
     /**
      * BakaBot Variables.
      */
@@ -74,7 +74,7 @@ public class BakaBot extends Baka_AI {
 
         // New Way
         boolean isValidDirection = validDirection(currentDirection, gameMap);
-        if (getElapsedTime() > 2f) {
+        if (getElapsedTime() > 0.5f) {
             if (!isValidDirection) {
                 resetDirection();
                 resetElapsedTime();

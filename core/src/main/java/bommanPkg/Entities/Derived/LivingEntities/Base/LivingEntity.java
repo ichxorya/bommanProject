@@ -15,10 +15,9 @@ public abstract class LivingEntity extends Entity {
     protected int lives;
     protected boolean isDead;
     protected Direction currentDirection;
-    protected boolean isMoving;
 
     protected enum Direction {
-        NONE, LEFT, RIGHT, UP, DOWN;
+        LEFT, RIGHT, UP, DOWN;
 
         // Random Enum value (Direction)
         // Source: https://stackoverflow.com/questions/1972392/pick-a-random-value-from-an-enum
@@ -49,8 +48,9 @@ public abstract class LivingEntity extends Entity {
                     return RIGHT;
                 case RIGHT:
                     return LEFT;
+                default:
+                    throw new RuntimeException("Invalid Direction");
             }
-            return NONE;
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class LivingEntity extends Entity {
         super(x, y, s);
 
         isDead = false;
-        currentDirection = Direction.NONE;
+        currentDirection = Direction.DOWN;
     }
     /**
      * Constructor (grid-map).
@@ -70,7 +70,7 @@ public abstract class LivingEntity extends Entity {
         super(x, y, s, gridX, gridY);
 
         isDead = false;
-        currentDirection = Direction.NONE;
+        currentDirection = Direction.DOWN;
     }
 
     public abstract void update(float dt, GameMap gameMap);
@@ -116,7 +116,7 @@ public abstract class LivingEntity extends Entity {
     }
 
     public void resetDirection() {
-        currentDirection = Direction.NONE;
+        currentDirection = Direction.getRandom();
     }
 
     protected Direction getDirection() {

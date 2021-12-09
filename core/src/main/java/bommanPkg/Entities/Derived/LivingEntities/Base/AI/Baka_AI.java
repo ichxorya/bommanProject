@@ -21,16 +21,8 @@ public abstract class Baka_AI extends LivingEntity {
     protected abstract void wakeup(float speed, int lives);
 
     @Override
-    public void update(float dt, GameMap gameMap) {
-        if (isDead()) {
-            die();
-        }
-    }
-
-    @Override
     public void die() {
         super.die();
-        setDirection(Direction.NONE);
     }
 
     @Override

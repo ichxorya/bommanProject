@@ -7,13 +7,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class BakaBot extends Baka_AI {
+    final static int entityID = 3;
     /**
      * BakaBot Variables.
      **/
     float[] oldScreenPos;
     float[] newScreenPos;
-    final static int entityID = 3;
-
     /**
      * Resource Paths.
      */
@@ -47,6 +46,11 @@ public class BakaBot extends Baka_AI {
         wakeup(2, 1);
     }
 
+    @Override
+    public void update(float dt, GameMap gameMap) {
+
+    }
+
 
     private void setupAnimations() {
         live = loadAnimationFromSheet(bakaLive, 1, 10, frameDuration * 1.3f, true);
@@ -65,15 +69,32 @@ public class BakaBot extends Baka_AI {
     @Override
     public void act(float delta, GameMap gameMap) {
         super.act(delta, gameMap);
-        if (!isMoving) {
-            if (validDirection(currentDirection, gameMap)) {
-                gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
-                moveToDirection(currentDirection);
-                gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
-            } else {
-                setDirection(Direction.getRandom(currentDirection));
+
+        // New Way
+        if (getElapsedTime() > 1f) {
+            boolean isValidDirection = validDirection(currentDirection, gameMap);
+            if (getElapsedTime() > 3f) {
+                if (!isValidDirection) {
+                    resetDirection();
+                    resetElapsedTime();
+                } else {
+                    moveToDirection(currentDirection);
+                }
             }
         }
+
+        /*
+        Old method.
+
+        if (getElapsedTime() > 1f) {
+            move(currentDirection);
+            if (getElapsedTime() > 3f) {
+                setDirection(currentDirection);
+                resetElapsedTime();
+            }
+        }
+        */
+
     }
 
     private void moveToDirection(Direction currentDirection) {
@@ -118,91 +139,77 @@ public class BakaBot extends Baka_AI {
     }
 
     public void moveUp() {
-        if (!isMoving) {
-            isMoving = true;
-            newScreenPos = new float[]{getX(), getY() + gridSize};
-        }
+        newScreenPos = new float[]{getX(), getY() + gridSize};
         setPosition(getX(), getY() + speed);
+
         if (movedToNextGrid()) {
             setGridPos(getGridPosX(), getGridPosY() - 1);
-            isMoving = false;
+            resetElapsedTime();
         }
     }
 
     public void moveDown() {
-        if (!isMoving) {
-            isMoving = true;
-            newScreenPos = new float[]{getX(), getY() - gridSize};
-        }
+        newScreenPos = new float[]{getX(), getY() - gridSize};
         setPosition(getX(), getY() - speed);
+
         if (movedToNextGrid()) {
             setGridPos(getGridPosX(), getGridPosY() + 1);
-            isMoving = false;
+            resetElapsedTime();
         }
     }
 
     public void moveLeft() {
-        if (!isMoving) {
-            isMoving = true;
-            newScreenPos = new float[]{getX() - gridSize, getY()};
-        }
+        newScreenPos = new float[]{getX() - gridSize, getY()};
         setPosition(getX() - speed, getY());
+
         if (movedToNextGrid()) {
             setGridPos(getGridPosX() - 1, getGridPosY());
-            isMoving = false;
+            resetElapsedTime();
         }
     }
 
     public void moveRight() {
-        if (!isMoving) {
-            isMoving = true;
-            newScreenPos = new float[]{getX() + gridSize, getY()};
-        }
+        newScreenPos = new float[]{getX() + gridSize, getY()};
         setPosition(getX() + speed, getY());
+
         if (movedToNextGrid()) {
             setGridPos(getGridPosX() + 1, getGridPosY());
-            isMoving = false;
+            resetElapsedTime();
         }
     }
 
     private boolean movedToNextGrid() {
-        if (isMoving) {
-            switch (currentDirection) {
-                case UP:
-                    if (getY() >= newScreenPos[1]) {
-                        isMoving = false;
-                        setPosition(newScreenPos[0], newScreenPos[1]);
-                        oldScreenPos = newScreenPos;
-                        return true;
-                    }
-                case DOWN:
-                    if (getY() <= newScreenPos[1]) {
-                        isMoving = false;
-                        setPosition(newScreenPos[0], newScreenPos[1]);
-                        oldScreenPos = newScreenPos;
-                        return true;
-                    }
-                case LEFT:
-                    if (getX() <= newScreenPos[0]) {
-                        isMoving = false;
-                        setPosition(newScreenPos[0], newScreenPos[1]);
-                        oldScreenPos = newScreenPos;
-                        return true;
-                    }
-                case RIGHT:
-                    if (getX() >= newScreenPos[0]) {
-                        isMoving = false;
-                        setPosition(newScreenPos[0], newScreenPos[1]);
-                        oldScreenPos = newScreenPos;
-                        return true;
-                    }
-            }
+        switch (currentDirection) {
+            case UP:
+                if (getY() >= newScreenPos[1]) {
+                    setPosition(newScreenPos[0], newScreenPos[1]);
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case DOWN:
+                if (getY() <= newScreenPos[1]) {
+                    setPosition(newScreenPos[0], newScreenPos[1]);
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case LEFT:
+                if (getX() <= newScreenPos[0]) {
+                    setPosition(newScreenPos[0], newScreenPos[1]);
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case RIGHT:
+                if (getX() >= newScreenPos[0]) {
+                    setPosition(newScreenPos[0], newScreenPos[1]);
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
         }
         return false;
     }
 
     @Override
     protected void setDirection(Direction dir) {
-        currentDirection = Direction.getRandom(dir);
+        currentDirection = dir;
     }
 }

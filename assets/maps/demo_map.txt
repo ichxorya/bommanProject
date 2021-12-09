@@ -9,12 +9,3 @@
 #  #    ##
 #  # #####
 ##########
-
-////////////////////////
-Rules:
-# - Wall
-x - Baka_AI
-p - Player
-+ - Brick
-
-others - grass

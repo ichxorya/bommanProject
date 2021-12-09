@@ -126,7 +126,7 @@ public class BakaBot extends Baka_AI {
                 temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
                 break;
         }
-        if (temp == 0) {
+        if (temp == 0 || temp == 7) {
             valid = true;
         }
         return valid;

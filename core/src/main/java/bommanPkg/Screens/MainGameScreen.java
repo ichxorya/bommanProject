@@ -65,8 +65,7 @@ public class MainGameScreen extends MyScreen {
 
     @Override
     public void update(float dt) {
-        player.update(dt, map);
-        System.out.println("PLAYER: " + player.getGridPosX() + " " + player.getGridPosY());
+        player.act(dt, map);
         map.actLivingEntities(dt);
         map.printGridMap();
     }

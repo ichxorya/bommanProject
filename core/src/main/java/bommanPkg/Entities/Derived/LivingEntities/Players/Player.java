@@ -108,6 +108,10 @@ public class Player extends LivingEntity implements InputProcessor {
     @Override
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
+
+        if (gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7) {
+            die();
+        }
     }
 
     // InputProcessor required methods

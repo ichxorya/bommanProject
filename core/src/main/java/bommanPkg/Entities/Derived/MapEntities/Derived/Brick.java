@@ -13,4 +13,11 @@ public class Brick extends MapEntity {
         loadTexture("maps/map_resources/brick.png");
         destructible = true;
     }
+
+    public Brick(int entityPosX, int entityPosY, Stage mainStage, int x, int y) {
+        super(entityPosX, entityPosY, mainStage, x, y);
+
+        loadTexture("maps/map_resources/brick.png");
+        destructible = true;
+    }
 }

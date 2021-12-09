@@ -2,6 +2,7 @@ package bommanPkg.Screens;
 
 import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
+import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import bommanPkg.Maps.GameMap;
@@ -35,9 +36,12 @@ public class MainGameScreen extends MyScreen {
                 switch (mapData[x][y]) {
                     case 1:
                         Wall tempWall = new Wall(entityPosX, entityPosY, mainStage, x, y);
-                        map.add(tempWall);
                         break;
-                    case 3:
+                    case 2:
+                        Brick tempBrick = new Brick(entityPosX, entityPosY, mainStage, x, y);
+                        map.add(tempBrick);
+                        break;
+                    case 4:
                         BakaBot tempBot = new BakaBot(entityPosX, entityPosY, mainStage, x, y);
                         map.add(tempBot);
                         break;

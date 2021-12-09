@@ -41,7 +41,7 @@ public class BakaBot extends Baka_AI {
     public BakaBot(float x, float y, Stage s, int gridX, int gridY) {
         super(x, y, s, gridX, gridY);
         oldScreenPos = new float[]{x, y};
-
+        System.out.println("BakaBot" + getGridPosX() + " " + getGridPosY());
         setupAnimations();
         wakeup(2, 1);
     }
@@ -70,42 +70,42 @@ public class BakaBot extends Baka_AI {
     @Override
     public void act(float delta, GameMap gameMap) {
         super.act(delta, gameMap);
+        System.out.println("BakaBot: " + getGridPosX() + " " + getGridPosY());
 
         // New Way
-        if (getElapsedTime() > 1f) {
-            boolean isValidDirection = validDirection(currentDirection, gameMap);
-            if (getElapsedTime() > 2f) {
-                if (!isValidDirection) {
-                    resetDirection();
-                    resetElapsedTime();
-                } else {
-                    isMoving = true;
-                    moveToDirection(currentDirection);
-                }
+        boolean isValidDirection = validDirection(currentDirection, gameMap);
+        if (getElapsedTime() > 2f) {
+            if (!isValidDirection) {
+                resetDirection();
+                resetElapsedTime();
+            } else {
+                isMoving = true;
+                moveToDirection(currentDirection, gameMap);
+                gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
             }
         }
     }
 
-    private void moveToDirection(Direction currentDirection) {
-//        switch (currentDirection) {
-//            case UP:
-//                moveUp();
-//                break;
-//            case DOWN:
-//                moveDown();
-//                break;
-//            case LEFT:
-//                moveLeft();
-//                break;
-//            case RIGHT:
-//                moveRight();
-//                break;
-//        }
-        if (currentDirection == Direction.UP || currentDirection == Direction.DOWN) {
-            moveUp();
-        } else {
-            moveRight();
+    private void moveToDirection(Direction currentDirection, GameMap gameMap) {
+        switch (currentDirection) {
+            case UP:
+                moveUp(gameMap);
+                break;
+            case DOWN:
+                moveDown(gameMap);
+                break;
+            case LEFT:
+                moveLeft(gameMap);
+                break;
+            case RIGHT:
+                moveRight(gameMap);
+                break;
         }
+//        if (currentDirection == Direction.UP || currentDirection == Direction.DOWN) {
+//            moveUp();
+//        } else {
+//            moveRight();
+//        }
     }
 
     private boolean validDirection(Direction currentDirection, GameMap gameMap) {
@@ -132,53 +132,59 @@ public class BakaBot extends Baka_AI {
         return valid;
     }
 
-    public void moveUp() {
+    public void moveUp(GameMap gameMap) {
         if (isMoving) {
             newScreenPos = new float[]{getX(), getY() + gridSize};
         }
-        setPosition(getX(), getY() + 64);
+        setPosition(getX(), newScreenPos[1]);
 
         if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
             setGridPos(getGridPosX(), getGridPosY() - 1);
             resetElapsedTime();
-            isMoving = false;
         }
     }
 
-    public void moveDown() {
+    public void moveDown(GameMap gameMap) {
         if (isMoving) {
             newScreenPos = new float[]{getX(), getY() - gridSize};
         }
-        setPosition(getX(), getY() - speed);
+        setPosition(getX(), newScreenPos[1]);
 
         if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
             setGridPos(getGridPosX(), getGridPosY() + 1);
             resetElapsedTime();
         }
     }
 
-    public void moveLeft() {
+    public void moveLeft(GameMap gameMap) {
         if (isMoving) {
             newScreenPos = new float[]{getX() - gridSize, getY()};
         }
-        setPosition(getX() - speed, getY());
+        setPosition(newScreenPos[0], getY());
 
         if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
             setGridPos(getGridPosX() - 1, getGridPosY());
             resetElapsedTime();
         }
     }
 
-    public void moveRight() {
+    public void moveRight(GameMap gameMap) {
         if (isMoving) {
             newScreenPos = new float[]{getX() + gridSize, getY()};
         }
-        setPosition(getX() + 64, getY());
+        setPosition(newScreenPos[0], getY());
 
         if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
             setGridPos(getGridPosX() + 1, getGridPosY());
             resetElapsedTime();
-            isMoving = false;
         }
     }
 

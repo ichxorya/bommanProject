@@ -18,7 +18,7 @@ public abstract class LivingEntity extends Entity {
     protected boolean isMoving;
 
     protected enum Direction {
-        LEFT, RIGHT, UP, DOWN;
+        UP, LEFT, DOWN, RIGHT;
 
         // Random Enum value (Direction)
         // Source: https://stackoverflow.com/questions/1972392/pick-a-random-value-from-an-enum

@@ -1,7 +1,7 @@
 package bommanPkg.Entities.Derived.LivingEntities.Base;
 
 import bommanPkg.Entities.Base.Entity;
-import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
+import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import java.util.Arrays;
@@ -15,6 +15,7 @@ public abstract class LivingEntity extends Entity {
     protected int lives;
     protected boolean isDead;
     protected Direction currentDirection;
+    protected boolean isMoving;
 
     protected enum Direction {
         NONE, LEFT, RIGHT, UP, DOWN;
@@ -62,8 +63,17 @@ public abstract class LivingEntity extends Entity {
         isDead = false;
         currentDirection = Direction.NONE;
     }
+    /**
+     * Constructor (grid-map).
+     */
+    public LivingEntity(float x, float y, Stage s, int gridX, int gridY) {
+        super(x, y, s, gridX, gridY);
 
-    public abstract void update(float dt);
+        isDead = false;
+        currentDirection = Direction.NONE;
+    }
+
+    public abstract void update(float dt, GameMap gameMap);
 
     /** Setter: speed. */
     public void setSpeed(float speed) {
@@ -91,11 +101,6 @@ public abstract class LivingEntity extends Entity {
     }
 
     /**
-     * Abstract method: Move.
-     */
-    public abstract void move(Direction dir);
-
-    /**
      * Abstract method: Die.
      */
     public void die() {
@@ -108,26 +113,6 @@ public abstract class LivingEntity extends Entity {
     public void setupValues(float speed, int lives) {
         this.speed = speed;
         this.lives = lives;
-    }
-
-    /** Prevent Overlap. */
-    public void preventOverlapBlock(MapEntity other) {
-        if (this.overlaps(other) && !other.isPassable()) {
-            switch (getDirection()) {
-                case UP:
-                    this.setY(other.getY() - this.getHeight());
-                    break;
-                case LEFT:
-                    this.setX(other.getX() + this.getWidth());
-                    break;
-                case DOWN:
-                    this.setY(other.getY() + this.getHeight());
-                    break;
-                case RIGHT:
-                    this.setX(other.getX() - this.getWidth());
-                    break;
-            }
-        }
     }
 
     public void resetDirection() {

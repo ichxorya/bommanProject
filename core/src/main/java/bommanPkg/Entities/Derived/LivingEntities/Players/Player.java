@@ -1,7 +1,7 @@
 package bommanPkg.Entities.Derived.LivingEntities.Players;
 
-import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
+import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,8 +9,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
-
-import static com.badlogic.gdx.Input.Keys.*;
 
 public class Player extends LivingEntity implements InputProcessor {
     /** Player Variables. **/
@@ -42,86 +40,30 @@ public class Player extends LivingEntity implements InputProcessor {
         setupValues(3, 1);
     }
 
+    /**
+     * Constructor (grid-map).
+     */
+    public Player(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super(x, y, s, gridPosX, gridPosY);
+
+        setupPlayerAnimations();
+        setupValues(3, 1);
+    }
+
     @Override
     protected void setDirection(Direction dir) {
         this.currentDirection = dir;
     }
 
     @Override
-    public void update(float dt) {
-        getInput();
-        setBomb();
-        suicide();
-        updateEntity();
-    }
+    public void update(float dt, GameMap gameMap) {
 
-    private void getInput() {
-        if (Gdx.input.isKeyPressed(UP)) {
-            move(Direction.UP);
-            setDirection(Direction.UP);
-        } else if (Gdx.input.isKeyPressed(LEFT)) {
-            move(Direction.LEFT);
-            setDirection(Direction.LEFT);
-        } else if (Gdx.input.isKeyPressed(DOWN)) {
-            move(Direction.DOWN);
-            setDirection(Direction.DOWN);
-        } else if (Gdx.input.isKeyPressed(RIGHT)) {
-            move(Direction.RIGHT);
-            setDirection(Direction.RIGHT);
-        } else {
-            if (!isDead) {
-                setAnimation(idle);
-                setDirection(Direction.NONE);
-            }
-        }
-
-        // Revive
-        if (Gdx.input.isKeyPressed(Z)) {
-            isDead = false;
-        }
-
-        if (Gdx.input.isKeyPressed(N)) {
-            speed++;
-        }
-    }
-
-    @Override
-    public void move(Direction dir) {
-        if (!isDead) {
-            if (dir == Direction.UP) {
-                setAnimation(moveUp);
-                setY(getY() + speed);
-            } else if (dir == Direction.LEFT) {
-                setAnimation(moveLeft);
-                setX(getX() - speed);
-            } else if (dir == Direction.DOWN) {
-                setAnimation(moveDown);
-                setY(getY() - speed);
-            } else if (dir == Direction.RIGHT) {
-                setAnimation(moveRight);
-                setX(getX() + speed);
-            }
-        }
     }
 
     @Override
     public void die() {
         setAnimation(yeet);
         isDead = true;
-    }
-
-    /** Player: Set Bomb. */
-    public void setBomb() {
-        if (Gdx.input.isKeyPressed(B)) {
-            new Bomb(getX(), getY(), getStage());
-        }
-    }
-
-    /** Debug: Suicide. */
-    public void suicide() {
-        if (Gdx.input.isKeyPressed(X)) {
-            die();
-        }
     }
 
     private void setupPlayerAnimations() {
@@ -164,8 +106,8 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     @Override
-    public void act(float dt) {
-        super.act(dt);
+    public void act(float dt, GameMap gameMap) {
+        super.act(dt, gameMap);
     }
 
     // InputProcessor required methods

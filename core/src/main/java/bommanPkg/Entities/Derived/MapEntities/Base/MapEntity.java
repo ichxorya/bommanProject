@@ -13,7 +13,11 @@ public abstract class MapEntity extends Entity {
      */
     public MapEntity(float x, float y, Stage s) {
         super(x, y, s);
-        setCollisionBounds();
+    }
+
+    /** Constructor (grid-map). **/
+    public MapEntity(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super(x, y, s, gridPosX, gridPosY);
     }
 
     /**
@@ -29,5 +33,4 @@ public abstract class MapEntity extends Entity {
     public boolean isPassable() {
         return passable;
     }
-
 }

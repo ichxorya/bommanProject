@@ -1,40 +1,36 @@
 package bommanPkg.Entities.Base;
 
+import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Polygon;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Entity extends Actor {
-    /** Constants. **/
+    /**
+     * Constants.
+     **/
     public static final int gridSize = 64;
     protected static final float frameDuration = 0.2f;
-
+    protected int[] gridPos;
     /**
      * Variables.
      */
     private Animation<TextureRegion> animation;
     private float elapsedTime;
-
-    private Rectangle collisionBounds;
-
     /**
      * Constructor.
      */
     public Entity(float x, float y, Stage s) {
         super();
+
+        // Map Related
+        gridPos = new int[2];
 
         // Stage Related
         setPosition(x, y);
@@ -42,21 +38,60 @@ public class Entity extends Actor {
 
         // Self
         setSize(gridSize, gridSize);
-        setCollisionBounds();
 
         animation = null;
         elapsedTime = 0;
     }
 
-    /** Getter: collisionBounds. */
-    public Rectangle getCollisionBounds() {
-        return collisionBounds;
+    /**
+     * Constructor (grid-map).
+     */
+    public Entity(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super();
+
+        // Map Related
+        gridPos = new int[2];
+        gridPos[0] = gridPosX;
+        gridPos[1] = gridPosY;
+
+        // Stage Related
+        setPosition(x, y);
+        s.addActor(this);
+
+        // Self
+        setSize(gridSize, gridSize);
+
+        animation = null;
+        elapsedTime = 0;
     }
 
-    /** Setter: collisionBounds. */
-    public void setCollisionBounds() {
-        collisionBounds = new Rectangle(getX(), getY(), gridSize, gridSize);
-        collisionBounds.setCenter(getX() + getWidth() / 2, getY() + getHeight() / 2);
+    /**
+     * Setter: gridPos.
+     **/
+    public void setGridPos(int gridPosX, int gridPosY) {
+        this.gridPos[0] = gridPosX;
+        this.gridPos[1] = gridPosY;
+    }
+
+    /**
+     * Getter: gridPos.
+     **/
+    public int[] getGridPos() {
+        return gridPos;
+    }
+
+    /**
+     * Getter: gridPosX.
+     */
+    public int getGridPosX() {
+        return gridPos[0];
+    }
+
+    /**
+     * Getter: gridPosY.
+     */
+    public int getGridPosY() {
+        return gridPos[1];
     }
 
     /**
@@ -70,15 +105,12 @@ public class Entity extends Actor {
         float height = textureRegion.getRegionHeight();
         setSize(width, height);
         setOrigin(width / 2, height / 2);
-
-        if (collisionBounds == null)
-            setCollisionBounds();
     }
 
     /**
      * Act (Update actor based on time).
      */
-    public void act(float dt) {
+    public void act(float dt, GameMap gameMap) {
         super.act(dt);
         elapsedTime += dt;
     }
@@ -141,7 +173,9 @@ public class Entity extends Actor {
         return getTextureRegionAnimation(frameDuration, textureArray, loop);
     }
 
-    /** Get TextureRegion Animation. */
+    /**
+     * Get TextureRegion Animation.
+     */
     private Animation<TextureRegion> getTextureRegionAnimation(
             float frameDuration,
             Array<TextureRegion> textureArray,
@@ -151,8 +185,7 @@ public class Entity extends Actor {
 
         if (loop) {
             anim.setPlayMode(Animation.PlayMode.LOOP);
-        }
-        else {
+        } else {
             anim.setPlayMode(Animation.PlayMode.NORMAL);
         }
 
@@ -176,7 +209,9 @@ public class Entity extends Actor {
         return loadTexture("sprites/default.png");
     }
 
-    /** Getter: Elapsed Time. */
+    /**
+     * Getter: Elapsed Time.
+     */
     public float getElapsedTime() {
         return elapsedTime;
     }
@@ -188,21 +223,11 @@ public class Entity extends Actor {
         return animation.isAnimationFinished(elapsedTime);
     }
 
-    /** Resetter: Elapsed Time. */
+    /**
+     * Resetter: Elapsed Time.
+     */
     public void resetElapsedTime() {
         elapsedTime = 0f;
     }
 
-    /** Overlap Check. */
-    public boolean overlaps(Entity other) {
-        if (other == null) {
-            return false;
-        }
-        return getCollisionBounds().overlaps(other.getCollisionBounds());
-    }
-
-    /** Update Entity. */
-    public void updateEntity() {
-        collisionBounds.set(getX(), getY(), getWidth(), getHeight());
-    }
 }

@@ -1,6 +1,7 @@
 package bommanPkg.Entities.Derived.Bomb;
 
 import bommanPkg.Entities.Base.Entity;
+import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -37,8 +38,8 @@ public class Explosion extends Entity {
      * Updates the explosion.
      */
     @Override
-    public void act(float dt) {
-        super.act(dt);
+    public void act(float dt, GameMap gameMap) {
+        super.act(dt, gameMap);
 
     }
 }

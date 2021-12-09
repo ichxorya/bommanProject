@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="bro? toi da hoan thanh cai &quot;brick block?&quot;&#10;&#10;co le, chieu nay hoan thien map">
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="update ngao da">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,12 +14,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/map1.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/maps/map2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/map2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/MapGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Base/MapEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Base/MapEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Wall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map1.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/map2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +149,8 @@
       <workItem from="1638801989589" duration="1470000" />
       <workItem from="1638803490135" duration="6073000" />
       <workItem from="1638931800125" duration="16939000" />
+      <workItem from="1638982781981" duration="685000" />
+      <workItem from="1639007713924" duration="12379000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>

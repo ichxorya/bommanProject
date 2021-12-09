@@ -74,8 +74,6 @@ public abstract class LivingEntity extends Entity {
         currentDirection = Direction.DOWN;
     }
 
-    public abstract void update(float dt, GameMap gameMap);
-
     /** Setter: speed. */
     public void setSpeed(float speed) {
         this.speed = speed;

@@ -12,6 +12,5 @@ public class Brick extends MapEntity {
 
         loadTexture("maps/map_resources/brick.png");
         destructible = true;
-        passable = false;
     }
 }

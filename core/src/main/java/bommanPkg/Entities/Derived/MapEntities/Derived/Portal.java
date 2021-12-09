@@ -17,7 +17,6 @@ public class Portal extends MapEntity {
 
         portalAnimation = loadAnimationFromSheet("maps/map_resources/portal.png", 1, 4, 0.1f, true);
         destructible = false;
-        passable = true;
         portalActivated = false;
         setAnimation(portalAnimation);
     }

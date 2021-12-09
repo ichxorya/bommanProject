@@ -56,11 +56,6 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     @Override
-    public void update(float dt, GameMap gameMap) {
-
-    }
-
-    @Override
     public void die() {
         setAnimation(yeet);
         isDead = true;

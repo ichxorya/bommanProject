@@ -12,6 +12,5 @@ public class Grass extends MapEntity {
 
         loadTexture("maps/map_resources/grass.png");
         destructible = false;
-        passable = true;
     }
 }

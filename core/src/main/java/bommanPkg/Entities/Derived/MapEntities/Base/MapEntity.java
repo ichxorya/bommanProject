@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public abstract class MapEntity extends Entity {
     /** Variables. **/
     protected boolean destructible;
-    protected boolean passable;
 
     /**
      * Constructor.
@@ -27,10 +26,4 @@ public abstract class MapEntity extends Entity {
         return destructible;
     }
 
-    /**
-     * Getter: passable.
-     */
-    public boolean isPassable() {
-        return passable;
-    }
 }

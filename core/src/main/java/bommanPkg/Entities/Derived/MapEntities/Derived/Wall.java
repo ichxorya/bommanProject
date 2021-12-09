@@ -12,7 +12,6 @@ public class Wall extends MapEntity {
 
         loadTexture("maps/map_resources/wall.png");
         destructible = true;
-        passable = false;
     }
 
     /** Constructor (grid-map). **/
@@ -20,7 +19,6 @@ public class Wall extends MapEntity {
         super(x, y, s, gridPosX, gridPosY);
 
         loadTexture("maps/map_resources/wall.png");
-        destructible = false;
-        passable = false;
+        destructible = true;
     }
 }

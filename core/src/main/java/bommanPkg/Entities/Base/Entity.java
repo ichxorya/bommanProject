@@ -17,12 +17,12 @@ public class Entity extends Actor {
      **/
     public static final int gridSize = 64;
     protected static final float frameDuration = 0.2f;
-    protected int[] gridPos;
     /**
      * Variables.
      */
     private Animation<TextureRegion> animation;
     private float elapsedTime;
+    protected int[] gridPos;
     /**
      * Constructor.
      */

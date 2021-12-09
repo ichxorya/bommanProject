@@ -46,11 +46,6 @@ public class BakaBot extends Baka_AI {
         wakeup(2, 1);
     }
 
-    @Override
-    public void update(float dt, GameMap gameMap) {
-
-    }
-
 
     private void setupAnimations() {
         live = loadAnimationFromSheet(bakaLive, 1, 10, frameDuration * 1.3f, true);

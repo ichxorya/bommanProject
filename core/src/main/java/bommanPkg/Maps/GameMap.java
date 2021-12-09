@@ -68,24 +68,41 @@ public class GameMap {
         }
     }
 
+    /**
+     * Generate map from line.
+     * Char denotations:
+     * # - Wall
+     * + - Brick
+     * ? - Portal
+     * x - Baka_AI
+     * p - Player
+     *
+     * Others - Grass (already initialized)
+     */
     private void generateFromLine(String s, int y) {
         for (int x = 0; x < s.length(); x++) {
             switch (s.charAt(x)) {
                 case '#':
                     gridMap[x][y] = 1;
                     break;
-                case 'p':
-                    gridMap[x][y] = 7;
+                case '+':
+                    gridMap[x][y] = 2;
+                    break;
+                case '?':
+                    gridMap[x][y] = 3;
                     break;
                 case 'x':
-                    gridMap[x][y] = 3;
+                    gridMap[x][y] = 4;
+                    break;
+                case 'p':
+                    gridMap[x][y] = 7;
                     break;
             }
         }
     }
 
     public void loadMapFile() {
-        FileHandle file = Gdx.files.internal("maps/map2.txt");
+        FileHandle file = Gdx.files.internal("maps/demo_map.txt");
         mapFile = file.readString().split("\n");
 
         Scanner reader = new Scanner(mapFile[0]);

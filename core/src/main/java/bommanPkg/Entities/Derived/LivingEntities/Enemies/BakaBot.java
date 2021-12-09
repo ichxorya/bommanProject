@@ -10,7 +10,7 @@ public class BakaBot extends Baka_AI {
     final static int entityID = 3;
     /**
      * BakaBot Variables.
-     **/
+     */
     float[] oldScreenPos;
     float[] newScreenPos;
     /**
@@ -62,6 +62,7 @@ public class BakaBot extends Baka_AI {
     protected void wakeup(float speed, int lives) {
         this.speed = speed;
         this.lives = lives;
+        this.isMoving = false;
 
         currentDirection = Direction.getRandom();
     }
@@ -73,44 +74,37 @@ public class BakaBot extends Baka_AI {
         // New Way
         if (getElapsedTime() > 1f) {
             boolean isValidDirection = validDirection(currentDirection, gameMap);
-            if (getElapsedTime() > 3f) {
+            if (getElapsedTime() > 2f) {
                 if (!isValidDirection) {
                     resetDirection();
                     resetElapsedTime();
                 } else {
+                    isMoving = true;
                     moveToDirection(currentDirection);
                 }
             }
         }
-
-        /*
-        Old method.
-
-        if (getElapsedTime() > 1f) {
-            move(currentDirection);
-            if (getElapsedTime() > 3f) {
-                setDirection(currentDirection);
-                resetElapsedTime();
-            }
-        }
-        */
-
     }
 
     private void moveToDirection(Direction currentDirection) {
-        switch (currentDirection) {
-            case UP:
-                moveUp();
-                break;
-            case DOWN:
-                moveDown();
-                break;
-            case LEFT:
-                moveLeft();
-                break;
-            case RIGHT:
-                moveRight();
-                break;
+//        switch (currentDirection) {
+//            case UP:
+//                moveUp();
+//                break;
+//            case DOWN:
+//                moveDown();
+//                break;
+//            case LEFT:
+//                moveLeft();
+//                break;
+//            case RIGHT:
+//                moveRight();
+//                break;
+//        }
+        if (currentDirection == Direction.UP || currentDirection == Direction.DOWN) {
+            moveUp();
+        } else {
+            moveRight();
         }
     }
 
@@ -139,17 +133,22 @@ public class BakaBot extends Baka_AI {
     }
 
     public void moveUp() {
-        newScreenPos = new float[]{getX(), getY() + gridSize};
-        setPosition(getX(), getY() + speed);
+        if (isMoving) {
+            newScreenPos = new float[]{getX(), getY() + gridSize};
+        }
+        setPosition(getX(), getY() + 64);
 
         if (movedToNextGrid()) {
             setGridPos(getGridPosX(), getGridPosY() - 1);
             resetElapsedTime();
+            isMoving = false;
         }
     }
 
     public void moveDown() {
-        newScreenPos = new float[]{getX(), getY() - gridSize};
+        if (isMoving) {
+            newScreenPos = new float[]{getX(), getY() - gridSize};
+        }
         setPosition(getX(), getY() - speed);
 
         if (movedToNextGrid()) {
@@ -159,7 +158,9 @@ public class BakaBot extends Baka_AI {
     }
 
     public void moveLeft() {
-        newScreenPos = new float[]{getX() - gridSize, getY()};
+        if (isMoving) {
+            newScreenPos = new float[]{getX() - gridSize, getY()};
+        }
         setPosition(getX() - speed, getY());
 
         if (movedToNextGrid()) {
@@ -169,12 +170,15 @@ public class BakaBot extends Baka_AI {
     }
 
     public void moveRight() {
-        newScreenPos = new float[]{getX() + gridSize, getY()};
-        setPosition(getX() + speed, getY());
+        if (isMoving) {
+            newScreenPos = new float[]{getX() + gridSize, getY()};
+        }
+        setPosition(getX() + 64, getY());
 
         if (movedToNextGrid()) {
             setGridPos(getGridPosX() + 1, getGridPosY());
             resetElapsedTime();
+            isMoving = false;
         }
     }
 

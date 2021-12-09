@@ -15,6 +15,7 @@ public abstract class LivingEntity extends Entity {
     protected int lives;
     protected boolean isDead;
     protected Direction currentDirection;
+    protected boolean isMoving;
 
     protected enum Direction {
         LEFT, RIGHT, UP, DOWN;

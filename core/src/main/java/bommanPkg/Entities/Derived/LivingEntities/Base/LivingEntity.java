@@ -11,13 +11,15 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class LivingEntity extends Entity {
+    /** Variables. */
     protected int lives;
     protected boolean isDead;
     protected boolean isMoving;
     protected Direction currentDirection;
 
+    /** Enum: Direction. */
     protected enum Direction {
-        UP, LEFT, DOWN, RIGHT;
+        UP, LEFT, DOWN, RIGHT, NONE;
 
         // Random Enum value (Direction)
         // Source: https://stackoverflow.com/questions/1972392/pick-a-random-value-from-an-enum
@@ -29,6 +31,7 @@ public abstract class LivingEntity extends Entity {
             return VALUES.get(RANDOM.nextInt(SIZE));
         }
 
+        // Return Random Direction (not the input direction)
         public static Direction getRandom(Direction dir) {
             Direction newDirection = getRandom();
             while (newDirection == dir) {
@@ -48,9 +51,8 @@ public abstract class LivingEntity extends Entity {
                     return RIGHT;
                 case RIGHT:
                     return LEFT;
-                default:
-                    throw new RuntimeException("Invalid Direction");
             }
+            return NONE;
         }
     }
 

@@ -22,7 +22,7 @@ public class Player extends LivingEntity implements InputProcessor {
      * Resource Paths.
      */
     String movingPath = "sprites/players/cirno_moving.png";
-    String yeetPath = "sprites/players/cirno_dead.png";
+    String deadPath = "sprites/players/cirno_dead.png";
 
     /**
      * Animations.
@@ -84,7 +84,7 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     private void setupPlayerAnimations() {
-        dead = loadAnimationFromSheet(yeetPath, 1, 8, frameDuration * 1.6f, false);
+        dead = loadAnimationFromSheet(deadPath, 1, 8, frameDuration * 1.6f, false);
 
         Texture movement = new Texture(Gdx.files.internal(movingPath), true);
         TextureRegion[][] temp = TextureRegion.split(movement, gridSize, gridSize);
@@ -125,7 +125,9 @@ public class Player extends LivingEntity implements InputProcessor {
     @Override
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
-        float idkSpeed = 1f;
+
+        // The smaller the 'idkSpeed', the faster the player moves.
+        float idkSpeed = 0.8f;
 
         if (!isDead) {
             if (gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7) {
@@ -135,7 +137,9 @@ public class Player extends LivingEntity implements InputProcessor {
             boolean isValidDirection = validDirection(currentDirection, gameMap);
             setAnimationFromDirection(currentDirection);
             if (getElapsedTime() > idkSpeed) {
-                if (isValidDirection) {
+                if (currentDirection == Direction.NONE) {
+                    setAnimation(idle);
+                } else if (isValidDirection) {
                     isMoving = true;
                     moveToDirection(currentDirection, gameMap);
                     gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
@@ -175,6 +179,8 @@ public class Player extends LivingEntity implements InputProcessor {
             currentDirection = Direction.LEFT;
         } else if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             currentDirection = Direction.RIGHT;
+        } else {
+            currentDirection = Direction.NONE;
         }
     }
 

@@ -127,10 +127,13 @@ public class Player extends LivingEntity implements InputProcessor {
         super.act(dt, gameMap);
 
         // The smaller the 'idkSpeed', the faster the player moves.
-        float idkSpeed = 0.8f;
+        float idkSpeed = 0.5f;
 
         if (!isDead) {
-            if (gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7) {
+            if (
+                    // Enemy reached the player.
+                    gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7
+            ) {
                 die();
             }
             getDirectionFromInput();
@@ -142,7 +145,10 @@ public class Player extends LivingEntity implements InputProcessor {
                 } else if (isValidDirection) {
                     isMoving = true;
                     moveToDirection(currentDirection, gameMap);
-                    gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+
+                    if (touchedByDeath(gameMap)) {
+                        gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+                    }
                 } else {
                     System.out.println("Invalid Direction " + currentDirection);
                 }
@@ -151,6 +157,13 @@ public class Player extends LivingEntity implements InputProcessor {
             setAnimation(dead);
         }
 
+    }
+
+    // TODO: If it works like a charm, should be implemented in the super class.
+    private boolean touchedByDeath(GameMap gameMap) {
+        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 4
+                && gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 5
+                && gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 6;
     }
 
     private void setAnimationFromDirection(Direction currentDirection) {

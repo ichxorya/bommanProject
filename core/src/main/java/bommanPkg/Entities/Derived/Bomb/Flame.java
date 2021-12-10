@@ -6,26 +6,26 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 // TODO
-public class Flare extends Entity {
+public class Flame extends Entity {
     private int length;
     private boolean isDone;
     private Animation<TextureRegion> bombCenter;
-    private Animation<TextureRegion> bombFlare;
+    private Animation<TextureRegion> bombFlame;
 
     /**
      * Constructor.
      */
-    public Flare(float x, float y, Stage s, int gridPosX, int gridPosY) {
+    public Flame(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
 
         setupExplosionAnimations();
         setAnimation(bombCenter);
-        length = 3;
+        length = 1;
     }
 
     private void setupExplosionAnimations() {
         bombCenter = loadTexture("sprites/bomb/cirno_bomb_center.png");
-        bombFlare = loadTexture("sprites/bomb/cirno_bomb_hit.png");
+        bombFlame = loadTexture("sprites/bomb/cirno_bomb_hit.png");
     }
 
     /**

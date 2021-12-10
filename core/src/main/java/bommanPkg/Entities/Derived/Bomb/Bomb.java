@@ -36,7 +36,7 @@ public class Bomb extends Entity {
 
     /** Generate explosion. */
     private void generateExplosion() {
-        new Flare(getX(), getY(), getStage(), getGridPosX(), getGridPosY());
+        new Flame(getX(), getY(), getStage(), getGridPosX(), getGridPosY());
     }
 
 }

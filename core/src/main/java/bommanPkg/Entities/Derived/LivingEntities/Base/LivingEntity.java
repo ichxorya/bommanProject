@@ -1,6 +1,8 @@
 package bommanPkg.Entities.Derived.LivingEntities.Base;
 
 import bommanPkg.Entities.Base.Entity;
+import bommanPkg.Maps.GameMap;
+import bommanPkg.Screens.ScreenPos;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import java.util.Arrays;
@@ -100,4 +102,111 @@ public abstract class LivingEntity extends Entity {
     }
 
     protected abstract void setDirection(Direction dir);
+
+    /** Valid Direction check. */
+    protected abstract boolean validDirection(Direction currentDirection, GameMap gameMap);
+
+    /** Movement methods. */
+    protected void moveToDirection(Direction currentDirection, GameMap gameMap) {
+        switch (currentDirection) {
+            case UP:
+                moveUp(gameMap);
+                break;
+            case DOWN:
+                moveDown(gameMap);
+                break;
+            case LEFT:
+                moveLeft(gameMap);
+                break;
+            case RIGHT:
+                moveRight(gameMap);
+                break;
+        }
+    }
+
+    public void moveUp(GameMap gameMap) {
+        if (isMoving) {
+            newScreenPos = new ScreenPos(getX(), getY() + gridSize);
+        }
+        setPosition(getX(), newScreenPos.getY());
+
+        if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
+            setGridPos(getGridPosX(), getGridPosY() - 1);
+            resetElapsedTime();
+        }
+    }
+
+    public void moveDown(GameMap gameMap) {
+        if (isMoving) {
+            newScreenPos = new ScreenPos(getX(), getY() - gridSize);;
+        }
+        setPosition(getX(), newScreenPos.getY());
+
+        if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
+            setGridPos(getGridPosX(), getGridPosY() + 1);
+            resetElapsedTime();
+        }
+    }
+
+    public void moveLeft(GameMap gameMap) {
+        if (isMoving) {
+            newScreenPos = new ScreenPos(getX() - gridSize, getY());
+        }
+        setPosition(newScreenPos.getX(), getY());
+
+        if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
+            setGridPos(getGridPosX() - 1, getGridPosY());
+            resetElapsedTime();
+        }
+    }
+
+    public void moveRight(GameMap gameMap) {
+        if (isMoving) {
+            newScreenPos = new ScreenPos(getX() + gridSize, getY());
+        }
+        setPosition(newScreenPos.getX(), getY());
+
+        if (movedToNextGrid()) {
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            isMoving = false;
+            setGridPos(getGridPosX() + 1, getGridPosY());
+            resetElapsedTime();
+        }
+    }
+
+    private boolean movedToNextGrid() {
+        switch (currentDirection) {
+            case UP:
+                if (getY() >= newScreenPos.getY()) {
+                    setPosition(newScreenPos.getX(), newScreenPos.getY());
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case DOWN:
+                if (getY() <= newScreenPos.getY()) {
+                    setPosition(newScreenPos.getX(), newScreenPos.getY());
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case LEFT:
+                if (getX() <= newScreenPos.getX()) {
+                    setPosition(newScreenPos.getX(), newScreenPos.getY());
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+            case RIGHT:
+                if (getX() >= newScreenPos.getX()) {
+                    setPosition(newScreenPos.getX(), newScreenPos.getY());
+                    oldScreenPos = newScreenPos;
+                    return true;
+                }
+        }
+        return false;
+    }
 }

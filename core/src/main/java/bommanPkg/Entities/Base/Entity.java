@@ -1,6 +1,8 @@
 package bommanPkg.Entities.Base;
 
 import bommanPkg.Maps.GameMap;
+import bommanPkg.Maps.GridPos;
+import bommanPkg.Screens.ScreenPos;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -22,7 +24,9 @@ public abstract class Entity extends Actor {
      */
     private Animation<TextureRegion> animation;
     private float elapsedTime;
-    protected int[] gridPos;
+    protected GridPos gridPos;
+    protected ScreenPos oldScreenPos;
+    protected ScreenPos newScreenPos;
 
     /**
      * Constructor (grid-map).
@@ -31,9 +35,7 @@ public abstract class Entity extends Actor {
         super();
 
         // Map Related
-        gridPos = new int[2];
-        gridPos[0] = gridPosX;
-        gridPos[1] = gridPosY;
+        gridPos = new GridPos(gridPosX, gridPosY);
 
         // Stage Related
         setPosition(x, y);
@@ -50,14 +52,14 @@ public abstract class Entity extends Actor {
      * Setter: gridPos.
      **/
     public void setGridPos(int gridPosX, int gridPosY) {
-        this.gridPos[0] = gridPosX;
-        this.gridPos[1] = gridPosY;
+        gridPos.setX(gridPosX);
+        gridPos.setY(gridPosY);
     }
 
     /**
      * Getter: gridPos.
      **/
-    public int[] getGridPos() {
+    public GridPos getGridPos() {
         return gridPos;
     }
 
@@ -65,14 +67,14 @@ public abstract class Entity extends Actor {
      * Getter: gridPosX.
      */
     public int getGridPosX() {
-        return gridPos[0];
+        return gridPos.getX();
     }
 
     /**
      * Getter: gridPosY.
      */
     public int getGridPosY() {
-        return gridPos[1];
+        return gridPos.getY();
     }
 
     /**

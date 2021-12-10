@@ -4,19 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="Don rac v1&#10;Giam toc do bakabot">
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="Don rac v1.2&#10;Doi ten file, ko yeet nua">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GridPos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/ScreenPos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/bakabot_yeet.ase" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/enemies/bakabot_dead.ase" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/enemies/bakabot_yeet.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/enemies/bakabot_dead.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/players/cirno_yeet.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/players/cirno_dead.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/enemies/bakabot_yeet.ase" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/enemies/bakabot_yeet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sprites/players/cirno_yeet.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +148,7 @@
       <workItem from="1638931800125" duration="16939000" />
       <workItem from="1638982781981" duration="685000" />
       <workItem from="1639007713924" duration="13383000" />
-      <workItem from="1639120495280" duration="2212000" />
+      <workItem from="1639120495280" duration="4468000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -396,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639122715450</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Don rac v1.2&#10;Doi ten file, ko yeet nua">
+      <created>1639123040910</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1639123040910</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +442,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="10000" />
-    <MESSAGE value="resources update (full pic, need more sound?)" />
     <MESSAGE value="whatthehell_commit_suicide_jk_immahitthebed" />
     <MESSAGE value="chet di song lai" />
     <MESSAGE value="di ngu" />
@@ -454,7 +466,8 @@
     <MESSAGE value="chưa thay đổi j lắm (fixed)" />
     <MESSAGE value="bruh" />
     <MESSAGE value="Don rac v1&#10;Giam toc do bakabot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Don rac v1&#10;Giam toc do bakabot" />
+    <MESSAGE value="Don rac v1.2&#10;Doi ten file, ko yeet nua" />
+    <option name="LAST_COMMIT_MESSAGE" value="Don rac v1.2&#10;Doi ten file, ko yeet nua" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

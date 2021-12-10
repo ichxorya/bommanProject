@@ -45,6 +45,14 @@ public class Player extends LivingEntity implements InputProcessor {
         this.currentDirection = dir;
     }
 
+    /**
+     * Valid Direction check.
+     */
+    @Override
+    protected boolean validDirection(Direction currentDirection, GameMap gameMap) {
+        return false;
+    }
+
     @Override
     public void die() {
         setAnimation(dead);

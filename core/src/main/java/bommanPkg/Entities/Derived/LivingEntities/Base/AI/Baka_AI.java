@@ -11,7 +11,6 @@ public abstract class Baka_AI extends LivingEntity {
         super(x, y, s, gridPosX, gridPosY);
     }
 
-
     protected abstract void wakeup(int lives);
 
     @Override

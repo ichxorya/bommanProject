@@ -17,13 +17,13 @@ public class BakaBot extends Baka_AI {
      * Resource Paths.
      */
     String bakaLive = "sprites/enemies/bakabot_live.png";
-    String bakaDead = "sprites/enemies/bakabot_yeet.png";
+    String bakaDead = "sprites/enemies/bakabot_dead.png";
 
     /**
      * Animations.
      */
     private Animation<TextureRegion> live;
-    private Animation<TextureRegion> yeet;
+    private Animation<TextureRegion> dead;
 
     /**
      * Constructor (grid-map).
@@ -39,7 +39,7 @@ public class BakaBot extends Baka_AI {
 
     private void setupAnimations() {
         live = loadAnimationFromSheet(bakaLive, 1, 10, frameDuration * 1.3f, true);
-        yeet = loadAnimationFromSheet(bakaDead, 1, 6, frameDuration, false);
+        dead = loadAnimationFromSheet(bakaDead, 1, 6, frameDuration, false);
         setAnimation(live);
     }
 
@@ -85,11 +85,6 @@ public class BakaBot extends Baka_AI {
                 moveRight(gameMap);
                 break;
         }
-//        if (currentDirection == Direction.UP || currentDirection == Direction.DOWN) {
-//            moveUp();
-//        } else {
-//            moveRight();
-//        }
     }
 
     private boolean validDirection(Direction currentDirection, GameMap gameMap) {

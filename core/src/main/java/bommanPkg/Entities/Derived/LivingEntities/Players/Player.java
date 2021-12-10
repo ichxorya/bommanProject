@@ -18,7 +18,7 @@ public class Player extends LivingEntity implements InputProcessor {
      * Resource Paths.
      */
     String movingPath = "sprites/players/cirno_moving.png";
-    String yeetPath = "sprites/players/cirno_yeet.png";
+    String yeetPath = "sprites/players/cirno_dead.png";
 
     /**
      * Animations.
@@ -28,7 +28,7 @@ public class Player extends LivingEntity implements InputProcessor {
     private Animation<TextureRegion> moveDown;
     private Animation<TextureRegion> moveLeft;
     private Animation<TextureRegion> moveRight;
-    private Animation<TextureRegion> yeet;
+    private Animation<TextureRegion> dead;
 
     /**
      * Constructor (grid-map).
@@ -47,12 +47,12 @@ public class Player extends LivingEntity implements InputProcessor {
 
     @Override
     public void die() {
-        setAnimation(yeet);
+        setAnimation(dead);
         isDead = true;
     }
 
     private void setupPlayerAnimations() {
-        yeet = loadAnimationFromSheet(yeetPath, 1, 8, frameDuration * 1.6f, false);
+        dead = loadAnimationFromSheet(yeetPath, 1, 8, frameDuration * 1.6f, false);
 
         Texture movement = new Texture(Gdx.files.internal(movingPath), true);
         TextureRegion[][] temp = TextureRegion.split(movement, gridSize, gridSize);

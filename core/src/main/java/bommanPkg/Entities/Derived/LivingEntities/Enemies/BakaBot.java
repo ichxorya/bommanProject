@@ -56,16 +56,20 @@ public class BakaBot extends Baka_AI {
         super.act(delta, gameMap);
         System.out.println("BakaBot: " + getGridPosX() + " " + getGridPosY());
 
-        boolean isValidDirection = validDirection(currentDirection, gameMap);
-        if (getElapsedTime() > 2f) {
-            if (!isValidDirection) {
-                resetDirection();
-                resetElapsedTime();
-            } else {
-                isMoving = true;
-                moveToDirection(currentDirection, gameMap);
-                gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+        if (!isDead) {
+            boolean isValidDirection = validDirection(currentDirection, gameMap);
+            if (getElapsedTime() > 2f) {
+                if (!isValidDirection) {
+                    resetDirection();
+                    resetElapsedTime();
+                } else {
+                    isMoving = true;
+                    moveToDirection(currentDirection, gameMap);
+                    gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+                }
             }
+        } else {
+            setAnimation(dead);
         }
     }
 

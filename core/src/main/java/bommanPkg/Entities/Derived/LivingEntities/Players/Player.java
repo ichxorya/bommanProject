@@ -3,6 +3,7 @@ package bommanPkg.Entities.Derived.LivingEntities.Players;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -11,8 +12,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
 public class Player extends LivingEntity implements InputProcessor {
-    /** Player Variables. **/
+    /**
+     * Player Variables.
+     **/
     private final int maxBombs = 3;
+    private final int entityID = 7;
 
     /**
      * Resource Paths.
@@ -37,7 +41,7 @@ public class Player extends LivingEntity implements InputProcessor {
         super(x, y, s, gridPosX, gridPosY);
 
         setupPlayerAnimations();
-        setupValues(3, 1);
+        setupValues(1);
     }
 
     @Override
@@ -50,12 +54,32 @@ public class Player extends LivingEntity implements InputProcessor {
      */
     @Override
     protected boolean validDirection(Direction currentDirection, GameMap gameMap) {
-        return false;
+        int temp = 0;
+        boolean valid = false;
+
+        switch (currentDirection) {
+            case UP:
+                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - 1];
+                break;
+            case DOWN:
+                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + 1];
+                break;
+            case LEFT:
+                temp = gameMap.getGridMap()[getGridPosX() - 1][getGridPosY()];
+                break;
+            case RIGHT:
+                temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
+                break;
+        }
+
+        if (temp != 1 && temp != 2) {
+            valid = true;
+        }
+        return valid;
     }
 
     @Override
     public void die() {
-        setAnimation(dead);
         isDead = true;
     }
 
@@ -101,9 +125,56 @@ public class Player extends LivingEntity implements InputProcessor {
     @Override
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
+        float idkSpeed = 1f;
 
-        if (gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7) {
-            die();
+        if (!isDead) {
+            if (gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7) {
+                die();
+            }
+            getDirectionFromInput();
+            boolean isValidDirection = validDirection(currentDirection, gameMap);
+            setAnimationFromDirection(currentDirection);
+            if (getElapsedTime() > idkSpeed) {
+                if (isValidDirection) {
+                    isMoving = true;
+                    moveToDirection(currentDirection, gameMap);
+                    gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+                } else {
+                    System.out.println("Invalid Direction " + currentDirection);
+                }
+            }
+        } else {
+            setAnimation(dead);
+        }
+
+    }
+
+    private void setAnimationFromDirection(Direction currentDirection) {
+        switch (currentDirection) {
+            case UP:
+                setAnimation(moveUp);
+                break;
+            case LEFT:
+                setAnimation(moveLeft);
+                break;
+            case DOWN:
+                setAnimation(moveDown);
+                break;
+            case RIGHT:
+                setAnimation(moveRight);
+                break;
+        }
+    }
+
+    private void getDirectionFromInput() {
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+            currentDirection = Direction.UP;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+            currentDirection = Direction.DOWN;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+            currentDirection = Direction.LEFT;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+            currentDirection = Direction.RIGHT;
         }
     }
 

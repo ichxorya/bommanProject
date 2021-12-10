@@ -76,7 +76,11 @@ public abstract class LivingEntity extends Entity {
 
     /** Is the entity dead? */
     public boolean isDead() {
-        return (isDead || lives <= 0);
+        if (lives <= 0) {
+            isDead = true;
+        }
+
+        return isDead;
     }
 
     /**
@@ -89,7 +93,7 @@ public abstract class LivingEntity extends Entity {
     /**
      * Setup Value.
      */
-    public void setupValues(float speed, int lives) {
+    public void setupValues(int lives) {
         this.lives = lives;
     }
 

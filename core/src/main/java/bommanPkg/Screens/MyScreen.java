@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.InputMultiplexer;
 
-public abstract class MyScreen implements Screen, InputProcessor {
+public abstract class MyScreen implements Screen {
     protected Stage mainStage;
     protected Stage uiStage;
 

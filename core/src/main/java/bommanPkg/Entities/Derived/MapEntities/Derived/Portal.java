@@ -10,15 +10,10 @@ public class Portal extends MapEntity {
     Animation<TextureRegion> portalAnimation;
 
     /**
-     * Constructor.
+     * Constructor (grid-map).
      */
-    public Portal(float x, float y, Stage s) {
-        super(x, y, s);
-
-        portalAnimation = loadAnimationFromSheet("maps/map_resources/portal.png", 1, 4, 0.1f, true);
-        destructible = false;
-        portalActivated = false;
-        setAnimation(portalAnimation);
+    public Portal(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super(x, y, s, gridPosX, gridPosY);
     }
 
     public void activePortal() {

@@ -7,8 +7,8 @@ public class Grass extends MapEntity {
     /**
      * Constructor.
      */
-    public Grass(float x, float y, Stage s) {
-        super(x, y, s);
+    public Grass(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super(x, y, s, gridPosX, gridPosY);
 
         loadTexture("maps/map_resources/grass.png");
         destructible = false;

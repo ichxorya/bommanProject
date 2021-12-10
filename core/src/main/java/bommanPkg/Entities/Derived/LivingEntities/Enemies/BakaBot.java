@@ -17,23 +17,13 @@ public class BakaBot extends Baka_AI {
      * Resource Paths.
      */
     String bakaLive = "sprites/enemies/bakabot_live.png";
-    String bakaYeet = "sprites/enemies/bakabot_yeet.png";
+    String bakaDead = "sprites/enemies/bakabot_yeet.png";
 
     /**
      * Animations.
      */
     private Animation<TextureRegion> live;
     private Animation<TextureRegion> yeet;
-
-    /**
-     * Constructor.
-     */
-    public BakaBot(float x, float y, Stage s) {
-        super(x, y, s);
-
-        setupAnimations();
-        wakeup(2, 1);
-    }
 
     /**
      * Constructor (grid-map).
@@ -43,19 +33,18 @@ public class BakaBot extends Baka_AI {
         oldScreenPos = new float[]{x, y};
         System.out.println("BakaBot" + getGridPosX() + " " + getGridPosY());
         setupAnimations();
-        wakeup(2, 1);
+        wakeup(1);
     }
 
 
     private void setupAnimations() {
         live = loadAnimationFromSheet(bakaLive, 1, 10, frameDuration * 1.3f, true);
-        yeet = loadAnimationFromSheet(bakaYeet, 1, 6, frameDuration, false);
+        yeet = loadAnimationFromSheet(bakaDead, 1, 6, frameDuration, false);
         setAnimation(live);
     }
 
     @Override
-    protected void wakeup(float speed, int lives) {
-        this.speed = speed;
+    protected void wakeup(int lives) {
         this.lives = lives;
         this.isMoving = false;
 
@@ -69,7 +58,7 @@ public class BakaBot extends Baka_AI {
 
         // New Way
         boolean isValidDirection = validDirection(currentDirection, gameMap);
-        if (getElapsedTime() > 0.5f) {
+        if (getElapsedTime() > 2f) {
             if (!isValidDirection) {
                 resetDirection();
                 resetElapsedTime();

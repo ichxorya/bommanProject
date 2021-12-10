@@ -5,21 +5,18 @@ import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-
-public class Explosion extends Entity {
+// TODO
+public class Flare extends Entity {
     private int length;
     private boolean isDone;
     private Animation<TextureRegion> bombCenter;
-    private Animation<TextureRegion> bombUp;
-    private Animation<TextureRegion> bombLeft;
-    private Animation<TextureRegion> bombDown;
-    private Animation<TextureRegion> bombRight;
+    private Animation<TextureRegion> bombFlare;
 
     /**
      * Constructor.
      */
-    public Explosion(float x, float y, Stage s) {
-        super(x, y, s);
+    public Flare(float x, float y, Stage s, int gridPosX, int gridPosY) {
+        super(x, y, s, gridPosX, gridPosY);
 
         setupExplosionAnimations();
         setAnimation(bombCenter);
@@ -28,10 +25,7 @@ public class Explosion extends Entity {
 
     private void setupExplosionAnimations() {
         bombCenter = loadTexture("sprites/bomb/cirno_bomb_center.png");
-        bombUp = loadTexture("sprites/bomb/cirno_bomb_hit.png");
-        bombLeft = loadTexture("sprites/bomb/cirno_bomb_hit.png");
-        bombDown = loadTexture("sprites/bomb/cirno_bomb_hit.png");
-        bombRight = loadTexture("sprites/bomb/cirno_bomb_hit.png");
+        bombFlare = loadTexture("sprites/bomb/cirno_bomb_hit.png");
     }
 
     /**

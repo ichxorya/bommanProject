@@ -31,16 +31,6 @@ public class Player extends LivingEntity implements InputProcessor {
     private Animation<TextureRegion> yeet;
 
     /**
-     * Constructor.
-     */
-    public Player(float x, float y, Stage s) {
-        super(x, y, s);
-
-        setupPlayerAnimations();
-        setupValues(3, 1);
-    }
-
-    /**
      * Constructor (grid-map).
      */
     public Player(float x, float y, Stage s, int gridPosX, int gridPosY) {

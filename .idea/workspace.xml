@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="chưa thay đổi j lắm">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="bruh">
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/demo_map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/demo_map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/demo_map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/maps/demo_map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Explosion.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Flare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/AI/Baka_AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Base/LivingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Base/MapEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Base/MapEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Grass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Portal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/MapEntities/Derived/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +73,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/core/src/main/java/bommanPkg/bruh" />
@@ -139,6 +147,7 @@
       <workItem from="1638931800125" duration="16939000" />
       <workItem from="1638982781981" duration="685000" />
       <workItem from="1639007713924" duration="13383000" />
+      <workItem from="1639120495280" duration="1834000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -371,7 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1639059153893</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="chưa thay đổi j lắm (fixed)">
+      <created>1639059243044</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1639059243044</updated>
+    </task>
+    <task id="LOCAL-00035" summary="bruh">
+      <created>1639059513239</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1639059513239</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,8 +427,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="10000" />
-    <MESSAGE value="bosung" />
-    <MESSAGE value="resources&#10;&#10;se code chuc nang vao chieu nay" />
     <MESSAGE value="resources update" />
     <MESSAGE value="resources update (full pic, need more sound?)" />
     <MESSAGE value="whatthehell_commit_suicide_jk_immahitthebed" />
@@ -429,7 +450,9 @@
     <MESSAGE value="neu bot cham vao nguoi choi = die" />
     <MESSAGE value="update" />
     <MESSAGE value="chưa thay đổi j lắm" />
-    <option name="LAST_COMMIT_MESSAGE" value="chưa thay đổi j lắm" />
+    <MESSAGE value="chưa thay đổi j lắm (fixed)" />
+    <MESSAGE value="bruh" />
+    <option name="LAST_COMMIT_MESSAGE" value="bruh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

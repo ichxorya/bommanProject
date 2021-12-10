@@ -15,7 +15,4 @@ public abstract class MyGame extends Game {
     public static void setActiveScreen(MyScreen screen) {
         game.setScreen(screen);
     }
-
-    public void create() {
-    }
 }

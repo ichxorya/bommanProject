@@ -60,7 +60,7 @@ public class MainGameScreen extends MyScreen {
         for (int y = 0; y < verticalBlocks; y++) {
             int entityPosX = 0;
             for (int x = 0; x < horizontalBlocks; x++) {
-                new Grass(entityPosX, entityPosY, mainStage);
+                new Grass(entityPosX, entityPosY, mainStage, x, y);
                 entityPosX += gridSize;
             }
             entityPosY += gridSize;

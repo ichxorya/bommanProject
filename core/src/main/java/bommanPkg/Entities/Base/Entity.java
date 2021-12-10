@@ -2,7 +2,6 @@ package bommanPkg.Entities.Base;
 
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -11,37 +10,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
-public class Entity extends Actor {
+public abstract class Entity extends Actor {
     /**
      * Constants.
-     **/
+     */
     public static final int gridSize = 64;
     protected static final float frameDuration = 0.2f;
+
     /**
      * Variables.
      */
     private Animation<TextureRegion> animation;
     private float elapsedTime;
     protected int[] gridPos;
-    /**
-     * Constructor.
-     */
-    public Entity(float x, float y, Stage s) {
-        super();
-
-        // Map Related
-        gridPos = new int[2];
-
-        // Stage Related
-        setPosition(x, y);
-        s.addActor(this);
-
-        // Self
-        setSize(gridSize, gridSize);
-
-        animation = null;
-        elapsedTime = 0;
-    }
 
     /**
      * Constructor (grid-map).
@@ -121,10 +102,6 @@ public class Entity extends Actor {
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
 
-        // Apply color tint effect
-        Color c = getColor();
-        batch.setColor(c.r, c.g, c.b, c.a);
-
         if (animation != null && isVisible())
             batch.draw(animation.getKeyFrame(elapsedTime),
                     getX(), getY(), getOriginX(), getOriginY(),
@@ -202,11 +179,6 @@ public class Entity extends Actor {
     public Animation<TextureRegion> loadTexture(String fileName) {
         String[] fileNames = {fileName};
         return loadAnimationFromFiles(fileNames, 1, true);
-    }
-
-    // Debugging Texture // TODO: Maybe redundant?
-    private Animation<TextureRegion> loadDefaultTexture() {
-        return loadTexture("sprites/default.png");
     }
 
     /**

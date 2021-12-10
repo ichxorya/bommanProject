@@ -7,18 +7,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public abstract class Baka_AI extends LivingEntity {
     /** Variables. */
 
-    /**
-     * Constructor.
-     */
-    public Baka_AI(float x, float y, Stage s) {
-        super(x, y, s);
-    }
     public Baka_AI(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
     }
 
 
-    protected abstract void wakeup(float speed, int lives);
+    protected abstract void wakeup(int lives);
 
     @Override
     public void die() {

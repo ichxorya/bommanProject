@@ -21,10 +21,10 @@ public class Bomb extends Entity {
         setAnimation(bombAnimation);
     }
 
-    /** DEBUG: VANISH AFTER 1 SECONDS */
+    /** DEBUG: VANISH AFTER 1.69 SECONDS */
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
-        if (getElapsedTime() > 1f) {
+        if (getElapsedTime() > 1.69f) {
             bombExploded = true;
         }
 

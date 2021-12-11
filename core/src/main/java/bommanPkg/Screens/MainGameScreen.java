@@ -6,6 +6,7 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import bommanPkg.Maps.GameMap;
+import com.badlogic.gdx.Gdx;
 
 import static bommanPkg.Entities.Base.Entity.gridSize;
 
@@ -74,5 +75,19 @@ public class MainGameScreen extends MyScreen {
         map.actBombEntities(dt);
         map.actMapEntities(dt);
         map.printGridMap();
+
+        theMostImportantMethodIGuess();
+    }
+
+    // TODO: Rick Roll or something
+    private void theMostImportantMethodIGuess() {
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.Q)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.U)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.A)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.M)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.O)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.N)) {
+            throw new RuntimeException("You found the secret code!");
+        }
     }
 }

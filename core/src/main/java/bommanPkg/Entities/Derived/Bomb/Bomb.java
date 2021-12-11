@@ -30,6 +30,10 @@ public class Bomb extends Entity {
 
         if (bombExploded) {
             setVisible(false);
+//
+//            // Remove from stage
+//            getStage().getActors().removeValue(this, true);
+
             generateExplosion();
         }
     }

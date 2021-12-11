@@ -1,21 +1,15 @@
 package bommanPkg.Maps;
 
 import bommanPkg.Entities.Base.Entity;
+import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
-import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
-import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
-import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
-import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
-
-import static bommanPkg.Entities.Base.Entity.gridSize;
 
 public class GameMap {
     public int getHorizontalBlocks() {
@@ -36,6 +30,7 @@ public class GameMap {
     private int[][] gridMap;
     List<LivingEntity> livingList;
     List<MapEntity> blockList;
+    List<Bomb> bombList;
 
     /** Getter: gridMap. **/
     public int[][] getGridMap() {
@@ -53,6 +48,7 @@ public class GameMap {
     public GameMap() {
         blockList = new ArrayList<>();
         livingList = new ArrayList<>();
+        bombList = new ArrayList<>();
 
         loadMapFile();
         generateMap();
@@ -120,11 +116,25 @@ public class GameMap {
             blockList.add((MapEntity) entity);
         } else if (entity instanceof LivingEntity) {
             livingList.add((LivingEntity) entity);
+        } else if (entity instanceof Bomb) {
+            bombList.add((Bomb) entity);
         }
     }
 
     public void actLivingEntities(float dt) {
         for (LivingEntity entity : livingList) {
+            entity.act(dt, this);
+        }
+    }
+
+    public void actBombEntities(float dt) {
+        for (Bomb entity : bombList) {
+            entity.act(dt, this);
+        }
+    }
+
+    public void actMapEntities(float dt) {
+        for (MapEntity entity : blockList) {
             entity.act(dt, this);
         }
     }
@@ -135,6 +145,16 @@ public class GameMap {
                 System.out.print(gridMap[x][y] + " ");
             }
             System.out.println();
+        }
+    }
+
+    public <T extends Entity> void removeFromList(Entity entity, List<T> listOfSomething) {
+        if (entity instanceof MapEntity) {
+            blockList.remove(entity);
+        } else if (entity instanceof LivingEntity) {
+            livingList.remove(entity);
+        } else if (entity instanceof Bomb) {
+            bombList.remove(entity);
         }
     }
 }

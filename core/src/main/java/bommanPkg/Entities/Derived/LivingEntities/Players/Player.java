@@ -1,5 +1,6 @@
 package bommanPkg.Entities.Derived.LivingEntities.Players;
 
+import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
@@ -17,12 +18,13 @@ public class Player extends LivingEntity implements InputProcessor {
      **/
     private final int maxBombs = 3;
     private final int entityID = 7;
+    private int bombCount = 1;
 
     /**
      * Resource Paths.
      */
-    String movingPath = "sprites/players/cirno_moving.png";
-    String deadPath = "sprites/players/cirno_dead.png";
+    private final String movingPath = "sprites/players/cirno_moving.png";
+    private final String deadPath = "sprites/players/cirno_dead.png";
 
     /**
      * Animations.
@@ -130,13 +132,10 @@ public class Player extends LivingEntity implements InputProcessor {
         float idkSpeed = 0.5f;
 
         if (!isDead) {
-            if (
-                    // Enemy reached the player.
-                    gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 7
-            ) {
+            if (touchedByDeath(gameMap)) {
                 die();
             }
-            getDirectionFromInput();
+            getDirectionFromInput(gameMap);
             boolean isValidDirection = validDirection(currentDirection, gameMap);
             setAnimationFromDirection(currentDirection);
             if (getElapsedTime() > idkSpeed) {
@@ -146,7 +145,7 @@ public class Player extends LivingEntity implements InputProcessor {
                     isMoving = true;
                     moveToDirection(currentDirection, gameMap);
 
-                    if (touchedByDeath(gameMap)) {
+                    if (!touchedByDeath(gameMap)) {
                         gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
                     }
                 } else {
@@ -161,9 +160,10 @@ public class Player extends LivingEntity implements InputProcessor {
 
     // TODO: If it works like a charm, should be implemented in the super class.
     private boolean touchedByDeath(GameMap gameMap) {
-        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 4
-                && gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 5
-                && gameMap.getGridMap()[getGridPosX()][getGridPosY()] != 6;
+        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 4
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 5
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 6
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -2;
     }
 
     private void setAnimationFromDirection(Direction currentDirection) {
@@ -183,7 +183,7 @@ public class Player extends LivingEntity implements InputProcessor {
         }
     }
 
-    private void getDirectionFromInput() {
+    private void getDirectionFromInput(GameMap gameMap) {
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             currentDirection = Direction.UP;
         } else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
@@ -194,6 +194,24 @@ public class Player extends LivingEntity implements InputProcessor {
             currentDirection = Direction.RIGHT;
         } else {
             currentDirection = Direction.NONE;
+
+            getActionFromInput(gameMap);
+        }
+    }
+
+    private void getActionFromInput(GameMap gameMap) {
+        if (Gdx.input.isKeyPressed(Input.Keys.B)) {
+            setBomb(gameMap);
+        }
+    }
+
+    private void setBomb(GameMap gameMap) {
+        System.out.println("SET BOMB!");
+        if (bombCount > 0) {
+            bombCount--;
+            Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY());
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;
+            gameMap.add(bomb);
         }
     }
 

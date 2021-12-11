@@ -71,6 +71,8 @@ public class MainGameScreen extends MyScreen {
     public void update(float dt) {
         player.act(dt, map);
         map.actLivingEntities(dt);
+        map.actBombEntities(dt);
+        map.actMapEntities(dt);
         map.printGridMap();
     }
 }

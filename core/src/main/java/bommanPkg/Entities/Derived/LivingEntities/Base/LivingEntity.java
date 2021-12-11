@@ -100,7 +100,7 @@ public abstract class LivingEntity extends Entity {
     }
 
     public void resetDirection() {
-        currentDirection = Direction.getRandom();
+        currentDirection = Direction.NONE;
     }
 
     protected Direction getDirection() {

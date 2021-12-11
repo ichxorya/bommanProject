@@ -60,7 +60,7 @@ public class BakaBot extends Baka_AI {
             boolean isValidDirection = validDirection(currentDirection, gameMap);
             if (getElapsedTime() > 2f) {
                 if (!isValidDirection || currentDirection == Direction.NONE) {
-                    resetDirection();
+                    currentDirection = Direction.getRandom();
                     resetElapsedTime();
                 } else {
                     isMoving = true;

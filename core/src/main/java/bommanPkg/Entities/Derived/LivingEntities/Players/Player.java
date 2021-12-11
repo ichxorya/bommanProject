@@ -126,9 +126,6 @@ public class Player extends LivingEntity implements InputProcessor {
                     System.out.println("Invalid Direction " + currentDirection);
                 }
             }
-
-            // Bomb-related stuff
-
         } else {
             setAnimation(dead);
         }

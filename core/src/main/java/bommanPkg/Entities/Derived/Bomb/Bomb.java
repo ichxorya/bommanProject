@@ -10,6 +10,8 @@ import squidpony.squidgrid.Direction;
 // TODO
 public class Bomb extends Entity {
     private boolean bombExploded;
+    private int[] flameDir;
+    private boolean[] stopCheckDir;
 
     /**
      * Constructor.
@@ -65,21 +67,26 @@ public class Bomb extends Entity {
     }
 
     private int[] getFlameLengthByDirection(int flameLength, GameMap gameMap) {
-        int[] flameDir = new int[4];
-        flameDir[0] = getFlameLengthUp(flameLength, gameMap);
-        flameDir[1] = getFlameLengthLeft(flameLength, gameMap);
-        flameDir[2] = getFlameLengthDown(flameLength, gameMap);
-        flameDir[3] = getFlameLengthRight(flameLength, gameMap);
+        flameDir = new int[4];
+        stopCheckDir = new boolean[4];
+
+        flameDir[0] = getFlameLengthUp(flameLength, gameMap, stopCheckDir);
+        flameDir[1] = getFlameLengthLeft(flameLength, gameMap, stopCheckDir);
+        flameDir[2] = getFlameLengthDown(flameLength, gameMap, stopCheckDir);
+        flameDir[3] = getFlameLengthRight(flameLength, gameMap, stopCheckDir);
         return flameDir;
     }
 
-    private int getFlameLengthRight(int flameLength, GameMap gameMap) {
+    private int getFlameLengthRight(int flameLength, GameMap gameMap, boolean[] stopCheckDir) {
         int maxLength = 0;
 
         for (int i = 1; i <= flameLength; i++) {
-            if (validDirection(gameMap, Direction.RIGHT, i)) {
+            if (validDirection(gameMap, 3, i, stopCheckDir) && !stopCheckDir[3]) {
                 maxLength = i;
             } else {
+                if (stopCheckDir[3]) {
+                    maxLength += 1;
+                }
                 break;
             }
         }
@@ -87,13 +94,16 @@ public class Bomb extends Entity {
         return maxLength;
     }
 
-    private int getFlameLengthDown(int flameLength, GameMap gameMap) {
+    private int getFlameLengthDown(int flameLength, GameMap gameMap, boolean[] flameDir) {
         int maxLength = 0;
 
         for (int i = 1; i <= flameLength; i++) {
-            if (validDirection(gameMap, Direction.DOWN, i)) {
+            if (validDirection(gameMap, 2, i, flameDir) && !stopCheckDir[2]) {
                 maxLength = i;
             } else {
+                if (stopCheckDir[2]) {
+                    maxLength += 1;
+                }
                 break;
             }
         }
@@ -101,13 +111,16 @@ public class Bomb extends Entity {
         return maxLength;
     }
 
-    private int getFlameLengthLeft(int flameLength, GameMap gameMap) {
+    private int getFlameLengthLeft(int flameLength, GameMap gameMap, boolean[] flameDir) {
         int maxLength = 0;
 
         for (int i = 1; i <= flameLength; i++) {
-            if (validDirection(gameMap, Direction.LEFT, i)) {
+            if (validDirection(gameMap, 1, i, flameDir) && !stopCheckDir[1]) {
                 maxLength = i;
             } else {
+                if (stopCheckDir[1]) {
+                    maxLength += 1;
+                }
                 break;
             }
         }
@@ -115,13 +128,16 @@ public class Bomb extends Entity {
         return maxLength;
     }
 
-    private int getFlameLengthUp(int flameLength, GameMap gameMap) {
+    private int getFlameLengthUp(int flameLength, GameMap gameMap, boolean[] flameDir) {
         int maxLength = 0;
 
         for (int i = 1; i <= flameLength; i++) {
-            if (validDirection(gameMap, Direction.UP, i)) {
+            if (validDirection(gameMap, 0, i, flameDir) && !stopCheckDir[0]) {
                 maxLength = i;
             } else {
+                if (stopCheckDir[0]) {
+                    maxLength += 1;
+                }
                 break;
             }
         }
@@ -135,27 +151,32 @@ public class Bomb extends Entity {
         return bombExploded;
     }
 
-    private boolean validDirection (GameMap gameMap, Direction dir, int pos) {
+    /** Valid Direction check for Bomb. */
+    private boolean validDirection(GameMap gameMap, int dir, int pos, boolean[] stopCheckDir) {
         int temp = 0;
         boolean valid = false;
 
         switch (dir) {
-            case UP:
+            case 0:
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - pos];
                 break;
-            case DOWN:
+            case 2:
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + pos];
                 break;
-            case LEFT:
+            case 1:
                 temp = gameMap.getGridMap()[getGridPosX() - pos][getGridPosY()];
                 break;
-            case RIGHT:
+            case 3:
                 temp = gameMap.getGridMap()[getGridPosX() + pos][getGridPosY()];
                 break;
         }
 
         if (temp != 1) {
             valid = true;
+            if (temp == 2) {
+                stopCheckDir[dir] = true;
+                return true;
+            }
         }
         return valid;
     }

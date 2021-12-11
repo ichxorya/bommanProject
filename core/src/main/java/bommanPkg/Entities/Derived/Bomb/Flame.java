@@ -14,7 +14,7 @@ public class Flame extends Entity {
     /**
      * Constructor.
      */
-    public Flame(float x, float y, Stage s, int gridPosX, int gridPosY, boolean isCenter) {
+    public Flame(float x, float y, Stage s, GameMap gameMap, int gridPosX, int gridPosY, boolean isCenter) {
         super(x, y, s, gridPosX, gridPosY);
 
         if (isCenter) {
@@ -23,7 +23,8 @@ public class Flame extends Entity {
             flameAnimation = loadTexture("sprites/bomb/cirno_bomb_hit.png");
         }
         setAnimation(flameAnimation);
-        length = 3;
+        length = 2;
+        gameMap.getGridMap()[gridPosX][gridPosY] = -2;
     }
 
     /**
@@ -40,6 +41,7 @@ public class Flame extends Entity {
 
         if (isDone) {
             setVisible(false);
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
         }
     }
 

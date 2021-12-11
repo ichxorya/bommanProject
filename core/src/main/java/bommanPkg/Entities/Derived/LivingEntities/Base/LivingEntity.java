@@ -66,6 +66,9 @@ public abstract class LivingEntity extends Entity {
         currentDirection = Direction.DOWN;
     }
 
+    /** Deadly move. */
+    protected abstract boolean touchedByDeath(GameMap gameMap);
+
     /** Setter: lives. */
     public void setLives(int lives) {
         this.lives = lives;
@@ -116,15 +119,27 @@ public abstract class LivingEntity extends Entity {
 
         switch (currentDirection) {
             case UP:
+                if (getGridPosY() - 1 < 0 || getGridPosY() - 1 >= gameMap.getVerticalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - 1];
                 break;
             case DOWN:
+                if (getGridPosY() + 1 < 0 || getGridPosY() + 1 >= gameMap.getVerticalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + 1];
                 break;
             case LEFT:
+                if (getGridPosX() - 1 < 0 || getGridPosX() - 1 >= gameMap.getHorizontalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX() - 1][getGridPosY()];
                 break;
             case RIGHT:
+                if (getGridPosX() + 1 < 0 || getGridPosX() + 1 >= gameMap.getHorizontalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
                 break;
         }

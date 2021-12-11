@@ -57,6 +57,9 @@ public class BakaBot extends Baka_AI {
         System.out.println("BakaBot: " + getGridPosX() + " " + getGridPosY());
 
         if (!isDead) {
+            if (touchedByDeath(gameMap)) {
+                die();
+            }
             boolean isValidDirection = validDirection(currentDirection, gameMap);
             if (getElapsedTime() > 2f) {
                 if (!isValidDirection || currentDirection == Direction.NONE) {
@@ -76,5 +79,13 @@ public class BakaBot extends Baka_AI {
     @Override
     protected void setDirection(Direction dir) {
         currentDirection = dir;
+    }
+
+    /**
+     * Deadly move.
+     */
+    @Override
+    protected boolean touchedByDeath(GameMap gameMap) {
+        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -2;
     }
 }

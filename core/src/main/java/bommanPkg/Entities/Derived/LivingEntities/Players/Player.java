@@ -48,6 +48,17 @@ public class Player extends LivingEntity implements InputProcessor {
         setupValues(1);
     }
 
+    /**
+     * Deadly move.
+     */
+    @Override
+    protected boolean touchedByDeath(GameMap gameMap) {
+        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 4
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 5
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 6
+                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -2;
+    }
+
     @Override
     protected void setDirection(Direction dir) {
         this.currentDirection = dir;
@@ -138,14 +149,6 @@ public class Player extends LivingEntity implements InputProcessor {
         }
     }
 
-    // TODO: If it works like a charm, should be implemented in the super class.
-    private boolean touchedByDeath(GameMap gameMap) {
-        return gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 4
-                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 5
-                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == 6
-                || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -2;
-    }
-
     private void setAnimationFromDirection(Direction currentDirection) {
         switch (currentDirection) {
             case UP:
@@ -188,12 +191,11 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     private void setBomb(GameMap gameMap) {
-        System.out.println("U HAVE " + currentBomb + " BOMBS LEFT");
         if (currentBomb > 0 && !pressedBombKey && validBombTile(gameMap)) {
             pressedBombKey = true;
             currentBomb--;
             Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY());
-            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;    // Bomb ID
             gameMap.add(bomb);
         }
     }

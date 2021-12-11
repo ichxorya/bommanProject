@@ -145,6 +145,10 @@ public class GameMap {
         flameList.removeIf(Flame::isDone);
     }
 
+    private void setGridPos(int x, int y, int i) {
+        this.gridMap[x][y] = i;
+    }
+
     public void actMapEntities(float dt) {
         for (MapEntity entity : blockList) {
             entity.act(dt, this);

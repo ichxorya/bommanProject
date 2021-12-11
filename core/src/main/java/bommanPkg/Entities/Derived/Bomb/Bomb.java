@@ -5,7 +5,6 @@ import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import squidpony.squidgrid.Direction;
 
 // TODO
 public class Bomb extends Entity {
@@ -41,28 +40,29 @@ public class Bomb extends Entity {
     /** Generate explosion. */
     private void generateExplosion(int flameLength, GameMap gameMap) {
         // Center of the explosion
-        gameMap.add(new Flame(getX(), getY(), getStage(), getGridPosX(), getGridPosY(), true));
+        gameMap.add(new Flame(getX(), getY(), getStage(), gameMap, getGridPosX(), getGridPosY(), true));
 
         int[] flameLengthByDirection = getFlameLengthByDirection(flameLength, gameMap);
+        // TODO: BUG POINTER: SAFE LINE
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {
-            gameMap.add(new Flame(getX() - i * gridSize, getY(), getStage(), getGridPosX() - i, getGridPosY(), false));
+            gameMap.add(new Flame(getX() - i * gridSize, getY(), getStage(), gameMap, getGridPosX() - i, getGridPosY(), false));
         }
 
         // Right
         for (int i = 1; i <= flameLengthByDirection[3]; i++) {
-            gameMap.add(new Flame(getX() + i * gridSize, getY(), getStage(), getGridPosX() + i, getGridPosY(), false));
+            gameMap.add(new Flame(getX() + i * gridSize, getY(), getStage(), gameMap, getGridPosX() + i, getGridPosY(), false));
         }
 
         // Up
         for (int i = 1; i <= flameLengthByDirection[0]; i++) {
-            gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), getGridPosX(), getGridPosY() + i, false));
+            gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() + i, false));
         }
 
         // Down
         for (int i = 1; i <= flameLengthByDirection[2]; i++) {
-            gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), getGridPosX(), getGridPosY() - i, false));
+            gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() - i, false));
         }
     }
 
@@ -158,15 +158,27 @@ public class Bomb extends Entity {
 
         switch (dir) {
             case 0:
+                if (getGridPosY() - pos < 0 || getGridPosY() - pos >= gameMap.getVerticalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - pos];
                 break;
             case 2:
+                if (getGridPosY() + pos < 0 || getGridPosY() + pos >= gameMap.getVerticalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + pos];
                 break;
             case 1:
+                if (getGridPosX() - pos < 0 || getGridPosX() - pos >= gameMap.getHorizontalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX() - pos][getGridPosY()];
                 break;
             case 3:
+                if (getGridPosX() + pos < 0 || getGridPosX() + pos >= gameMap.getHorizontalBlocks()) {
+                    return false;
+                }
                 temp = gameMap.getGridMap()[getGridPosX() + pos][getGridPosY()];
                 break;
         }

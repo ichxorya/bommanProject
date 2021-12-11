@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="dat bom 0.3&#10;&#10;can cai: no dc, no chet nguoi, don dep sau khi no&#10;da kiem soat reset bomb&#10;&#10;weirdo patch">
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="dat bom 0.7&#10;&#10;can cai: no chet nguoi va chet tuong">
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
@@ -20,7 +20,6 @@
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Enemies/BakaBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +149,7 @@
       <workItem from="1639141434241" duration="6537000" />
       <workItem from="1639188487588" duration="6015000" />
       <workItem from="1639208127755" duration="6652000" />
-      <workItem from="1639227764349" duration="3733000" />
+      <workItem from="1639227764349" duration="12373000" />
     </task>
     <task id="LOCAL-00001" summary="wtf crash">
       <created>1638202521754</created>
@@ -467,7 +466,28 @@
       <option name="project" value="LOCAL" />
       <updated>1639213461798</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="dat bom 0.5&#10;&#10;can cai: no dc dung cho, no chet nguoi">
+      <created>1639233070155</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1639233070155</updated>
+    </task>
+    <task id="LOCAL-00047" summary="dat bom 0.6&#10;&#10;can cai: no dc dung cho, no chet nguoi">
+      <created>1639234993518</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1639234993518</updated>
+    </task>
+    <task id="LOCAL-00048" summary="dat bom 0.7&#10;&#10;can cai: no chet nguoi va chet tuong">
+      <created>1639236308137</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1639236308137</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,9 +520,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="10000" />
-    <MESSAGE value="physic commit" />
-    <MESSAGE value="physics commit" />
-    <MESSAGE value="BAKABOT" />
     <MESSAGE value="cai tien va cham (?)&#10;next: MAP" />
     <MESSAGE value="bro? toi da hoan thanh cai &quot;brick block?&quot;" />
     <MESSAGE value="bro? toi da hoan thanh cai &quot;brick block?&quot;&#10;&#10;co le, chieu nay hoan thien map" />
@@ -525,7 +542,10 @@
     <MESSAGE value="dat bom 0.2&#10;&#10;can cai: no dc, no chet nguoi, don dep sau khi no" />
     <MESSAGE value="dat bom 0.3&#10;&#10;can cai: no dc, no chet nguoi, don dep sau khi no&#10;da kiem soat reset bomb" />
     <MESSAGE value="dat bom 0.3&#10;&#10;can cai: no dc, no chet nguoi, don dep sau khi no&#10;da kiem soat reset bomb&#10;&#10;weirdo patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="dat bom 0.3&#10;&#10;can cai: no dc, no chet nguoi, don dep sau khi no&#10;da kiem soat reset bomb&#10;&#10;weirdo patch" />
+    <MESSAGE value="dat bom 0.5&#10;&#10;can cai: no dc dung cho, no chet nguoi" />
+    <MESSAGE value="dat bom 0.6&#10;&#10;can cai: no dc dung cho, no chet nguoi" />
+    <MESSAGE value="dat bom 0.7&#10;&#10;can cai: no chet nguoi va chet tuong" />
+    <option name="LAST_COMMIT_MESSAGE" value="dat bom 0.7&#10;&#10;can cai: no chet nguoi va chet tuong" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

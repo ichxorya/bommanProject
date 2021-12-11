@@ -21,18 +21,15 @@ public class Bomb extends Entity {
         setAnimation(bombAnimation);
     }
 
-    /** DEBUG: VANISH AFTER 2 SECONDS */
+    /** DEBUG: VANISH AFTER 1 SECONDS */
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
-        if (getElapsedTime() > 2f) {
+        if (getElapsedTime() > 1f) {
             bombExploded = true;
         }
 
         if (bombExploded) {
             setVisible(false);
-//
-//            // Remove from stage
-//            getStage().getActors().removeValue(this, true);
 
             generateExplosion();
         }
@@ -43,4 +40,8 @@ public class Bomb extends Entity {
         new Flame(getX(), getY(), getStage(), getGridPosX(), getGridPosY());
     }
 
+    /** Is the bomb exploded? */
+    public boolean isExploded() {
+        return bombExploded;
+    }
 }

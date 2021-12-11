@@ -8,8 +8,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameMap {
     public int getHorizontalBlocks() {
@@ -131,6 +133,9 @@ public class GameMap {
         for (Bomb entity : bombList) {
             entity.act(dt, this);
         }
+
+        bombList.removeIf(Bomb::isExploded);
+        System.out.println("BOMB LIST SIZE: " + bombList.size());
     }
 
     public void actMapEntities(float dt) {
@@ -148,7 +153,7 @@ public class GameMap {
         }
     }
 
-    public <T extends Entity> void removeFromList(Entity entity, List<T> listOfSomething) {
+    public void removeFromList(Entity entity) {
         if (entity instanceof MapEntity) {
             blockList.remove(entity);
         } else if (entity instanceof LivingEntity) {
@@ -156,5 +161,27 @@ public class GameMap {
         } else if (entity instanceof Bomb) {
             bombList.remove(entity);
         }
+    }
+
+    public boolean isInList(Entity entity) {
+        if (entity instanceof MapEntity) {
+            return blockList.contains(entity);
+        } else if (entity instanceof LivingEntity) {
+            return livingList.contains(entity);
+        } else if (entity instanceof Bomb) {
+            return bombList.contains(entity);
+        }
+        return false;
+    }
+
+    public List<? extends Entity> getList(Entity entity) {
+        if (entity instanceof MapEntity) {
+            return blockList;
+        } else if (entity instanceof LivingEntity) {
+            return livingList;
+        } else if (entity instanceof Bomb) {
+            return bombList;
+        }
+        return null;
     }
 }

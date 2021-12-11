@@ -18,7 +18,8 @@ public class Player extends LivingEntity implements InputProcessor {
      **/
     private final int maxBombs = 3;
     private final int entityID = 7;
-    private int bombCount = 1;
+    private int bombCount = 3;
+    private boolean pressedBombKey = false;
 
     /**
      * Resource Paths.
@@ -152,6 +153,9 @@ public class Player extends LivingEntity implements InputProcessor {
                     System.out.println("Invalid Direction " + currentDirection);
                 }
             }
+
+            // Bomb-related stuff
+
         } else {
             setAnimation(dead);
         }
@@ -200,19 +204,26 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     private void getActionFromInput(GameMap gameMap) {
-        if (Gdx.input.isKeyPressed(Input.Keys.B)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.B)) {
             setBomb(gameMap);
         }
+
+        pressedBombKey = false;
     }
 
     private void setBomb(GameMap gameMap) {
-        System.out.println("SET BOMB!");
-        if (bombCount > 0) {
+        System.out.println("U HAVE " + bombCount + " BOMBS LEFT");
+        if (bombCount > 0 && !pressedBombKey && validBombTile(gameMap)) {
+            pressedBombKey = true;
             bombCount--;
             Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY());
             gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;
             gameMap.add(bomb);
         }
+    }
+
+    private boolean validBombTile(GameMap gameMap) {
+        return !(gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -1);
     }
 
     // InputProcessor required methods

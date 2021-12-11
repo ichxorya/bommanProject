@@ -22,9 +22,14 @@ public class Flame extends Entity {
         } else {
             flameAnimation = loadTexture("sprites/bomb/cirno_bomb_hit.png");
         }
+
+        if (gridPosY <= 0) {
+            flameAnimation = loadTexture("sprites/default.png");
+        }
         setAnimation(flameAnimation);
-        length = 2;
-        gameMap.getGridMap()[gridPosX][gridPosY] = -2;
+
+            length = 2;
+        System.out.println("Flame x: " + getGridPosX() + " y: " + getGridPosY());
     }
 
     /**
@@ -41,7 +46,6 @@ public class Flame extends Entity {
 
         if (isDone) {
             setVisible(false);
-            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
         }
     }
 

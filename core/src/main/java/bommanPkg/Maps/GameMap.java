@@ -140,6 +140,7 @@ public class GameMap {
     public void actFlameEntities(float dt) {
         for (Flame entity : flameList) {
             entity.act(dt, this);
+            System.out.println("flame x-" + entity.getGridPosX() + " y-" + entity.getGridPosY());
         }
 
         flameList.removeIf(Flame::isDone);

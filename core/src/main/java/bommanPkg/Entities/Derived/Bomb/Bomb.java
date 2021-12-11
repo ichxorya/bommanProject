@@ -47,21 +47,33 @@ public class Bomb extends Entity {
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {
+            if (getGridPosX() - i < 0) {
+                break;
+            }
             gameMap.add(new Flame(getX() - i * gridSize, getY(), getStage(), gameMap, getGridPosX() - i, getGridPosY(), false));
         }
 
         // Right
         for (int i = 1; i <= flameLengthByDirection[3]; i++) {
+            if (getGridPosX() + i >= gameMap.getHorizontalBlocks()) {
+                break;
+            }
             gameMap.add(new Flame(getX() + i * gridSize, getY(), getStage(), gameMap, getGridPosX() + i, getGridPosY(), false));
         }
 
         // Up
         for (int i = 1; i <= flameLengthByDirection[0]; i++) {
+            if (getGridPosY() - i < 0) {
+                break;
+            }
             gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() + i, false));
         }
 
         // Down
         for (int i = 1; i <= flameLengthByDirection[2]; i++) {
+            if (getGridPosY() + i >= gameMap.getVerticalBlocks()) {
+                break;
+            }
             gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() - i, false));
         }
     }
@@ -158,28 +170,32 @@ public class Bomb extends Entity {
 
         switch (dir) {
             case 0:
-                if (getGridPosY() - pos < 0 || getGridPosY() - pos >= gameMap.getVerticalBlocks()) {
+                if (getGridPosY() - pos < 0) {
                     return false;
                 }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - pos];
+
                 break;
             case 2:
-                if (getGridPosY() + pos < 0 || getGridPosY() + pos >= gameMap.getVerticalBlocks()) {
+                if (getGridPosY() + pos >= gameMap.getVerticalBlocks()) {
                     return false;
                 }
                 temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + pos];
+
                 break;
             case 1:
-                if (getGridPosX() - pos < 0 || getGridPosX() - pos >= gameMap.getHorizontalBlocks()) {
+                if (getGridPosX() - pos < 0) {
                     return false;
                 }
                 temp = gameMap.getGridMap()[getGridPosX() - pos][getGridPosY()];
+
                 break;
             case 3:
-                if (getGridPosX() + pos < 0 || getGridPosX() + pos >= gameMap.getHorizontalBlocks()) {
+                if (getGridPosX() + pos >= gameMap.getHorizontalBlocks()) {
                     return false;
                 }
                 temp = gameMap.getGridMap()[getGridPosX() + pos][getGridPosY()];
+
                 break;
         }
 
@@ -187,7 +203,7 @@ public class Bomb extends Entity {
             valid = true;
             if (temp == 2) {
                 stopCheckDir[dir] = true;
-                return true;
+                return false;
             }
         }
         return valid;

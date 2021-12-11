@@ -18,7 +18,8 @@ public class Player extends LivingEntity implements InputProcessor {
      **/
     private final int maxBombs = 3;
     private final int entityID = 7;
-    private int bombCount = 3;
+    private int currentBomb = 3;
+    private int currentMaxBombs = 3;
     private boolean pressedBombKey = false;
 
     /**
@@ -128,6 +129,7 @@ public class Player extends LivingEntity implements InputProcessor {
     @Override
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
+        getBombInfo(gameMap);
 
         // The smaller the 'idkSpeed', the faster the player moves.
         float idkSpeed = 0.5f;
@@ -160,6 +162,12 @@ public class Player extends LivingEntity implements InputProcessor {
             setAnimation(dead);
         }
 
+    }
+
+    private void getBombInfo(GameMap gameMap) {
+        if (gameMap.getBombList().size() == 0) {
+            currentBomb = currentMaxBombs;
+        }
     }
 
     // TODO: If it works like a charm, should be implemented in the super class.
@@ -212,10 +220,10 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     private void setBomb(GameMap gameMap) {
-        System.out.println("U HAVE " + bombCount + " BOMBS LEFT");
-        if (bombCount > 0 && !pressedBombKey && validBombTile(gameMap)) {
+        System.out.println("U HAVE " + currentBomb + " BOMBS LEFT");
+        if (currentBomb > 0 && !pressedBombKey && validBombTile(gameMap)) {
             pressedBombKey = true;
-            bombCount--;
+            currentBomb--;
             Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY());
             gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;
             gameMap.add(bomb);

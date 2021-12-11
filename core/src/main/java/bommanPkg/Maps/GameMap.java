@@ -7,10 +7,7 @@ import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameMap {
@@ -183,5 +180,9 @@ public class GameMap {
             return bombList;
         }
         return null;
+    }
+
+    public List<Bomb> getBombList() {
+        return bombList;
     }
 }

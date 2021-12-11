@@ -74,6 +74,7 @@ public class MainGameScreen extends MyScreen {
         map.actLivingEntities(dt);
         map.actBombEntities(dt);
         map.actMapEntities(dt);
+        map.actFlameEntities(dt);
         map.printGridMap();
 
         theMostImportantMethodIGuess();

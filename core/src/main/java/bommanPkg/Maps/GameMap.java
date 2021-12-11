@@ -2,14 +2,13 @@ package bommanPkg.Maps;
 
 import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Entities.Derived.Bomb.Bomb;
+import bommanPkg.Entities.Derived.Bomb.Flame;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 public class GameMap {
     public int getHorizontalBlocks() {
         return horizontalBlocks;
@@ -30,6 +29,7 @@ public class GameMap {
     List<LivingEntity> livingList;
     List<MapEntity> blockList;
     List<Bomb> bombList;
+    List<Flame> flameList;
 
     /** Getter: gridMap. **/
     public int[][] getGridMap() {
@@ -48,6 +48,7 @@ public class GameMap {
         blockList = new ArrayList<>();
         livingList = new ArrayList<>();
         bombList = new ArrayList<>();
+        flameList = new ArrayList<>();
 
         loadMapFile();
         generateMap();
@@ -117,6 +118,8 @@ public class GameMap {
             livingList.add((LivingEntity) entity);
         } else if (entity instanceof Bomb) {
             bombList.add((Bomb) entity);
+        } else if (entity instanceof Flame) {
+            flameList.add((Flame) entity);
         }
     }
 
@@ -132,7 +135,14 @@ public class GameMap {
         }
 
         bombList.removeIf(Bomb::isExploded);
-        System.out.println("BOMB LIST SIZE: " + bombList.size());
+    }
+
+    public void actFlameEntities(float dt) {
+        for (Flame entity : flameList) {
+            entity.act(dt, this);
+        }
+
+        flameList.removeIf(Flame::isDone);
     }
 
     public void actMapEntities(float dt) {

@@ -74,32 +74,6 @@ public class BakaBot extends Baka_AI {
     }
 
     @Override
-    protected boolean validDirection(Direction direction, GameMap gameMap) {
-        int temp = 0;
-        boolean valid = false;
-
-        switch (currentDirection) {
-            case UP:
-                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - 1];
-                break;
-            case DOWN:
-                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + 1];
-                break;
-            case LEFT:
-                temp = gameMap.getGridMap()[getGridPosX() - 1][getGridPosY()];
-                break;
-            case RIGHT:
-                temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
-                break;
-        }
-
-        if (temp != 1 && temp != 2) {
-            valid = true;
-        }
-        return valid;
-    }
-
-    @Override
     protected void setDirection(Direction dir) {
         currentDirection = dir;
     }

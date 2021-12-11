@@ -110,7 +110,30 @@ public abstract class LivingEntity extends Entity {
     protected abstract void setDirection(Direction dir);
 
     /** Valid Direction check. */
-    protected abstract boolean validDirection(Direction currentDirection, GameMap gameMap);
+    protected boolean validDirection(Direction currentDirection, GameMap gameMap) {
+        int temp = 0;
+        boolean valid = false;
+
+        switch (currentDirection) {
+            case UP:
+                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - 1];
+                break;
+            case DOWN:
+                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + 1];
+                break;
+            case LEFT:
+                temp = gameMap.getGridMap()[getGridPosX() - 1][getGridPosY()];
+                break;
+            case RIGHT:
+                temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
+                break;
+        }
+
+        if (temp != 1 && temp != 2) {
+            valid = true;
+        }
+        return valid;
+    }
 
     /** Movement methods. */
     protected void moveToDirection(Direction currentDirection, GameMap gameMap) {

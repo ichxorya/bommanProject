@@ -53,35 +53,6 @@ public class Player extends LivingEntity implements InputProcessor {
         this.currentDirection = dir;
     }
 
-    /**
-     * Valid Direction check.
-     */
-    @Override
-    protected boolean validDirection(Direction currentDirection, GameMap gameMap) {
-        int temp = 0;
-        boolean valid = false;
-
-        switch (currentDirection) {
-            case UP:
-                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() - 1];
-                break;
-            case DOWN:
-                temp = gameMap.getGridMap()[getGridPosX()][getGridPosY() + 1];
-                break;
-            case LEFT:
-                temp = gameMap.getGridMap()[getGridPosX() - 1][getGridPosY()];
-                break;
-            case RIGHT:
-                temp = gameMap.getGridMap()[getGridPosX() + 1][getGridPosY()];
-                break;
-        }
-
-        if (temp != 1 && temp != 2) {
-            valid = true;
-        }
-        return valid;
-    }
-
     @Override
     public void die() {
         isDead = true;

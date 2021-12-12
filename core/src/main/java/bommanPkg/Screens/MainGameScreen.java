@@ -7,7 +7,7 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.*;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Portal;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
-import bommanPkg.Game.Secret;
+import bommanPkg.Game._;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
 import com.badlogic.gdx.Gdx;
@@ -80,7 +80,7 @@ public class MainGameScreen extends MyScreen {
     }
 
     private void theMostImportantMethodIGuess(Player player) {
-        Secret.theMostImportantMethodIGuess(player);
+        _.theMostImportantMethodIGuess(player);
     }
 
     private void generateMap(GameMap map) {

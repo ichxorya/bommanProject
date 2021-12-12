@@ -8,6 +8,7 @@ import com.badlogic.gdx.InputMultiplexer;
 public abstract class MyGame extends Game {
     private static MyGame game;
 
+
     public MyGame() {
         game = this;
     }

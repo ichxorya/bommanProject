@@ -4,7 +4,7 @@ import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 
-public class Secret {
+public class _ {
 
     private static Music HolyHolyMusic;
 

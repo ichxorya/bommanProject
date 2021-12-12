@@ -17,6 +17,7 @@ public class Bomb extends Entity {
      */
     public Bomb(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
+        Flame.setLength(3);
 
         Animation<TextureRegion> bombAnimation = loadAnimationFromSheet("sprites/bomb/cirno_bomb.png", 1, 4, frameDuration, true);
         bombExploded = false;
@@ -43,6 +44,9 @@ public class Bomb extends Entity {
         gameMap.add(new Flame(getX(), getY(), getStage(), gameMap, getGridPosX(), getGridPosY(), true));
 
         int[] flameLengthByDirection = getFlameLengthByDirection(flameLength, gameMap);
+        System.out.println("UP: " + flameLengthByDirection[0] +
+                " LEFT: " + flameLengthByDirection[1] + " DOWN: " + flameLengthByDirection[2] +
+                " RIGHT:" + flameLengthByDirection[3]);
         // TODO: BUG POINTER: SAFE LINE
 
         // Left
@@ -66,7 +70,7 @@ public class Bomb extends Entity {
             if (getGridPosY() - i < 0) {
                 break;
             }
-            gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() + i, false));
+            gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() - i, false));
         }
 
         // Down
@@ -74,7 +78,7 @@ public class Bomb extends Entity {
             if (getGridPosY() + i >= gameMap.getVerticalBlocks()) {
                 break;
             }
-            gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() - i, false));
+            gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() + i, false));
         }
     }
 

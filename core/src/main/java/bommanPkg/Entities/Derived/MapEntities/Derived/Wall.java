@@ -10,6 +10,5 @@ public class Wall extends MapEntity {
         super(x, y, s, gridPosX, gridPosY);
 
         loadTexture("maps/map_resources/wall.png");
-        destructible = true;
     }
 }

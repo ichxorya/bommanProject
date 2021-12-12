@@ -9,9 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class BakaBot extends Baka_AI {
     final static int entityID = 4;
-    /**
-     * BakaBot Variables.
-     */
+    private boolean deadReset = false;
 
     /**
      * Resource Paths.

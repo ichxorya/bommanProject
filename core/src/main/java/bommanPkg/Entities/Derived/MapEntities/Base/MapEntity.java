@@ -4,19 +4,19 @@ import bommanPkg.Entities.Base.Entity;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public abstract class MapEntity extends Entity {
-    /** Variables. **/
-    protected boolean destructible;
+    protected boolean destroyed;
 
     /** Constructor (grid-map). **/
     public MapEntity(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
     }
 
-    /**
-     * Getter: destructible.
-     */
-    public boolean isDestructible() {
-        return destructible;
+    public static boolean isDestroyed(MapEntity mapEntity) {
+        return mapEntity.destroyed;
     }
 
+    public void destroy() {
+        destroyed = true;
+        setVisible(false);
+    }
 }

@@ -23,12 +23,6 @@ public class Player extends LivingEntity implements InputProcessor {
     private boolean pressedBombKey = false;
 
     /**
-     * Resource Paths.
-     */
-    private final String movingPath = "sprites/players/cirno_moving.png";
-    private final String deadPath = "sprites/players/cirno_dead.png";
-
-    /**
      * Animations.
      */
     private Animation<TextureRegion> idle;
@@ -70,8 +64,10 @@ public class Player extends LivingEntity implements InputProcessor {
     }
 
     private void setupPlayerAnimations() {
+        String deadPath = "sprites/players/cirno_dead.png";
         dead = loadAnimationFromSheet(deadPath, 1, 8, frameDuration * 1.6f, false);
 
+        String movingPath = "sprites/players/cirno_moving.png";
         Texture movement = new Texture(Gdx.files.internal(movingPath), true);
         TextureRegion[][] temp = TextureRegion.split(movement, gridSize, gridSize);
 

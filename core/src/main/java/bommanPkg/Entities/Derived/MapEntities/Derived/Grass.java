@@ -11,6 +11,5 @@ public class Grass extends MapEntity {
         super(x, y, s, gridPosX, gridPosY);
 
         loadTexture("maps/map_resources/grass.png");
-        destructible = false;
     }
 }

@@ -47,14 +47,19 @@ public class Bomb extends Entity {
         System.out.println("UP: " + flameLengthByDirection[0] +
                 " LEFT: " + flameLengthByDirection[1] + " DOWN: " + flameLengthByDirection[2] +
                 " RIGHT:" + flameLengthByDirection[3]);
-        // TODO: BUG POINTER: SAFE LINE
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {
             if (getGridPosX() - i < 0) {
                 break;
             }
+
+            if (stopCheckDir[1] && i == flameLengthByDirection[1]) {
+                gameMap.mapDestroyWall(getGridPosX() - i, getGridPosY());
+            }
+
             gameMap.add(new Flame(getX() - i * gridSize, getY(), getStage(), gameMap, getGridPosX() - i, getGridPosY(), false));
+
         }
 
         // Right
@@ -62,6 +67,11 @@ public class Bomb extends Entity {
             if (getGridPosX() + i >= gameMap.getHorizontalBlocks()) {
                 break;
             }
+
+            if (stopCheckDir[3] && i == flameLengthByDirection[3]) {
+                gameMap.mapDestroyWall(getGridPosX() + i, getGridPosY());
+            }
+
             gameMap.add(new Flame(getX() + i * gridSize, getY(), getStage(), gameMap, getGridPosX() + i, getGridPosY(), false));
         }
 
@@ -70,6 +80,11 @@ public class Bomb extends Entity {
             if (getGridPosY() - i < 0) {
                 break;
             }
+
+            if (stopCheckDir[0] && i == flameLengthByDirection[0]) {
+                gameMap.mapDestroyWall(getGridPosX(), getGridPosY() - i);
+            }
+
             gameMap.add(new Flame(getX(), getY() + i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() - i, false));
         }
 
@@ -78,6 +93,11 @@ public class Bomb extends Entity {
             if (getGridPosY() + i >= gameMap.getVerticalBlocks()) {
                 break;
             }
+
+            if (stopCheckDir[2] && i == flameLengthByDirection[2]) {
+                gameMap.mapDestroyWall(getGridPosX(), getGridPosY() + i);
+            }
+
             gameMap.add(new Flame(getX(), getY() - i * gridSize, getStage(), gameMap, getGridPosX(), getGridPosY() + i, false));
         }
     }

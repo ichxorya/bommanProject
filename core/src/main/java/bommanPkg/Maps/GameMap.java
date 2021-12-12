@@ -154,6 +154,9 @@ public class GameMap {
         for (MapEntity entity : blockList) {
             entity.act(dt, this);
         }
+
+        // Remove all instances of Brick which are destroyed.
+        blockList.removeIf(MapEntity::isDestroyed);
     }
 
     public void printGridMap() {
@@ -199,5 +202,13 @@ public class GameMap {
 
     public List<Bomb> getBombList() {
         return bombList;
+    }
+
+    public void mapDestroyWall(int gridPosX, int gridPosY) {
+        for (MapEntity entity : blockList) {
+            if (entity.getGridPosX() == gridPosX && entity.getGridPosY() == gridPosY) {
+                entity.destroy();
+            }
+        }
     }
 }

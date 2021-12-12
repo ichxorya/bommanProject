@@ -2,6 +2,8 @@ package bommanPkg.Entities.Derived.Bomb;
 
 import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Maps.GameMap;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -11,6 +13,10 @@ public class Bomb extends Entity {
     private boolean bombExploded;
     private int[] flameDir;
     private boolean[] stopCheckDir;
+    private static boolean isBombPlanted;
+    private static Sound bombSound1;
+    private static Sound bombSound2;
+    private Sound bombSoundInUse;
 
     /**
      * Constructor.
@@ -20,8 +26,28 @@ public class Bomb extends Entity {
         Flame.setLength(flameLength);
 
         Animation<TextureRegion> bombAnimation = loadAnimationFromSheet("sprites/bomb/cirno_bomb.png", 1, 4, frameDuration, true);
+
+        setupSound();
         bombExploded = false;
         setAnimation(bombAnimation);
+        if (!isBombPlanted) {
+            bombSoundInUse = bombSound1;
+            isBombPlanted = true;
+        } else {
+            bombSoundInUse = bombSound2;
+            isBombPlanted = false;
+        }
+        bombSoundInUse.play();
+    }
+
+    private void setupSound() {
+        if (bombSound1 == null) {
+            bombSound1 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb1.mp3"));
+        }
+
+        if (bombSound2 == null) {
+            bombSound2 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb2.mp3"));
+        }
     }
 
     /** BOOM BOOM AFTER 1.69 SECONDS OR IF THE BOMB-TILE IS OCCUPIED BY A FLAME TILE */
@@ -36,7 +62,7 @@ public class Bomb extends Entity {
 
         if (bombExploded) {
             setVisible(false);
-
+            bombSoundInUse.stop();
             generateExplosion(Flame.getLength(), gameMap);
         }
     }

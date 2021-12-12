@@ -23,12 +23,9 @@ public class Player extends LivingEntity {
     private int currentBomb = 1;
     private int currentMaxBombs = 1;
     private boolean pressedBombKey = false;
-    private boolean isBombPlanted;
 
     /** Sound Variables **/
     private Music HolyMusic;
-    private Sound bombSound1;
-    private Sound bombSound2;
 
     // The smaller the 'idkSpeed', the faster the player moves.
     float idkSpeed = 0.6f;
@@ -60,8 +57,6 @@ public class Player extends LivingEntity {
 
     private void setupSound() {
         HolyMusic = Gdx.audio.newMusic(Gdx.files.internal("sfxs/superidol.mp3"));
-        bombSound1 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb1.mp3"));
-        bombSound2 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb2.mp3"));
     }
 
     /**
@@ -259,13 +254,6 @@ public class Player extends LivingEntity {
     private void getActionFromInput(GameMap gameMap) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.B)) {
             setBomb(gameMap);
-            if (!isBombPlanted) {
-                bombSound1.play();
-                isBombPlanted = true;
-            } else {
-                bombSound2.play();
-                isBombPlanted = false;
-            }
         }
 
         pressedBombKey = false;

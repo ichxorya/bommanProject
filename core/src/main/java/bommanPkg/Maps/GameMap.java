@@ -3,8 +3,12 @@ package bommanPkg.Maps;
 import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.Bomb.Flame;
+import bommanPkg.Entities.Derived.LivingEntities.Base.AI.Baka_AI;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
+import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
+import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.Item;
+import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Portal;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
@@ -27,9 +31,11 @@ public class GameMap {
     private int level;
     private int[][] gridMap;
     List<LivingEntity> livingList;
-    List<MapEntity> blockList;
+    List<Brick> brickList;
     List<Bomb> bombList;
     List<Flame> flameList;
+    List<Portal> portalList;
+    List<Item> itemList;
 
     /** Getter: gridMap. **/
     public int[][] getGridMap() {
@@ -44,13 +50,15 @@ public class GameMap {
     /**
      * Constructor.
      **/
-    public GameMap() {
-        blockList = new ArrayList<>();
+    public GameMap(String mapPath) {
+        brickList = new ArrayList<>();
         livingList = new ArrayList<>();
         bombList = new ArrayList<>();
         flameList = new ArrayList<>();
+        portalList = new ArrayList<>();
+        itemList = new ArrayList<>();
 
-        loadMapFile();
+        loadMapFile(mapPath);
         generateMap();
 
         printGridMap();
@@ -93,12 +101,27 @@ public class GameMap {
                 case 'p':
                     gridMap[x][y] = 7;
                     break;
+                case 's':
+                    gridMap[x][y] = 8;
+                    break;
+                case 'b':
+                    gridMap[x][y] = 9;
+                    break;
+                case 'f':
+                    gridMap[x][y] = 10;
+                    break;
+                case 'l':
+                    gridMap[x][y] = 11;
+                    break;
+                case 'S':
+                    gridMap[x][y] = 12;
+                    break;
             }
         }
     }
 
-    public void loadMapFile() {
-        FileHandle file = Gdx.files.internal("maps/map.txt");
+    public void loadMapFile(String mapPath) {
+        FileHandle file = Gdx.files.internal(mapPath);
         mapFile = file.readString().split("\n");
 
         Scanner reader = new Scanner(mapFile[0]);
@@ -112,14 +135,18 @@ public class GameMap {
     }
 
     public void add(Entity entity) {
-        if (entity instanceof MapEntity) {
-            blockList.add((MapEntity) entity);
+        if (entity instanceof Brick) {
+            brickList.add((Brick) entity);
         } else if (entity instanceof LivingEntity) {
             livingList.add((LivingEntity) entity);
         } else if (entity instanceof Bomb) {
             bombList.add((Bomb) entity);
         } else if (entity instanceof Flame) {
             flameList.add((Flame) entity);
+        } else if (entity instanceof Portal) {
+            portalList.add((Portal) entity);
+        } else if (entity instanceof Item) {
+            itemList.add((Item) entity);
         }
     }
 
@@ -140,7 +167,6 @@ public class GameMap {
     public void actFlameEntities(float dt) {
         for (Flame entity : flameList) {
             entity.act(dt, this);
-            System.out.println("flame x-" + entity.getGridPosX() + " y-" + entity.getGridPosY());
         }
 
         flameList.removeIf(Flame::isDone);
@@ -150,13 +176,27 @@ public class GameMap {
         this.gridMap[x][y] = i;
     }
 
-    public void actMapEntities(float dt) {
-        for (MapEntity entity : blockList) {
+    public void actBrickEntities(float dt) {
+        for (Brick entity : brickList) {
             entity.act(dt, this);
         }
 
         // Remove all instances of Brick which are destroyed.
-        blockList.removeIf(MapEntity::isDestroyed);
+        brickList.removeIf(MapEntity::isDestroyed);
+    }
+
+    public void actPortalEntities(float dt) {
+        for (Portal entity : portalList) {
+            entity.act(dt, this);
+        }
+    }
+
+    public void actItemEntities(float dt) {
+        for (Item entity : itemList) {
+            entity.act(dt, this);
+        }
+
+        itemList.removeIf(Item::isPicked);
     }
 
     public void printGridMap() {
@@ -166,11 +206,12 @@ public class GameMap {
             }
             System.out.println();
         }
+        System.out.println("--------------------------------");
     }
 
     public void removeFromList(Entity entity) {
-        if (entity instanceof MapEntity) {
-            blockList.remove(entity);
+        if (entity instanceof Brick) {
+            brickList.remove(entity);
         } else if (entity instanceof LivingEntity) {
             livingList.remove(entity);
         } else if (entity instanceof Bomb) {
@@ -178,20 +219,9 @@ public class GameMap {
         }
     }
 
-    public boolean isInList(Entity entity) {
-        if (entity instanceof MapEntity) {
-            return blockList.contains(entity);
-        } else if (entity instanceof LivingEntity) {
-            return livingList.contains(entity);
-        } else if (entity instanceof Bomb) {
-            return bombList.contains(entity);
-        }
-        return false;
-    }
-
     public List<? extends Entity> getList(Entity entity) {
         if (entity instanceof MapEntity) {
-            return blockList;
+            return brickList;
         } else if (entity instanceof LivingEntity) {
             return livingList;
         } else if (entity instanceof Bomb) {
@@ -205,9 +235,18 @@ public class GameMap {
     }
 
     public void mapDestroyWall(int gridPosX, int gridPosY) {
-        for (MapEntity entity : blockList) {
+        for (MapEntity entity : brickList) {
             if (entity.getGridPosX() == gridPosX && entity.getGridPosY() == gridPosY) {
                 entity.destroy();
+            }
+        }
+    }
+
+    public void pickedUpItem(int gridPosX, int gridPosY) {
+        for (Item entity : itemList) {
+            if (entity.getGridPosX() == gridPosX && entity.getGridPosY() == gridPosY) {
+                entity.pickedUp();
+                return;
             }
         }
     }

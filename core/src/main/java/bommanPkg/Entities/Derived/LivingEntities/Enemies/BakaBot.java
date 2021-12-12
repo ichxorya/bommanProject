@@ -52,7 +52,6 @@ public class BakaBot extends Baka_AI {
     @Override
     public void act(float delta, GameMap gameMap) {
         super.act(delta, gameMap);
-        System.out.println("BakaBot: " + getGridPosX() + " " + getGridPosY());
 
         if (!isDead) {
             if (touchedByDeath(gameMap)) {
@@ -67,12 +66,14 @@ public class BakaBot extends Baka_AI {
                     isMoving = true;
                     moveToDirection(currentDirection, gameMap);
                     gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+                    gameMap.pickedUpItem(getGridPosX(), getGridPosY());
                 }
             }
         } else {
             setAnimation(dead);
         }
     }
+
 
     @Override
     protected void setDirection(Direction dir) {

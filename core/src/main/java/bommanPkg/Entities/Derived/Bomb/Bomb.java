@@ -15,9 +15,9 @@ public class Bomb extends Entity {
     /**
      * Constructor.
      */
-    public Bomb(float x, float y, Stage s, int gridPosX, int gridPosY) {
+    public Bomb(float x, float y, Stage s, int gridPosX, int gridPosY, int flameLength) {
         super(x, y, s, gridPosX, gridPosY);
-        Flame.setLength(3);
+        Flame.setLength(flameLength);
 
         Animation<TextureRegion> bombAnimation = loadAnimationFromSheet("sprites/bomb/cirno_bomb.png", 1, 4, frameDuration, true);
         bombExploded = false;
@@ -47,12 +47,6 @@ public class Bomb extends Entity {
         gameMap.add(new Flame(getX(), getY(), getStage(), gameMap, getGridPosX(), getGridPosY(), true));
 
         int[] flameLengthByDirection = getFlameLengthByDirection(flameLength, gameMap);
-        System.out.println(
-                " UP:    "  + flameLengthByDirection[0]   +
-                " LEFT:  "  + flameLengthByDirection[1]   +
-                " DOWN:  "  + flameLengthByDirection[2]   +
-                " RIGHT: "  + flameLengthByDirection[3]
-        );
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {
@@ -231,7 +225,7 @@ public class Bomb extends Entity {
 
         if (temp != 1) {
             valid = true;
-            if (temp == 2) {
+            if (temp == 2 || temp == 3 || temp == 8 || temp == 9 || temp == 10 || temp == 11 || temp == 12) {
                 stopCheckDir[dir] = true;
                 return false;
             }

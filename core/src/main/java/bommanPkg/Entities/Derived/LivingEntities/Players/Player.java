@@ -1,26 +1,28 @@
 package bommanPkg.Entities.Derived.LivingEntities.Players;
 
 import bommanPkg.Entities.Derived.Bomb.Bomb;
+import bommanPkg.Entities.Derived.Bomb.Flame;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
-public class Player extends LivingEntity implements InputProcessor {
+public class Player extends LivingEntity {
     /**
      * Player Variables.
      **/
-    private final int maxBombs = 3;
     private final int entityID = 7;
-    private int currentBomb = 3;
-    private int currentMaxBombs = 3;
+    private int currentBomb = 1;
+    private int currentMaxBombs = 1;
     private boolean pressedBombKey = false;
+
+    // The smaller the 'idkSpeed', the faster the player moves.
+    float idkSpeed = 0.6f;
 
     /**
      * Animations.
@@ -31,6 +33,7 @@ public class Player extends LivingEntity implements InputProcessor {
     private Animation<TextureRegion> moveLeft;
     private Animation<TextureRegion> moveRight;
     private Animation<TextureRegion> dead;
+    private int flameLength = 1;
 
     /**
      * Constructor (grid-map).
@@ -109,9 +112,6 @@ public class Player extends LivingEntity implements InputProcessor {
         super.act(dt, gameMap);
         getBombInfo(gameMap);
 
-        // The smaller the 'idkSpeed', the faster the player moves.
-        float idkSpeed = 0.5f;
-
         if (!isDead) {
             if (touchedByDeath(gameMap)) {
                 die();
@@ -127,16 +127,63 @@ public class Player extends LivingEntity implements InputProcessor {
                     moveToDirection(currentDirection, gameMap);
 
                     if (!touchedByDeath(gameMap)) {
+                        int itemID = thisTileHasItem(gameMap);
+                        if (itemID != 0) {
+                            pickUpItem(gameMap, itemID);
+                        }
                         gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
                     }
-                } else {
-                    System.out.println("Invalid Direction " + currentDirection);
                 }
             }
         } else {
             setAnimation(dead);
         }
 
+        if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
+            isDead = false;
+        }
+
+//        debugPrintPlayer();
+    }
+
+    private void debugPrintPlayer() {
+        System.out.println("Player: " + getGridPosX() + ", " + getGridPosY());
+        System.out.println("Speed: " + idkSpeed);
+        System.out.println("currentMaxBombs: " + currentMaxBombs);
+        System.out.println("currentBombRange: " + flameLength);
+    }
+
+    private void pickUpItem(GameMap gameMap, int itemID) {
+        switch (itemID) {
+            case 80:
+                if (idkSpeed > 0.2f) {
+                    idkSpeed -= 0.1f;
+                }
+                break;
+            case 90:
+                currentMaxBombs++;
+                break;
+            case 100:
+                flameLength++;
+                Flame.setLength(flameLength);
+                break;
+            case 110:
+                lives++;
+                break;
+            case 120:
+                // ULTIMATE POWER
+                break;
+        }
+        gameMap.pickedUpItem(getGridPosX(), getGridPosY());
+    }
+
+    private int thisTileHasItem(GameMap gameMap) {
+        int itemID = gameMap.getGridMap()[getGridPosX()][getGridPosY()];
+
+        if (itemID == 80 || itemID == 90 || itemID == 100 || itemID == 110 || itemID == 120) {
+            return itemID;
+        }
+        return 0;
     }
 
     private void getBombInfo(GameMap gameMap) {
@@ -190,7 +237,7 @@ public class Player extends LivingEntity implements InputProcessor {
         if (currentBomb > 0 && !pressedBombKey && validBombTile(gameMap)) {
             pressedBombKey = true;
             currentBomb--;
-            Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY());
+            Bomb bomb = new Bomb(getX(), getY(), this.getStage(), getGridPosX(), getGridPosY(), flameLength);
             gameMap.getGridMap()[getGridPosX()][getGridPosY()] = -1;    // Bomb ID
             gameMap.add(bomb);
         }
@@ -198,46 +245,5 @@ public class Player extends LivingEntity implements InputProcessor {
 
     private boolean validBombTile(GameMap gameMap) {
         return !(gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -1);
-    }
-
-    // InputProcessor required methods
-    @Override
-    public boolean keyDown(int keycode) {
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(float amountX, float amountY) {
-        return false;
     }
 }

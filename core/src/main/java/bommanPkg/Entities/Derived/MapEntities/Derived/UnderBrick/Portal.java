@@ -1,4 +1,4 @@
-package bommanPkg.Entities.Derived.MapEntities.Derived;
+package bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick;
 
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Portal extends MapEntity {
-    private boolean portalActivated;
+    private static boolean portalActivated;
     Animation<TextureRegion> portalAnimation;
 
     /**
@@ -14,9 +14,13 @@ public class Portal extends MapEntity {
      */
     public Portal(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
+
+        portalAnimation = loadAnimationFromSheet("maps/map_resources/portal.png", 1, 4, frameDuration, true);
+        setAnimation(portalAnimation);
     }
 
-    public void activePortal() {
-        portalActivated = true;
+    @Override
+    public void act(float delta) {
+        super.act(delta);
     }
 }

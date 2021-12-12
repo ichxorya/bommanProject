@@ -144,7 +144,16 @@ public abstract class LivingEntity extends Entity {
                 break;
         }
 
-        if (temp != 1 && temp != 2) {
+        if (
+                temp    != 1  // Wall
+                && temp != 2  // Brick
+                && temp != 3  // Portal under brick
+                && temp != 8  // Speed item under brick
+                && temp != 9  // Bomb item under brick
+                && temp != 10 // Fire item under brick
+                && temp != 11 // Life item under brick
+                && temp != 12 // SuperIdol under brick
+        ) {
             valid = true;
         }
         return valid;

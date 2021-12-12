@@ -156,7 +156,7 @@ public class Player extends LivingEntity {
     private void pickUpItem(GameMap gameMap, int itemID) {
         switch (itemID) {
             case 80:
-                if (idkSpeed > 0.2f) {
+                if (idkSpeed > 0.3f) {
                     idkSpeed -= 0.1f;
                 }
                 break;
@@ -168,7 +168,7 @@ public class Player extends LivingEntity {
                 Flame.setLength(flameLength);
                 break;
             case 110:
-                lives++;
+                System.out.println("REDACTED");
                 break;
             case 120:
                 // ULTIMATE POWER

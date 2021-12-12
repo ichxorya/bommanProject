@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class LivingEntity extends Entity {
-    /** Variables. */
-    protected int lives;
     protected boolean isDead;
     protected boolean isMoving;
     protected Direction currentDirection;
@@ -69,23 +67,9 @@ public abstract class LivingEntity extends Entity {
     /** Deadly move. */
     protected abstract boolean touchedByDeath(GameMap gameMap);
 
-    /** Setter: lives. */
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
-
-    /** Getter: lives. */
-    public int getLives() {
-        return lives;
-    }
-
     /** Is the entity dead? */
     public boolean isDead() {
-        if (lives <= 0) {
-            isDead = true;
-        }
-
-        return isDead;
+       return isDead;
     }
 
     /**
@@ -99,7 +83,6 @@ public abstract class LivingEntity extends Entity {
      * Setup Value.
      */
     public void setupValues(int lives) {
-        this.lives = lives;
     }
 
     public void resetDirection() {

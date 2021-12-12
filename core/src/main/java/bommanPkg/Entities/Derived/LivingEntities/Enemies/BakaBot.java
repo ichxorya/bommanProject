@@ -31,7 +31,7 @@ public class BakaBot extends Baka_AI {
         oldScreenPos = new ScreenPos(x, y);
         System.out.println("BakaBot" + getGridPosX() + " " + getGridPosY());
         setupAnimations();
-        wakeup(1);
+        wakeup();
     }
 
 
@@ -42,8 +42,7 @@ public class BakaBot extends Baka_AI {
     }
 
     @Override
-    protected void wakeup(int lives) {
-        this.lives = lives;
+    protected void wakeup() {
         this.isMoving = false;
 
         currentDirection = Direction.getRandom();

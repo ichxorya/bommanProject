@@ -27,7 +27,10 @@ public class Bomb extends Entity {
     /** DEBUG: VANISH AFTER 1.69 SECONDS */
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
-        if (getElapsedTime() > 1.69f) {
+        if (
+                getElapsedTime() > 1.69f
+                        || gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -2
+        ) {
             bombExploded = true;
         }
 

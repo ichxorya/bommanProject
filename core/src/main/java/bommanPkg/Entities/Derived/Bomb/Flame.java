@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Flame extends Entity {
     private static int length;
     private boolean isDone;
-    private Animation<TextureRegion> flameAnimation;
 
     /**
      * Constructor.
@@ -17,6 +16,7 @@ public class Flame extends Entity {
     public Flame(float x, float y, Stage s, GameMap gameMap, int gridPosX, int gridPosY, boolean isCenter) {
         super(x, y, s, gridPosX, gridPosY);
 
+        Animation<TextureRegion> flameAnimation;
         if (isCenter) {
             flameAnimation = loadTexture("sprites/bomb/cirno_bomb_center.png");
         } else {

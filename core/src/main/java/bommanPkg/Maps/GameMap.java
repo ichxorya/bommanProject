@@ -3,7 +3,6 @@ package bommanPkg.Maps;
 import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.Bomb.Flame;
-import bommanPkg.Entities.Derived.LivingEntities.Base.AI.Baka_AI;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
@@ -28,6 +27,9 @@ public class GameMap {
     private int horizontalBlocks;
     private int verticalBlocks;
     private String[] mapFile;
+    private int numberOfEnemies;
+    private boolean[][] killed;
+
     private int level;
     private int[][] gridMap;
     List<LivingEntity> livingList;
@@ -60,6 +62,8 @@ public class GameMap {
 
         loadMapFile(mapPath);
         generateMap();
+
+        killed = new boolean[numberOfEnemies][2];
 
         printGridMap();
     }
@@ -97,6 +101,7 @@ public class GameMap {
                     break;
                 case 'x':
                     gridMap[x][y] = 4;
+                    ++numberOfEnemies;
                     break;
                 case 'p':
                     gridMap[x][y] = 7;
@@ -151,8 +156,20 @@ public class GameMap {
     }
 
     public void actLivingEntities(float dt) {
-        for (LivingEntity entity : livingList) {
-            entity.act(dt, this);
+//        for (LivingEntity entity : livingList) {
+//            entity.act(dt, this);
+//        }
+
+        for (int i = 0; i < killed.length; i++) {
+            livingList.get(i).act(dt, this);
+            if (livingList.get(i).isDead()) {
+                killed[i][0] = true;
+            }
+
+            if (killed[i][0] && !killed[i][1]) {
+                --numberOfEnemies;
+                killed[i][1] = true;
+            }
         }
     }
 
@@ -249,5 +266,13 @@ public class GameMap {
                 return;
             }
         }
+    }
+
+    public boolean killedAllEnemies() {
+        return (numberOfEnemies == 0);
+    }
+
+    public int getNumberOfEnemies() {
+        return numberOfEnemies;
     }
 }

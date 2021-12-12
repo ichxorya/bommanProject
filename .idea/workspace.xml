@@ -4,13 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="dat bom 0.8&#10;&#10;flamebug&#10;can cai: no chet nguoi va chet tuong">
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="Âm thanh v2. bây giờ là 2h31 sáng ngày 13 tháng 13">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/demo_map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/demo_map.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Flame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/Bomb/Flame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sfxs/Fumo - F.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Derived/LivingEntities/Players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/sfxs/Fumo - F.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +82,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items" />
+      <recent name="bommanPkg.Maps" />
       <recent name="bommanPkg.Maps.Base" />
       <recent name="bommanPkg.Entities.Derived.MovableEntities" />
       <recent name="bommanPkg" />
@@ -141,91 +151,8 @@
       <workItem from="1639188487588" duration="6015000" />
       <workItem from="1639208127755" duration="6652000" />
       <workItem from="1639227764349" duration="12413000" />
-      <workItem from="1639244190207" duration="6205000" />
-    </task>
-    <task id="LOCAL-00001" summary="wtf crash">
-      <created>1638202521754</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1638202521754</updated>
-    </task>
-    <task id="LOCAL-00002" summary="thua mot chu s khien toi mat ngu nhieu dem..">
-      <created>1638550310260</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1638550310260</updated>
-    </task>
-    <task id="LOCAL-00003" summary="thua mot chu s khien toi mat ngu nhieu dem..">
-      <created>1638593447456</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1638593447456</updated>
-    </task>
-    <task id="LOCAL-00004" summary="bosung">
-      <created>1638593474331</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1638593474331</updated>
-    </task>
-    <task id="LOCAL-00005" summary="resources&#10;&#10;se code chuc nang vao chieu nay">
-      <created>1638597347884</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1638597347884</updated>
-    </task>
-    <task id="LOCAL-00006" summary="resources update">
-      <created>1638608399882</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1638608399882</updated>
-    </task>
-    <task id="LOCAL-00007" summary="resources update (full pic, need more sound?)">
-      <created>1638609758319</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1638609758319</updated>
-    </task>
-    <task id="LOCAL-00008" summary="whatthehell_commit_suicide_jk_immahitthebed">
-      <created>1638651378713</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1638651378713</updated>
-    </task>
-    <task id="LOCAL-00009" summary="whatthehell_commit_suicide_jk_immahitthebed">
-      <created>1638653234180</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1638653234180</updated>
-    </task>
-    <task id="LOCAL-00010" summary="whatthehell_commit_suicide_jk_immahitthebed">
-      <created>1638653247681</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1638653247681</updated>
-    </task>
-    <task id="LOCAL-00011" summary="chet di song lai">
-      <created>1638769735016</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1638769735016</updated>
-    </task>
-    <task id="LOCAL-00012" summary="chet di song lai">
-      <created>1638769750767</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1638769750767</updated>
+      <workItem from="1639244190207" duration="7703000" />
+      <workItem from="1639279372047" duration="38674000" />
     </task>
     <task id="LOCAL-00013" summary="di ngu">
       <created>1638787707697</created>
@@ -486,7 +413,91 @@
       <option name="project" value="LOCAL" />
       <updated>1639242930926</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="dat bom 0.8&#10;&#10;flamebug (da them debug va linh tinh)&#10;can cai: no chet nguoi va chet tuong">
+      <created>1639251183723</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1639251183724</updated>
+    </task>
+    <task id="LOCAL-00051" summary="dat bom 0.9&#10;&#10;can cai: no chet tuong">
+      <created>1639282339226</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1639282339226</updated>
+    </task>
+    <task id="LOCAL-00052" summary="dat bom 0.10&#10;&#10;can cai: no chet bom">
+      <created>1639296440298</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1639296440298</updated>
+    </task>
+    <task id="LOCAL-00053" summary="dat bom 0.111">
+      <created>1639297222019</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1639297222019</updated>
+    </task>
+    <task id="LOCAL-00054" summary="dat bom 0.111">
+      <created>1639297827195</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1639297827195</updated>
+    </task>
+    <task id="LOCAL-00055" summary="item update?&#10;&#10;lịch: tối nay&#10;CHÍNH:&#10;bomb +1 số bom max&#10;flame +1 chiều dài flame&#10;speed giảm idkspeed để chạy nhanh hơn&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)">
+      <created>1639304335758</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1639304335758</updated>
+    </task>
+    <task id="LOCAL-00056" summary="camera update - hơi phèn&#10;&#10;item update&#10;lịch: tối nay&#10;CHÍNH:&#10;bomb +1 số bom max&#10;flame +1 chiều dài flame&#10;speed giảm idkspeed để chạy nhanh hơn&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)">
+      <created>1639310055109</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1639310055109</updated>
+    </task>
+    <task id="LOCAL-00057" summary="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)">
+      <created>1639329362881</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1639329362882</updated>
+    </task>
+    <task id="LOCAL-00058" summary="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;&#10;Chế độ bất tử!&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)">
+      <created>1639334181539</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1639334181540</updated>
+    </task>
+    <task id="LOCAL-00059" summary="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;&#10;Chế độ bất tử! (XONG?)&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)">
+      <created>1639336041995</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1639336041995</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Âm thanh v1. bây giờ là 2h17 sáng ngày 13 tháng 13">
+      <created>1639336682720</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1639336682720</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Âm thanh v2. bây giờ là 2h31 sáng ngày 13 tháng 13">
+      <created>1639337501634</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1639337501634</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,17 +530,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="10000" />
-    <MESSAGE value="bro? toi da hoan thanh cai &quot;brick block?&quot;" />
-    <MESSAGE value="bro? toi da hoan thanh cai &quot;brick block?&quot;&#10;&#10;co le, chieu nay hoan thien map" />
-    <MESSAGE value="update ngao da: bot biet di chuyen voi van toc anh sang tren grid, biet tranh cac o da co vat the, lam sao de chung no cham lai bay gio?" />
-    <MESSAGE value="vcl clgt" />
-    <MESSAGE value="khong con bug xuyen tuong, nhung bot khong cap nhat tren map???" />
-    <MESSAGE value="ao that day" />
-    <MESSAGE value="neu bot cham vao nguoi choi = die" />
-    <MESSAGE value="update" />
-    <MESSAGE value="chưa thay đổi j lắm" />
-    <MESSAGE value="chưa thay đổi j lắm (fixed)" />
-    <MESSAGE value="bruh" />
     <MESSAGE value="Don rac v1&#10;Giam toc do bakabot" />
     <MESSAGE value="Don rac v1.2&#10;Doi ten file, ko yeet nua" />
     <MESSAGE value="Don rac v1.4&#10;GridPos and ScreenPos implemented" />
@@ -544,7 +544,18 @@
     <MESSAGE value="dat bom 0.6&#10;&#10;can cai: no dc dung cho, no chet nguoi" />
     <MESSAGE value="dat bom 0.7&#10;&#10;can cai: no chet nguoi va chet tuong" />
     <MESSAGE value="dat bom 0.8&#10;&#10;flamebug&#10;can cai: no chet nguoi va chet tuong" />
-    <option name="LAST_COMMIT_MESSAGE" value="dat bom 0.8&#10;&#10;flamebug&#10;can cai: no chet nguoi va chet tuong" />
+    <MESSAGE value="dat bom 0.8&#10;&#10;flamebug (da them debug va linh tinh)&#10;can cai: no chet nguoi va chet tuong" />
+    <MESSAGE value="dat bom 0.9&#10;&#10;can cai: no chet tuong" />
+    <MESSAGE value="dat bom 0.10&#10;&#10;can cai: no chet bom" />
+    <MESSAGE value="dat bom 0.111" />
+    <MESSAGE value="item update?&#10;&#10;lịch: tối nay&#10;CHÍNH:&#10;bomb +1 số bom max&#10;flame +1 chiều dài flame&#10;speed giảm idkspeed để chạy nhanh hơn&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)" />
+    <MESSAGE value="camera update - hơi phèn&#10;&#10;item update&#10;lịch: tối nay&#10;CHÍNH:&#10;bomb +1 số bom max&#10;flame +1 chiều dài flame&#10;speed giảm idkspeed để chạy nhanh hơn&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)" />
+    <MESSAGE value="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)" />
+    <MESSAGE value="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;&#10;Chế độ bất tử!&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)" />
+    <MESSAGE value="BIG UPDATE?&#10;&#10;ITEM (3 cơ bản xong)&#10;Lịch cuối: Sáng mai cài cổng/màn chơi thắng.&#10;Âm nhạc để có 1 điểm!&#10;&#10;&#10;Chế độ bất tử! (XONG?)&#10;PHỤ:&#10;superidol: chế độ godmode (cài sau) - bật nhạc superidol&#10;tổ hợp QUAMON để gọi thần Rick (nếu có thể cài superidol mode, nên cài rick mode)" />
+    <MESSAGE value="Âm thanh v1. bây giờ là 2h17 sáng ngày 13 tháng 13" />
+    <MESSAGE value="Âm thanh v2. bây giờ là 2h31 sáng ngày 13 tháng 13" />
+    <option name="LAST_COMMIT_MESSAGE" value="Âm thanh v2. bây giờ là 2h31 sáng ngày 13 tháng 13" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

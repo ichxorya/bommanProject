@@ -10,6 +10,8 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import bommanPkg.Game.Secret;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -17,21 +19,30 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static bommanPkg.Entities.Base.Entity.gridSize;
 
 public class MainGameScreen extends MyScreen {
-    private GameMap map;
+    private GameMap gameMap;
     private Player player;
     private GridPos playerInitGridPos;
     private int[] playerInitPos;
     private OrthographicCamera camera;
+    private boolean victory;
+    private Sound victoryNotification;
+    private boolean victoryChecked;
 
     @Override
     public void initialize() {
-        map = new GameMap("maps/demo_map.txt");
-        generateMap(map);
+        gameMap = new GameMap("maps/demo_map.txt");
+        generateMap(gameMap);
         player = new Player(playerInitPos[0], playerInitPos[1], mainStage, playerInitGridPos.getX(), playerInitGridPos.getY());
 
         camera = new OrthographicCamera(1024, 1024);
         Viewport viewport = new FitViewport(1024, 1024, camera);
         mainStage.setViewport(viewport);
+
+        setupSound();
+    }
+
+    private void setupSound() {
+        victoryNotification = Gdx.audio.newSound(Gdx.files.internal("sfxs/toasang.mp3"));
     }
 
     // TODO: BRUH
@@ -40,16 +51,27 @@ public class MainGameScreen extends MyScreen {
     public void update(float dt) {
         cameraUpdate();
 
-        player.act(dt, map);
-        map.actLivingEntities(dt);
-        map.actBombEntities(dt);
-        map.actBrickEntities(dt);
-        map.actFlameEntities(dt);
-        map.actPortalEntities(dt);
-        map.actItemEntities(dt);
-        map.printGridMap();
+        checkVictory(gameMap);
+
+        player.act(dt, gameMap);
+        gameMap.actLivingEntities(dt);
+        gameMap.actBombEntities(dt);
+        gameMap.actBrickEntities(dt);
+        gameMap.actFlameEntities(dt);
+        gameMap.actPortalEntities(dt);
+        gameMap.actItemEntities(dt);
+        gameMap.printGridMap();
 
         theMostImportantMethodIGuess(player);
+    }
+
+    private void checkVictory(GameMap gameMap) {
+        if (!victoryChecked && !player.isDead() && gameMap.killedAllEnemies()) {
+            victory = true;
+            victoryNotification.play();
+            victoryNotification.loop();
+            victoryChecked = true;
+        }
     }
 
     private void cameraUpdate() {

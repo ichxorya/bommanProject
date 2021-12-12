@@ -122,7 +122,7 @@ public class Player extends LivingEntity {
         getBombInfo(gameMap);
 
         if (!isDead) {
-            if (touchedByDeath(gameMap) && (!isInvincible || !isGod)) {
+            if (touchedByDeath(gameMap) && (!isInvincible && !isGod)) {
                 die();
             }
             getDirectionFromInput(gameMap);

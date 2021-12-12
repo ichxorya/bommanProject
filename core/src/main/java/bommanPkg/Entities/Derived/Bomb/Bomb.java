@@ -47,9 +47,12 @@ public class Bomb extends Entity {
         gameMap.add(new Flame(getX(), getY(), getStage(), gameMap, getGridPosX(), getGridPosY(), true));
 
         int[] flameLengthByDirection = getFlameLengthByDirection(flameLength, gameMap);
-        System.out.println("UP: " + flameLengthByDirection[0] +
-                " LEFT: " + flameLengthByDirection[1] + " DOWN: " + flameLengthByDirection[2] +
-                " RIGHT:" + flameLengthByDirection[3]);
+        System.out.println(
+                " UP:    "  + flameLengthByDirection[0]   +
+                " LEFT:  "  + flameLengthByDirection[1]   +
+                " DOWN:  "  + flameLengthByDirection[2]   +
+                " RIGHT: "  + flameLengthByDirection[3]
+        );
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {

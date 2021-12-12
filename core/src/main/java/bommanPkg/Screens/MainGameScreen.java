@@ -88,7 +88,7 @@ public class MainGameScreen extends MyScreen {
         && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.M)
         && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.O)
         && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.N)) {
-            throw new RuntimeException("You found the secret code!");
+            Gdx.net.openURI("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
     }
 }

@@ -4,16 +4,12 @@ import bommanPkg.Entities.Derived.LivingEntities.Enemies.BakaBot;
 import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
-import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.BombItem;
-import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.FlameItem;
-import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.Item;
-import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.SpeedItem;
+import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.*;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Portal;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import bommanPkg.Game.Secret;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -53,7 +49,7 @@ public class MainGameScreen extends MyScreen {
         map.actItemEntities(dt);
         map.printGridMap();
 
-        theMostImportantMethodIGuess();
+        theMostImportantMethodIGuess(player);
     }
 
     private void cameraUpdate() {
@@ -61,8 +57,8 @@ public class MainGameScreen extends MyScreen {
         camera.update();
     }
 
-    private void theMostImportantMethodIGuess() {
-        Secret.theMostImportantMethodIGuess();
+    private void theMostImportantMethodIGuess(Player player) {
+        Secret.theMostImportantMethodIGuess(player);
     }
 
     private void generateMap(GameMap map) {
@@ -108,6 +104,10 @@ public class MainGameScreen extends MyScreen {
                         break;
                     case 10:
                         map.add(new FlameItem(entityPosX, entityPosY, mainStage, x, y));
+                        map.add(new Brick(entityPosX, entityPosY, mainStage, x, y));
+                        break;
+                    case 12:
+                        map.add(new GodItem(entityPosX, entityPosY, mainStage, x, y));
                         map.add(new Brick(entityPosX, entityPosY, mainStage, x, y));
                         break;
                 }

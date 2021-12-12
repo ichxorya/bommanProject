@@ -6,11 +6,14 @@ import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Timer;
 
 public class Player extends LivingEntity {
     /**
@@ -20,6 +23,10 @@ public class Player extends LivingEntity {
     private int currentBomb = 1;
     private int currentMaxBombs = 1;
     private boolean pressedBombKey = false;
+
+    /** Sound Variables **/
+    private Music HolyMusic;
+    private Sound setBombSound;
 
     // The smaller the 'idkSpeed', the faster the player moves.
     float idkSpeed = 0.6f;
@@ -34,6 +41,7 @@ public class Player extends LivingEntity {
     private Animation<TextureRegion> moveRight;
     private Animation<TextureRegion> dead;
     private int flameLength = 1;
+    private boolean isGod;
 
     /**
      * Constructor (grid-map).
@@ -41,8 +49,16 @@ public class Player extends LivingEntity {
     public Player(float x, float y, Stage s, int gridPosX, int gridPosY) {
         super(x, y, s, gridPosX, gridPosY);
 
+        // Debug
+        isInvincible = false;
+
         setupPlayerAnimations();
-        setupValues(1);
+        setupSound();
+    }
+
+    private void setupSound() {
+        HolyMusic = Gdx.audio.newMusic(Gdx.files.internal("sfxs/superidol.mp3"));
+        HolyMusic.setLooping(false);
     }
 
     /**
@@ -59,11 +75,6 @@ public class Player extends LivingEntity {
     @Override
     protected void setDirection(Direction dir) {
         this.currentDirection = dir;
-    }
-
-    @Override
-    public void die() {
-        isDead = true;
     }
 
     private void setupPlayerAnimations() {
@@ -113,7 +124,7 @@ public class Player extends LivingEntity {
         getBombInfo(gameMap);
 
         if (!isDead) {
-            if (touchedByDeath(gameMap)) {
+            if (touchedByDeath(gameMap) && (!isInvincible || !isGod)) {
                 die();
             }
             getDirectionFromInput(gameMap);
@@ -137,10 +148,6 @@ public class Player extends LivingEntity {
             }
         } else {
             setAnimation(dead);
-        }
-
-        if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
-            isDead = false;
         }
 
 //        debugPrintPlayer();
@@ -172,9 +179,30 @@ public class Player extends LivingEntity {
                 break;
             case 120:
                 // ULTIMATE POWER
+                isInvincible = true;
+                superIdolCountdown();
                 break;
         }
         gameMap.pickedUpItem(getGridPosX(), getGridPosY());
+    }
+
+    private void superIdolCountdown() {
+        if (!isGod) {
+            HolyMusic.play();
+        }
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                isInvincible = false;
+            }
+        }, 14);
+    }
+
+    // Set god mode
+    public void i_am_god_ok() {
+        HolyMusic.setVolume(0f);
+        isInvincible = true;
+        isGod = true;
     }
 
     private int thisTileHasItem(GameMap gameMap) {

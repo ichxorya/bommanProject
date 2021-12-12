@@ -12,6 +12,7 @@ import java.util.Random;
 
 public abstract class LivingEntity extends Entity {
     protected boolean isDead;
+    protected boolean isInvincible;
     protected boolean isMoving;
     protected Direction currentDirection;
 
@@ -77,12 +78,6 @@ public abstract class LivingEntity extends Entity {
      */
     public void die() {
         isDead = true;
-    }
-
-    /**
-     * Setup Value.
-     */
-    public void setupValues(int lives) {
     }
 
     public void resetDirection() {

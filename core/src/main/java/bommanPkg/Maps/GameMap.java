@@ -81,13 +81,13 @@ public class GameMap {
                 case '#':
                     gridMap[x][y] = 1;
                     break;
-                case '+':
+                case '*':
                     gridMap[x][y] = 2;
                     break;
                 case '?':
                     gridMap[x][y] = 3;
                     break;
-                case 'x':
+                case '1':
                     gridMap[x][y] = 4;
                     break;
                 case 'p':
@@ -98,7 +98,7 @@ public class GameMap {
     }
 
     public void loadMapFile() {
-        FileHandle file = Gdx.files.internal("maps/map.txt");
+        FileHandle file = Gdx.files.internal("maps/demo_map.txt");
         mapFile = file.readString().split("\n");
 
         Scanner reader = new Scanner(mapFile[0]);

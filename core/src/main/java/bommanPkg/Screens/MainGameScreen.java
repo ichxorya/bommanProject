@@ -24,7 +24,8 @@ public class MainGameScreen extends MyScreen {
         map = new GameMap();
         generateMap(map);
 
-        camera = new OrthographicCamera(1024, 1024);
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.translate(camera.viewportWidth/2,camera.viewportHeight/2);
         viewport = new FitViewport(1024, 1024, camera);
         mainStage.setViewport(viewport);
     }
@@ -46,7 +47,7 @@ public class MainGameScreen extends MyScreen {
     }
 
     private void cameraUpdate() {
-        camera.position.set(player.getX(), player.getY(), 0);
+        //camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
     }
 

@@ -16,7 +16,7 @@ public abstract class Entity extends Actor {
     /**
      * Constants.
      */
-    public static final int gridSize = 64;
+    public static final int gridSize = 32;
     protected static final float frameDuration = 0.1f;
 
     /**
@@ -107,7 +107,7 @@ public abstract class Entity extends Actor {
         if (animation != null && isVisible())
             batch.draw(animation.getKeyFrame(elapsedTime),
                     getX(), getY(), getOriginX(), getOriginY(),
-                    getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
+                    getWidth() / 2, getHeight() / 2, getScaleX(), getScaleY(), getRotation());
     }
 
     /**

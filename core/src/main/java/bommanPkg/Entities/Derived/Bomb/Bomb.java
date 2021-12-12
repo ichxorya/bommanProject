@@ -24,7 +24,7 @@ public class Bomb extends Entity {
         setAnimation(bombAnimation);
     }
 
-    /** DEBUG: VANISH AFTER 1.69 SECONDS */
+    /** BOOM BOOM AFTER 1.69 SECONDS OR IF THE BOMB-TILE IS OCCUPIED BY A FLAME TILE */
     public void act(float dt, GameMap gameMap) {
         super.act(dt, gameMap);
         if (

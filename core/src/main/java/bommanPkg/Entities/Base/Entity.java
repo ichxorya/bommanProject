@@ -17,7 +17,7 @@ public abstract class Entity extends Actor {
      * Constants.
      */
     public static final int gridSize = 64;
-    protected static final float frameDuration = 0.2f;
+    protected static final float frameDuration = 0.1f;
 
     /**
      * Variables.

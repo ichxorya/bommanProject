@@ -18,6 +18,10 @@ public class BommanProject extends MyGame {
         return (dateFormatter.format(date));
     }
 
+    public static void exit() {
+        System.exit(0);
+    }
+
     public void create() {
         setActiveScreen(new MainMenuScreen());
     }

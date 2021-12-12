@@ -24,4 +24,10 @@ public class _ {
             player.i_am_god_ok();
         }
     }
+
+    public static void shutAllSounds() {
+        if (HolyHolyMusic != null) {
+            HolyHolyMusic.dispose();
+        }
+    }
 }

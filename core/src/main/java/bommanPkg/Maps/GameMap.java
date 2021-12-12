@@ -4,6 +4,7 @@ import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Entities.Derived.Bomb.Bomb;
 import bommanPkg.Entities.Derived.Bomb.Flame;
 import bommanPkg.Entities.Derived.LivingEntities.Base.LivingEntity;
+import bommanPkg.Entities.Derived.LivingEntities.Players.Player;
 import bommanPkg.Entities.Derived.MapEntities.Base.MapEntity;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Brick;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.Item;
@@ -274,5 +275,14 @@ public class GameMap {
 
     public int getNumberOfEnemies() {
         return numberOfEnemies;
+    }
+
+    public boolean checkThePortal(Player player) {
+        for (Portal entity : portalList) {
+            if (entity.getGridPosX() == player.getGridPosX() && entity.getGridPosY() == player.getGridPosY()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

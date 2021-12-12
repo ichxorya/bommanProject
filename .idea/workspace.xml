@@ -4,21 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="Âm thanh v3. bây giờ là 3h14 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền.">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Entities/Base/GUIEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainMenuScreen.java" afterDir="false" />
+    <list default="true" id="cb43e439-600e-4796-b5ea-ea43dae45f23" name="Changes" comment="Âm thanh v3. bây giờ là 3h58 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền.&#10;&#10;Màn hình chính, ấn S để chơi">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/LessorScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/WinnerScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/music/intro.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/startbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/startbutton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/title.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/title.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/BommanProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/BommanProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/Secret.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Game/_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Maps/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainGameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainMenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/bommanPkg/Screens/MainMenuScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/music/intro.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/startbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/startbutton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/title.png" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/title.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,14 +160,7 @@
       <workItem from="1639208127755" duration="6652000" />
       <workItem from="1639227764349" duration="12413000" />
       <workItem from="1639244190207" duration="7703000" />
-      <workItem from="1639279372047" duration="41516000" />
-    </task>
-    <task id="LOCAL-00014" summary="ko ngu dc duma">
-      <created>1638795062191</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1638795062191</updated>
+      <workItem from="1639279372047" duration="44896000" />
     </task>
     <task id="LOCAL-00015" summary="co len co len">
       <created>1638802053502</created>
@@ -498,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639340117269</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Âm thanh v3. bây giờ là 3h58 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền.&#10;&#10;Màn hình chính, ấn S để chơi">
+      <created>1639342729515</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1639342729515</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +538,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="10000" />
-    <MESSAGE value="Don rac v1.2&#10;Doi ten file, ko yeet nua" />
     <MESSAGE value="Don rac v1.4&#10;GridPos and ScreenPos implemented" />
     <MESSAGE value="CIRNO BIET DI ROI!!!" />
     <MESSAGE value="move updates" />
@@ -556,7 +562,8 @@
     <MESSAGE value="Âm thanh v1. bây giờ là 2h17 sáng ngày 13 tháng 13" />
     <MESSAGE value="Âm thanh v2. bây giờ là 2h31 sáng ngày 13 tháng 13" />
     <MESSAGE value="Âm thanh v3. bây giờ là 3h14 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền." />
-    <option name="LAST_COMMIT_MESSAGE" value="Âm thanh v3. bây giờ là 3h14 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền." />
+    <MESSAGE value="Âm thanh v3. bây giờ là 3h58 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền.&#10;&#10;Màn hình chính, ấn S để chơi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Âm thanh v3. bây giờ là 3h58 sáng ngày 13 tháng 13&#10;&#10;Tính năng cần cài buổi sáng: Cổng -&gt; Màn hình thắng/thua, nhạc nền.&#10;&#10;Màn hình chính, ấn S để chơi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

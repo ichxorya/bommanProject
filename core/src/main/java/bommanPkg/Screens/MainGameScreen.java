@@ -7,12 +7,14 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Items.*;
 import bommanPkg.Entities.Derived.MapEntities.Derived.UnderBrick.Portal;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
+import bommanPkg.Game.BommanProject;
 import bommanPkg.Game._;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -24,9 +26,9 @@ public class MainGameScreen extends MyScreen {
     private GridPos playerInitGridPos;
     private int[] playerInitPos;
     private OrthographicCamera camera;
-    private boolean victory;
     private Sound victoryNotification;
     private boolean victoryChecked;
+    private boolean defeated;
 
     @Override
     public void initialize() {
@@ -51,6 +53,7 @@ public class MainGameScreen extends MyScreen {
     public void update(float dt) {
         cameraUpdate();
 
+        checkDefeated();
         checkVictory(gameMap);
 
         player.act(dt, gameMap);
@@ -60,14 +63,32 @@ public class MainGameScreen extends MyScreen {
         gameMap.actFlameEntities(dt);
         gameMap.actPortalEntities(dt);
         gameMap.actItemEntities(dt);
-        gameMap.printGridMap();
+
+        if (victoryChecked && gameMap.checkThePortal(player)) {
+            shutAllSounds();
+            BommanProject.setActiveScreen(new WinnerScreen());
+        }
 
         theMostImportantMethodIGuess(player);
     }
 
+    private void checkDefeated() {
+        if (player.isDead()) {
+            defeated = true;
+
+            // 2 seconds timer
+            Timer.schedule(new Timer.Task() {
+                @Override
+                public void run() {
+                    shutAllSounds();
+                    BommanProject.setActiveScreen(new LessorScreen());
+                }
+            }, 2);
+        }
+    }
+
     private void checkVictory(GameMap gameMap) {
         if (!victoryChecked && !player.isDead() && gameMap.killedAllEnemies()) {
-            victory = true;
             victoryNotification.play();
             victoryNotification.loop();
             victoryChecked = true;
@@ -149,5 +170,12 @@ public class MainGameScreen extends MyScreen {
             }
             entityPosY += gridSize;
         }
+    }
+
+    public void shutAllSounds() {
+        player.shutAllSounds();
+        _.shutAllSounds();
+
+        victoryNotification.dispose();
     }
 }

@@ -272,4 +272,9 @@ public class Player extends LivingEntity {
     private boolean validBombTile(GameMap gameMap) {
         return !(gameMap.getGridMap()[getGridPosX()][getGridPosY()] == -1);
     }
+
+    public void shutAllSounds() {
+        HolyMusic.setVolume(0f);
+        HolyMusic.stop();
+    }
 }

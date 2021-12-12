@@ -98,7 +98,7 @@ public class GameMap {
     }
 
     public void loadMapFile() {
-        FileHandle file = Gdx.files.internal("maps/demo_map.txt");
+        FileHandle file = Gdx.files.internal("maps/map.txt");
         mapFile = file.readString().split("\n");
 
         Scanner reader = new Scanner(mapFile[0]);

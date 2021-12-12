@@ -7,17 +7,58 @@ import bommanPkg.Entities.Derived.MapEntities.Derived.Grass;
 import bommanPkg.Entities.Derived.MapEntities.Derived.Wall;
 import bommanPkg.Maps.GameMap;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import static bommanPkg.Entities.Base.Entity.gridSize;
 
 public class MainGameScreen extends MyScreen {
     private GameMap map;
     private Player player;
+    private OrthographicCamera camera;
+    private Viewport viewport;
 
     @Override
     public void initialize() {
         map = new GameMap();
         generateMap(map);
+
+        camera = new OrthographicCamera(1024, 1024);
+        viewport = new FitViewport(1024, 1024, camera);
+        mainStage.setViewport(viewport);
+    }
+
+    // TODO: BRUH
+
+    @Override
+    public void update(float dt) {
+        cameraUpdate();
+
+        player.act(dt, map);
+        map.actLivingEntities(dt);
+        map.actBombEntities(dt);
+        map.actMapEntities(dt);
+        map.actFlameEntities(dt);
+        map.printGridMap();
+
+        theMostImportantMethodIGuess();
+    }
+
+    private void cameraUpdate() {
+        camera.position.set(player.getX(), player.getY(), 0);
+        camera.update();
+    }
+
+    private void theMostImportantMethodIGuess() {
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.Q)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.U)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.A)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.M)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.O)
+        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.N)) {
+            Gdx.net.openURI("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        }
     }
 
     private void generateMap(GameMap map) {
@@ -65,30 +106,6 @@ public class MainGameScreen extends MyScreen {
                 entityPosX += gridSize;
             }
             entityPosY += gridSize;
-        }
-    }
-
-    @Override
-    public void update(float dt) {
-        player.act(dt, map);
-        map.actLivingEntities(dt);
-        map.actBombEntities(dt);
-        map.actMapEntities(dt);
-        map.actFlameEntities(dt);
-        map.printGridMap();
-
-        theMostImportantMethodIGuess();
-    }
-
-    // TODO: Rick Roll or something
-    private void theMostImportantMethodIGuess() {
-        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.Q)
-        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.U)
-        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.A)
-        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.M)
-        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.O)
-        && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.N)) {
-            Gdx.net.openURI("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
     }
 }

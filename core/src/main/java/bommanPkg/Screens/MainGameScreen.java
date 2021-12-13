@@ -12,6 +12,7 @@ import bommanPkg.Game._;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.Timer;
@@ -28,7 +29,7 @@ public class MainGameScreen extends MyScreen {
     private OrthographicCamera camera;
     private Sound victoryNotification;
     private boolean victoryChecked;
-    private boolean defeated;
+    private SingletonMusicClass themeMusic;
 
     @Override
     public void initialize() {
@@ -41,13 +42,20 @@ public class MainGameScreen extends MyScreen {
         mainStage.setViewport(viewport);
 
         setupSound();
+        themeMusic.setLooping(true);
+        themeMusic.play();
     }
 
     private void setupSound() {
         victoryNotification = Gdx.audio.newSound(Gdx.files.internal("sfxs/toasang.mp3"));
+        int random = (int) (Math.random() * 3) + 1;
+        themeMusic = SingletonMusicClass.getInstance("music/themes/theme" + random + ".mp3");
+        // Random 1 to 3
+        System.out.println("LOADED MUSIC");
     }
 
     // TODO: BRUH
+
 
     @Override
     public void update(float dt) {
@@ -64,6 +72,12 @@ public class MainGameScreen extends MyScreen {
         gameMap.actPortalEntities(dt);
         gameMap.actItemEntities(dt);
 
+        if (player.isGod() || player.isInvincible()) {
+            themeMusic.pause();
+        } else {
+            themeMusic.play();
+        }
+
         if (victoryChecked && gameMap.checkThePortal(player)) {
             shutAllSounds();
             BommanProject.setActiveScreen(new WinnerScreen());
@@ -74,8 +88,6 @@ public class MainGameScreen extends MyScreen {
 
     private void checkDefeated() {
         if (player.isDead()) {
-            defeated = true;
-
             // 2 seconds timer
             Timer.schedule(new Timer.Task() {
                 @Override
@@ -175,6 +187,7 @@ public class MainGameScreen extends MyScreen {
     public void shutAllSounds() {
         player.shutAllSounds();
         _.shutAllSounds();
+        SingletonMusicClass.shutAllSounds();
 
         victoryNotification.dispose();
     }

@@ -277,4 +277,12 @@ public class Player extends LivingEntity {
         HolyMusic.setVolume(0f);
         HolyMusic.stop();
     }
+
+    public boolean isGod() {
+        return isGod;
+    }
+
+    public boolean isInvincible() {
+        return isInvincible;
+    }
 }

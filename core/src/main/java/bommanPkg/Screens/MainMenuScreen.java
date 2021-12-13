@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.Timer;
 
 public class MainMenuScreen extends MyScreen {
     private Sound selectSound;
-    private Music mainMenuMusic;
+    private SingletonMusicClass mainMenuMusic;
     private boolean pressed;
 
     @Override
@@ -28,7 +28,7 @@ public class MainMenuScreen extends MyScreen {
         start.loadTexture("startbutton.png");
 
         selectSound = Gdx.audio.newSound(Gdx.files.internal("sfxs/default_sfx.wav"));
-        mainMenuMusic = Gdx.audio.newMusic(Gdx.files.internal("music/mainmenu.mp3"));
+        mainMenuMusic = SingletonMusicClass.getInstance("music/mainmenu.mp3");
         mainMenuMusic.setLooping(true);
         mainMenuMusic.play();
     }
@@ -40,7 +40,7 @@ public class MainMenuScreen extends MyScreen {
             if (!pressed) {
                 selectSound.play();
                 pressed = true;
-                mainMenuMusic.dispose();
+                SingletonMusicClass.shutAllSounds();
             }
 
             // 2 seconds timer

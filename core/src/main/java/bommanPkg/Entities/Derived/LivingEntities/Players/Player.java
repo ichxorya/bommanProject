@@ -26,6 +26,7 @@ public class Player extends LivingEntity {
 
     /** Sound Variables **/
     private Music HolyMusic;
+    private Sound deadSound;
 
     // The smaller the 'idkSpeed', the faster the player moves.
     float idkSpeed = 0.6f;
@@ -41,6 +42,7 @@ public class Player extends LivingEntity {
     private Animation<TextureRegion> dead;
     private int flameLength = 1;
     private boolean isGod;
+    private boolean deadSoundPlayed;
 
     /**
      * Constructor (grid-map).
@@ -57,6 +59,7 @@ public class Player extends LivingEntity {
 
     private void setupSound() {
         HolyMusic = Gdx.audio.newMusic(Gdx.files.internal("sfxs/superidol.mp3"));
+        deadSound = Gdx.audio.newSound(Gdx.files.internal("sfxs/uigioioi.mp3"));
     }
 
     /**
@@ -284,5 +287,12 @@ public class Player extends LivingEntity {
 
     public boolean isInvincible() {
         return isInvincible;
+    }
+
+    public void playDeadSound() {
+        if (!deadSoundPlayed) {
+            deadSoundPlayed = true; 
+            deadSound.play();
+        }
     }
 }

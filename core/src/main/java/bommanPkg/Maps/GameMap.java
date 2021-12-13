@@ -116,9 +116,9 @@ public class GameMap {
                 case 'f':
                     gridMap[x][y] = 10;
                     break;
-                case 'l':
-                    gridMap[x][y] = 11;
-                    break;
+//                case 'l':
+//                    gridMap[x][y] = 11;
+//                    break;
                 case 'S':
                     gridMap[x][y] = 12;
                     break;

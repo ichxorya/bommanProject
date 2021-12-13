@@ -12,7 +12,6 @@ import bommanPkg.Game._;
 import bommanPkg.Maps.GameMap;
 import bommanPkg.Maps.GridPos;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.Timer;
@@ -88,6 +87,8 @@ public class MainGameScreen extends MyScreen {
 
     private void checkDefeated() {
         if (player.isDead()) {
+            player.playDeadSound();
+
             // 2 seconds timer
             Timer.schedule(new Timer.Task() {
                 @Override

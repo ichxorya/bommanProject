@@ -33,12 +33,14 @@ public class MainGameScreen extends MyScreen {
 
     @Override
     public void initialize() {
-        gameMap = new GameMap("maps/demo_map.txt");
+        gameMap = new GameMap("maps/map1.txt");
         generateMap(gameMap);
         player = new Player(playerInitPos[0], playerInitPos[1], mainStage, playerInitGridPos.getX(), playerInitGridPos.getY());
 
-        camera = new OrthographicCamera(1024, 1024);
-        Viewport viewport = new FitViewport(1024, 1024, camera);
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        camera.translate(camera.viewportWidth/2,camera.viewportHeight/2);
+        Viewport viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(), camera);
+
         mainStage.setViewport(viewport);
 
         setupSound();
@@ -108,7 +110,6 @@ public class MainGameScreen extends MyScreen {
     }
 
     private void cameraUpdate() {
-        camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
     }
 

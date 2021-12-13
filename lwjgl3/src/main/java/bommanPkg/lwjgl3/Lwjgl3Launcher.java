@@ -1,5 +1,7 @@
 package bommanPkg.lwjgl3;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import bommanPkg.Game.BommanProject;
@@ -21,7 +23,7 @@ public class Lwjgl3Launcher {
 
 		configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate);
 
-		configuration.setWindowedMode(1984, 832);
+		configuration.setWindowedMode(1344, 1280);
 		configuration.setWindowIcon(getGameIcons());
 		return configuration;
 	}

@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Flame extends Entity {
     private static int length;
     private boolean isDone;
-
+    private int previousValue = 0;
     /**
      * Constructor.
      */
@@ -29,7 +29,18 @@ public class Flame extends Entity {
         }
         setAnimation(flameAnimation);
 
+        getItemFromLocation(gameMap, gridPosX, gridPosY);
+
         gameMap.getGridMap()[gridPosX][gridPosY] = -2;
+    }
+
+    private void getItemFromLocation(GameMap gameMap, int gridPosX, int gridPosY) {
+        int value = gameMap.getGridMap()[gridPosX][gridPosY];
+        if (value == 8 || value == 9 || value == 10 || value == 11 || value == 12) {
+            previousValue = value * 10;
+        } else if (value == 80 || value == 90 || value == 100 || value == 110 || value == 120) {
+            previousValue = value;
+        }
     }
 
     /**
@@ -46,13 +57,8 @@ public class Flame extends Entity {
 
         if (isDone) {
             setVisible(false);
-            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = 0;
+            gameMap.getGridMap()[getGridPosX()][getGridPosY()] = previousValue;
         }
-    }
-
-    /** Increase the length of the flame. */
-    public static void upgradeFlame() {
-        length++;
     }
 
     /**

@@ -31,7 +31,7 @@ public class BakaBot extends Baka_AI {
         oldScreenPos = new ScreenPos(x, y);
         System.out.println("BakaBot" + getGridPosX() + " " + getGridPosY());
         setupAnimations();
-        wakeup(1);
+        wakeup();
     }
 
 
@@ -42,8 +42,7 @@ public class BakaBot extends Baka_AI {
     }
 
     @Override
-    protected void wakeup(int lives) {
-        this.lives = lives;
+    protected void wakeup() {
         this.isMoving = false;
 
         currentDirection = Direction.getRandom();
@@ -52,7 +51,6 @@ public class BakaBot extends Baka_AI {
     @Override
     public void act(float delta, GameMap gameMap) {
         super.act(delta, gameMap);
-        System.out.println("BakaBot: " + getGridPosX() + " " + getGridPosY());
 
         if (!isDead) {
             if (touchedByDeath(gameMap)) {
@@ -67,12 +65,14 @@ public class BakaBot extends Baka_AI {
                     isMoving = true;
                     moveToDirection(currentDirection, gameMap);
                     gameMap.getGridMap()[getGridPosX()][getGridPosY()] = entityID;
+                    gameMap.pickedUpItem(getGridPosX(), getGridPosY());
                 }
             }
         } else {
             setAnimation(dead);
         }
     }
+
 
     @Override
     protected void setDirection(Direction dir) {

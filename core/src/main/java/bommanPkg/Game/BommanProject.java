@@ -1,6 +1,7 @@
 package bommanPkg.Game;
 
 import bommanPkg.Screens.MainGameScreen;
+import bommanPkg.Screens.MainMenuScreen;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,8 +18,12 @@ public class BommanProject extends MyGame {
         return (dateFormatter.format(date));
     }
 
+    public static void exit() {
+        System.exit(0);
+    }
+
     public void create() {
-        setActiveScreen(new MainGameScreen());
+        setActiveScreen(new MainMenuScreen());
     }
 
 }

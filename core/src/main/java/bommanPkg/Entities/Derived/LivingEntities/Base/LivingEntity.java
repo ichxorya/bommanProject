@@ -11,9 +11,8 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class LivingEntity extends Entity {
-    /** Variables. */
-    protected int lives;
     protected boolean isDead;
+    protected boolean isInvincible;
     protected boolean isMoving;
     protected Direction currentDirection;
 
@@ -69,37 +68,16 @@ public abstract class LivingEntity extends Entity {
     /** Deadly move. */
     protected abstract boolean touchedByDeath(GameMap gameMap);
 
-    /** Setter: lives. */
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
-
-    /** Getter: lives. */
-    public int getLives() {
-        return lives;
-    }
-
     /** Is the entity dead? */
     public boolean isDead() {
-        if (lives <= 0) {
-            isDead = true;
-        }
-
-        return isDead;
+       return isDead;
     }
 
     /**
-     * Method: Die. TODO ???
+     * Method: Die.
      */
     public void die() {
         isDead = true;
-    }
-
-    /**
-     * Setup Value.
-     */
-    public void setupValues(int lives) {
-        this.lives = lives;
     }
 
     public void resetDirection() {
@@ -144,7 +122,16 @@ public abstract class LivingEntity extends Entity {
                 break;
         }
 
-        if (temp != 1 && temp != 2) {
+        if (
+                temp    != 1  // Wall
+                && temp != 2  // Brick
+                && temp != 3  // Portal under brick
+                && temp != 8  // Speed item under brick
+                && temp != 9  // Bomb item under brick
+                && temp != 10 // Fire item under brick
+                && temp != 11 // Life item under brick
+                && temp != 12 // SuperIdol under brick
+        ) {
             valid = true;
         }
         return valid;

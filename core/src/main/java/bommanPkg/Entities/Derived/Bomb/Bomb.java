@@ -2,6 +2,8 @@ package bommanPkg.Entities.Derived.Bomb;
 
 import bommanPkg.Entities.Base.Entity;
 import bommanPkg.Maps.GameMap;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -11,17 +13,41 @@ public class Bomb extends Entity {
     private boolean bombExploded;
     private int[] flameDir;
     private boolean[] stopCheckDir;
+    private static boolean isBombPlanted;
+    private static Sound bombSound1;
+    private static Sound bombSound2;
+    private Sound bombSoundInUse;
 
     /**
      * Constructor.
      */
-    public Bomb(float x, float y, Stage s, int gridPosX, int gridPosY) {
+    public Bomb(float x, float y, Stage s, int gridPosX, int gridPosY, int flameLength) {
         super(x, y, s, gridPosX, gridPosY);
-        Flame.setLength(3);
+        Flame.setLength(flameLength);
 
         Animation<TextureRegion> bombAnimation = loadAnimationFromSheet("sprites/bomb/cirno_bomb.png", 1, 4, frameDuration, true);
+
+        setupSound();
         bombExploded = false;
         setAnimation(bombAnimation);
+        if (!isBombPlanted) {
+            bombSoundInUse = bombSound1;
+            isBombPlanted = true;
+        } else {
+            bombSoundInUse = bombSound2;
+            isBombPlanted = false;
+        }
+        bombSoundInUse.play();
+    }
+
+    private void setupSound() {
+        if (bombSound1 == null) {
+            bombSound1 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb1.mp3"));
+        }
+
+        if (bombSound2 == null) {
+            bombSound2 = Gdx.audio.newSound(Gdx.files.internal("sfxs/bomb2.mp3"));
+        }
     }
 
     /** BOOM BOOM AFTER 1.69 SECONDS OR IF THE BOMB-TILE IS OCCUPIED BY A FLAME TILE */
@@ -36,7 +62,7 @@ public class Bomb extends Entity {
 
         if (bombExploded) {
             setVisible(false);
-
+            bombSoundInUse.stop();
             generateExplosion(Flame.getLength(), gameMap);
         }
     }
@@ -47,12 +73,6 @@ public class Bomb extends Entity {
         gameMap.add(new Flame(getX(), getY(), getStage(), gameMap, getGridPosX(), getGridPosY(), true));
 
         int[] flameLengthByDirection = getFlameLengthByDirection(flameLength, gameMap);
-        System.out.println(
-                " UP:    "  + flameLengthByDirection[0]   +
-                " LEFT:  "  + flameLengthByDirection[1]   +
-                " DOWN:  "  + flameLengthByDirection[2]   +
-                " RIGHT: "  + flameLengthByDirection[3]
-        );
 
         // Left
         for (int i = 1; i <= flameLengthByDirection[1]; i++) {
@@ -231,7 +251,7 @@ public class Bomb extends Entity {
 
         if (temp != 1) {
             valid = true;
-            if (temp == 2) {
+            if (temp == 2 || temp == 3 || temp == 8 || temp == 9 || temp == 10 || temp == 11 || temp == 12) {
                 stopCheckDir[dir] = true;
                 return false;
             }

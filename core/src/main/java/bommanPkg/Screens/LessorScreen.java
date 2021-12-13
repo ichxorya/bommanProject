@@ -17,10 +17,7 @@ public class LessorScreen extends MyScreen {
         GUIEntity background = new GUIEntity(0, 0, mainStage, 1200, 960);
         background.loadTexture("lessor.png");
 
-        if (!musicPlayed) {
-            victorynt.play();
-            musicPlayed = true;
-        }
+        victorynt.play();
     }
 
     @Override

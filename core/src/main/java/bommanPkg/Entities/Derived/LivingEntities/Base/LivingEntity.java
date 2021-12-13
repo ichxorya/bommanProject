@@ -74,7 +74,7 @@ public abstract class LivingEntity extends Entity {
     }
 
     /**
-     * Method: Die. TODO ???
+     * Method: Die.
      */
     public void die() {
         isDead = true;

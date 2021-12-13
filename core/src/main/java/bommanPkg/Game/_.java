@@ -23,6 +23,12 @@ public class _ {
             HolyHolyMusic.play();
             player.i_am_god_ok();
         }
+
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.R)
+                && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.I)
+                && Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.P)) {
+            player.die();
+        }
     }
 
     public static void shutAllSounds() {

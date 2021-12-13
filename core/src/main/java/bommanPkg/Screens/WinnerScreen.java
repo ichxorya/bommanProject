@@ -5,6 +5,7 @@ import bommanPkg.Game.BommanProject;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.utils.Timer;
 
 public class WinnerScreen extends MyScreen {
     private Music victory;
@@ -16,10 +17,9 @@ public class WinnerScreen extends MyScreen {
         GUIEntity background = new GUIEntity(0, 0, mainStage, 1200, 960);
         background.loadTexture("winner.png");
 
-        if (!musicPlayed) {
+
             victory.play();
-            musicPlayed = true;
-        }
+
     }
 
     @Override

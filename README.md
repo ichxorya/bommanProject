@@ -7,7 +7,7 @@ This project was generated with a template including simple application launcher
 ## Ghi chú tiếng Việt:
 - Chi lô tô hô ⑨⑨⑨⑨ và đủ thứ không liên quan được quy tụ trong trò chơi (???) này.
 - Dự án sử dụng các tài nguyên từ nhiều nguồn khác nhau vì mục đích giáo dục phi lợi nhuận (bài tập lớn).
-- Đánh giá: Hoàn thành một số tính năng cơ bản (bomman chạy được, không đi xuyên tường, AI chạy linh tinh, xử lí va chạm-nổ bom-item) và vài tính năng nâng cao (godmode, cheat, cheatmode, god...???)
+- Đánh giá: Hoàn thành một số tính năng cơ bản (bomman chạy được, tải map qua file txt, không đi xuyên tường, AI chạy linh tinh, xử lí va chạm-nổ bom-item) và vài tính năng nâng cao (godmode, cheat, cheatmode, god...???)
 
 ## Better-Javadoc-comment
     /**
